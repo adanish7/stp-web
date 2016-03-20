@@ -56,7 +56,7 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#about">About</a>
+                    <a href="/AboutUsController">About</a>
                 </li>
                 <li>
                     <a href="#services">Services</a>
@@ -65,10 +65,10 @@
                     <a href="#contact">Contact</a>
                 </li>
                 <li>
-                    <a href="#about">Login</a>
+                    <a href="/LoginController">Login</a>
                 </li>
                 <li>
-                    <a href="#about">Signup</a>
+                    <a href="/SignupController">Signup</a>
                 </li>
             </ul>
         </div>

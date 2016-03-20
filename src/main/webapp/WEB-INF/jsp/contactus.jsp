@@ -56,19 +56,19 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#">About</a>
+                    <a href="/stp/aboutus">About</a>
                 </li>
                 <li>
-                    <a href="#">Services</a>
+                    <a href="/stp/services">Services</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="#contactus">Contact</a>
                 </li>
                 <li>
-                    <a href="#login">Login</a>
+                    <a href="/stp/login">Login</a>
                 </li>
                 <li>
-                    <a href="#">Signup</a>
+                    <a href="/stp/signup">Signup</a>
                 </li>
             </ul>
         </div>
@@ -79,7 +79,7 @@
 
 
 <!-- Header -->
-<a name="login"></a>
+<a name="contactus"></a>
 <div class="intro-header">
     <div class="container">
 
@@ -87,40 +87,7 @@
             <div class="col-lg-12">
                 <div class="intro-message">
                     <h1>Contact Us</h1>
-
                     <hr class="intro-divider" style="text-align: center">
-                    <form class="form-horizontal">
-                        <div class="form-group">
-                            <label for="inputEmail3" class="col-sm-3 control-label">Email</label>
-                            <div class="col-sm-6">
-                                <input type="email" class="form-control" id="inputEmail3" placeholder="Email">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <label for="inputPassword3" class="col-sm-3 control-label">Password</label>
-                            <div class="col-sm-6">
-                                <input type="password" class="form-control" id="inputPassword3" placeholder="Password">
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-4">
-                                <div class="checkbox">
-                                    <label>
-                                        <input type="checkbox"> Remember me
-                                    </label>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="form-group">
-                            <div class="col-sm-offset-2 col-sm-4">
-                                <button type="submit" class="btn btn-default"><b>Sign in</b></button>
-                                <button type="submit" class="btn btn-default" style="margin-left: 10px"><b>Cancel</b></button>
-                            </div>
-                            <div class="col-sm-offset-0 col-sm-1">
-
-                            </div>
-                        </div>
-                    </form>
                 </div>
             </div>
         </div>
@@ -130,6 +97,58 @@
 
 </div>
 <!-- /.intro-header -->
+
+<div class="content-section-a">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-5 col-sm-6">
+                <hr class="section-heading-spacer">
+                <div class="clearfix"></div>
+                <h2 class="section-heading">Google Web Fonts and<br>Font Awesome Icons</h2>
+                <p class="lead">This template features the 'Lato' font, part of the <a target="_blank" href="http://www.google.com/fonts">Google Web Font library</a>, as well as <a target="_blank" href="http://fontawesome.io">icons from Font Awesome</a>.</p>
+            </div>
+            <div class="col-lg-5 col-lg-offset-2 col-sm-6">
+                <img class="img-responsive" src="images/landingpageimages/phones.png" alt="">
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.content-section-a -->
+
+<a  name="contact"></a>
+<div class="banner">
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-lg-6">
+                <h2>Connect with us</h2>
+            </div>
+            <div class="col-lg-6">
+                <ul class="list-inline banner-social-buttons">
+                    <li>
+                        <a href="#" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
+                    </li>
+                    <li>
+                        <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+
+</div>
+<!-- /.banner -->
 
 
 <!-- Footer -->

@@ -16,7 +16,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>STP - Signup</title>
+    <title>Signup</title>
 
     <!-- Bootstrap Core CSS -->
     <link href="css/landingpagecss/bootstrap.min.css" rel="stylesheet">
@@ -56,16 +56,16 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#">About</a>
+                    <a href="/stp/aboutus">About</a>
                 </li>
                 <li>
-                    <a href="#">Services</a>
+                    <a href="/stp/services">Services</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="/stp/contactus">Contact</a>
                 </li>
                 <li>
-                    <a href="#">Login</a>
+                    <a href="/stp/login">Login</a>
                 </li>
                 <li>
                     <a href="#signup">Signup</a>
@@ -134,6 +134,8 @@
                 </div>
             </div>
         </div>
+
+    </div>
 
     </div>
     <!-- /.container -->

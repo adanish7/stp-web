@@ -56,19 +56,19 @@
         <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
             <ul class="nav navbar-nav navbar-right">
                 <li>
-                    <a href="#">About</a>
+                    <a href="#aboutus">About</a>
                 </li>
                 <li>
-                    <a href="#">Services</a>
+                    <a href="/stp/services">Services</a>
                 </li>
                 <li>
-                    <a href="#">Contact</a>
+                    <a href="/stp/contactus">Contact</a>
                 </li>
                 <li>
-                    <a href="#login">Login</a>
+                    <a href="/stp/login">Login</a>
                 </li>
                 <li>
-                    <a href="#">Signup</a>
+                    <a href="/stp/login">Signup</a>
                 </li>
             </ul>
         </div>
@@ -79,7 +79,7 @@
 
 
 <!-- Header -->
-<a name="about"></a>
+<a name="aboutus"></a>
 <div class="intro-header">
     <div class="container">
 
@@ -158,7 +158,7 @@
             <div class="col-lg-12">
                 <ul class="list-inline">
                     <li>
-                        <a href="#">Home</a>
+                        <a href=<jsp:include page="" />>Home</a>
                     </li>
                     <li class="footer-menu-divider">&sdot;</li>
                     <li>

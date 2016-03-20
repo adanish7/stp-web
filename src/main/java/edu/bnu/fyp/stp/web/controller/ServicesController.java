@@ -3,20 +3,18 @@ package edu.bnu.fyp.stp.web.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.annotation.WebServlet;
-
 /**
  * Created by Rehan on 3/20/16.
  */
 
 @Controller
-public class AboutUsController {
+public class ServicesController {
 
-    @RequestMapping("/aboutus")
+    @RequestMapping("/services")
     public String showAboutUs()
     {
 
-        return "aboutus";
+        return "services";
     }
 
 }
