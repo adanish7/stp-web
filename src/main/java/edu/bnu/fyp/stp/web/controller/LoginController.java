@@ -13,8 +13,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class LoginController {
 
-    @Autowired
-    private UserMongoRepository userMongoRepository;
+
 
     @RequestMapping("/login")
     public String showLogin()

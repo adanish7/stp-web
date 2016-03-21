@@ -10,7 +10,7 @@ import java.util.Date;
  */
 
 @Document (collection = "reviews")
-public class Reviews {
+public class Review {
 
     @Id
     private String reviewId;
@@ -20,7 +20,7 @@ public class Reviews {
 
     private String status;
 
-    public Reviews(String reviewId) {
+    public Review(String reviewId) {
         this.reviewId = reviewId;
     }
 

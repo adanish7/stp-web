@@ -11,7 +11,7 @@ import java.util.Date;
  * Created by Abdul Basit on 3/2/2016.
  */
 @Document(collection = "requirements")
-public class Requirements {
+public class Requirement {
 
     @Id
     private String id;

@@ -6,5 +6,5 @@ import edu.bnu.fyp.stp.domain.model.Course;
 /**
  * Created by Rehan on 3/8/16.
  */
-public interface CoursesMongoRepository extends MongoRepository <Course, String> {
+public interface CourseMongoRepository extends MongoRepository <Course, String> {
 }
