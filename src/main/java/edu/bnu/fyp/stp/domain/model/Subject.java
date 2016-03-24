@@ -1,8 +1,11 @@
 package edu.bnu.fyp.stp.domain.model;
 
 import edu.bnu.fyp.stp.constants.ActivationStatus;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
+
+import javax.validation.constraints.NotNull;
 
 /**
  * Created by Abdul Basit on 3/16/2016.
@@ -12,6 +15,10 @@ public class Subject {
 
     @Id
     private String subjectId;
+
+    @NotEmpty
+    private String subjectCode;
+
     private String subjectName;
     private ActivationStatus status;
 
@@ -21,6 +28,14 @@ public class Subject {
 
     public void setSubjectId(String subjectId) {
         this.subjectId = subjectId;
+    }
+
+    public String getSubjectCode() {
+        return subjectCode;
+    }
+
+    public void setSubjectCode(String subjectCode) {
+        this.subjectCode = subjectCode;
     }
 
     public String getSubjectName() {

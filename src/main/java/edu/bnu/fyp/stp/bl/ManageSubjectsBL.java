@@ -4,6 +4,7 @@ import edu.bnu.fyp.stp.domain.model.Subject;
 import edu.bnu.fyp.stp.domain.repository.SubjectMongoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -24,7 +25,16 @@ public class ManageSubjectsBL {
         return subjectMongoRepository.findOne(subjectId);
     }
 
-    public void saveSubject(Subject subject) {
+    public void saveSubject(Subject subject) throws Exception {
+        if (StringUtils.isEmpty(subject.getSubjectId()))
+            subject.setSubjectId(null);
+
         subjectMongoRepository.save(subject);
     }
+
+    public void deleteSubject(String subjectId) throws Exception {
+        subjectMongoRepository.delete(subjectId);
+    }
+
+
 }
