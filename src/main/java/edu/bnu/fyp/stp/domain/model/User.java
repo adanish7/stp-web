@@ -5,6 +5,7 @@ import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Rehan on 3/7/16.
@@ -21,6 +22,7 @@ public class User {
     private String email;
     private String phone;
     private Date birthDate;
+    private List<String> userRoles;
 
     public String getUserId() {
         return userId;
@@ -85,4 +87,11 @@ public class User {
     }
 
 
+    public List<String> getUserRoles() {
+        return userRoles;
+    }
+
+    public void setUserRoles(List<String> userRoles) {
+        this.userRoles = userRoles;
+    }
 }
