@@ -53,20 +53,22 @@
                     <!--./logo-->
                 </div>
             </div>
-            <!--<nav class="collapse navbar-collapse bs-navbar-collapse padding-0" role="navigation">-->
-            <div class="navbar-right">
-                <ul class="navbar-right login user_proile">
-                    <li>
-                        <a href="#"><img src="../../uploads/users/noimage.jpg" height="38" width="55"><p style="color:#FFF; float:right; font-size:15px;">Administrator</p></a>
-                        <ul class="dropdown-menu" role="menu">
-                            <li><a tabindex="-1" href="#"> <i class="fa fa-user"></i>My Profile</a></li>
-                            <li><a tabindex="-1" href="#"> <i class="fa fa-cog"></i>Change Password</a></li>
-                            <li><a tabindex="-1" href="#"> <i class="fa fa-power-off"></i>Log out</a></li>
-                        </ul>
-                    </li>
-                </ul>
-            </div>
-            <!--</nav>-->
+            <nav class="collapse navbar-collapse bs-navbar-collapse padding-0" role="navigation">
+                <div class="navbar-right">
+                    <ul class="navbar-right login user_proile">
+                        <li>
+                            <a href="#"><img src="../../uploads/users/noimage.jpg" height="38" width="55">\
+                                <p style="color:#FFF; float:right; font-size:15px;">Administrator</p>
+                            </a>
+                            <ul class="dropdown-menu" role="menu">
+                                <li><a tabindex="-1" href="#"> <i class="fa fa-user"></i>My Profile</a></li>
+                                <li><a tabindex="-1" href="#"> <i class="fa fa-cog"></i>Change Password</a></li>
+                                <li><a tabindex="-1" href="#"> <i class="fa fa-power-off"></i>Log out</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </div>
+            </nav>
         </div>
     </div>
 </section>
@@ -78,9 +80,7 @@
                     <!---dashboard-->
                     <li >
                         <a href="#">
-                            <!--<i class="fa fa-file-movie-o"></i>--><i class="fa fa-soundcloud"></i>
-                                             <span>
-                                             Dashboard</span>
+                            <i class="fa fa-soundcloud"></i><span>Dashboard</span>
                         </a>
                     </li>
                     <!--dashboard End-->
@@ -94,9 +94,6 @@
                         </ul>
                     </li>
                     <!--Users End-->
-
-                    <!---leads-->
-                    <!--leads End-->
 
                     <!---Messages Settings-->
                     <li class="has-sub">
@@ -122,72 +119,30 @@
 
                     <!---Locations-->
                     <li class="has-sub">
-                        <a href="#"><span> <i class="fa fa-location-arrow"></i>
-                            </i>  Cities </span></a>
+                        <a href="#"><span> <i class="fa fa-location-arrow"></i>Cities </span></a>
                         <ul class="bb">
                             <li><a href="#"><span>List Cities</span></a></li>
                             <li><a href="#"><span>Add Cities</span></a></li>
                             <li><a href="#"><span>Add Areas</span></a></li>
                         </ul>
                     </li>
-
-                    <!--<li class="has-sub open">
-<a style="text-shadow: rgba(0, 0, 0, 0.34902) 0px 1px 1px;"><span style="border-color: rgba(0, 0, 0, 0.34902);"> <i class="fa fa-location-arrow"></i>
-Locations </span><span class="holder" style="border-color: rgba(0, 0, 0, 0.34902);"></span></a>
-<ul class="bb" style="overflow: hidden; display: block;">
-<li><a href="http://mdev.digitalvidhya.com/dts/en/admin/locations"><span>List Locations</span></a></li>
-<li><a href="http://mdev.digitalvidhya.com/dts/en/admin/addLocation/add"><span>Add Location</span></a></li>
-<li><a href="http://mdev.digitalvidhya.com/dts/en/admin/add_edit_child_locations/add"><span>Add Sub Location</span></a></li>
-<li><a href="http://mdev.digitalvidhya.com/dts/en/admin/uploadexcel/locations"><span>Excel Upload</span></a></li>
-</ul>
-</li>-->
-                    <!--Locations End-->
-
-                    <!---Packages-->
-
-                    <!--Packages End-->
-
-                    <!---Testimonials-->
-
-                    <!--Testimonials End-->
-
-                    <!---Page Settings-->
-
-                    <!--Page Settings End-->
-
-                    <!---Master Settings-->
-
-                    <!--Master Settings End-->
+                    <!---Locations End-->
 
                     <!---Reports-->
                     <li>
-                        <a href="#">
-                                             <span>
-                                                <!-- <i class="fa  fa-video-camera"></i> --><i class="fa fa-th-list"></i>
-                                                Reports
-                                             </span>
-                        </a>
+                        <a href="#"><span><i class="fa fa-th-list"></i>Reports</span></a>
                     </li>
                     <!--Reports End-->
 
                     <!--Change Password-->
                     <li>
-                        <a href="#">
-                                             <span>
-                                                <!--<i class="fa fa-user"></i>-->
-                                                <i class="fa fa-cog"></i>
-                                                Change Password
-                                             </span>
-                        </a>
+                        <a href="#"><span><i class="fa fa-cog"></i>Change Password</span></a>
                     </li>
+                    <!--Change Password End-->
+
+                    <!--Logout-->
                     <li>
-                        <a href="#">
-                                             <span>
-                                                <!--<i class="fa fa-users"></i>-->
-                                                <i class="fa fa-power-off"></i>
-                                                Logout
-                                             </span>
-                        </a>
+                        <a href="#"><span><i class="fa fa-power-off"></i>Logout</span></a>
                     </li>
                 </ul>
             </div>
@@ -235,7 +190,6 @@ Locations </span><span class="holder" style="border-color: rgba(0, 0, 0, 0.34902
                             <div class="panel-heading ele-hea"> Pie Chart <i class="fa fa-pie-chart"></i> </div>
                             <div class="panel-body padding-0 ">
                                 <div class="ele-body">
-                                    <!--img src="http://mdev.digitalvidhya.com/dts/assets/system_design/images/chart.jpg" width="394" class="chart"-->
                                     <div id="piechart" style="width: 450px; height: 330px;"></div>
                                 </div>
                             </div>
@@ -247,54 +201,67 @@ Locations </span><span class="holder" style="border-color: rgba(0, 0, 0, 0.34902
                             <div class="panel-body padding-0 ">
                                 <div class="ele-body">
                                     <ul>
-                                        <a href="#" target="_blank" title="View Details" >
-                                            <li><img src="../../uploads/users/students/noimage.jpg" height="39" width="39"></li>
+                                        <a href="http://mdev.digitalvidhya.com/dts/en/welcome/studentProfile/29" target="_blank" title="View Details" >
+                                            <li><img src="http://mdev.digitalvidhya.com/dts/uploads/users/students/student_29.jpg" height="39" width="39"></li>
                                         </a>
 
-                                        <a href="#" target="_blank" title="View Details" >
-                                            <li>Need Chemistry Tutor at Location <strong>Sun Valley</strong></li> </a>
+                                        <a href="http://mdev.digitalvidhya.com/dts/en/admin/lead_details/13" target="_blank" title="View Details" >
+                                            <li>Need Chemistry Tutor at Location <strong>Sun Valley</strong></li>
+                                        </a>
                                         <li> <span>11 Months ago</span> </li>
                                     </ul>
                                     <ul>
-                                        <a href="#" target="_blank" title="View Details" >
-                                            <li><img src="../../uploads/users/students/noimage.jpg" height="39" width="39"></li>
+                                        <a href="http://mdev.digitalvidhya.com/dts/en/welcome/studentProfile/29" target="_blank" title="View Details" >
+                                            <li><img src="http://mdev.digitalvidhya.com/dts/uploads/users/students/student_29.jpg" height="39" width="39"></li>
                                         </a>
 
-                                        <a href="#" target="_blank" title="View Details" >
-                                            <li>Need Silk Tester at Location <strong>Delaware</strong></li> </a>
+                                        <a href="http://mdev.digitalvidhya.com/dts/en/admin/lead_details/13" target="_blank" title="View Details" >
+                                            <li>Need Chemistry Tutor at Location <strong>Sun Valley</strong></li>
+                                        </a>
                                         <li> <span>11 Months ago</span> </li>
                                     </ul>
                                     <ul>
-                                        <a href="#" target="_blank" title="View Details" >
-                                            <li><img src="../../uploads/users/students/noimage.jpg" height="39" width="39"></li>
+                                        <a href="http://mdev.digitalvidhya.com/dts/en/welcome/studentProfile/29" target="_blank" title="View Details" >
+                                            <li><img src="http://mdev.digitalvidhya.com/dts/uploads/users/students/student_29.jpg" height="39" width="39"></li>
                                         </a>
 
-                                        <a href="#" target="_blank" title="View Details" >
-                                            <li>Need .Net Tutor at Location <strong>Wheatley ste</strong></li> </a>
-                                        <li> <span>1 Year ago</span> </li>
+                                        <a href="http://mdev.digitalvidhya.com/dts/en/admin/lead_details/13" target="_blank" title="View Details" >
+                                            <li>Need Chemistry Tutor at Location <strong>Sun Valley</strong></li>
+                                        </a>
+                                        <li> <span>11 Months ago</span> </li>
                                     </ul>
                                     <ul>
-                                        <a href="#" target="_blank" title="View Details" >
-                                            <li><img src="../../uploads/users/students/noimage.jpg" height="39" width="39"></li>
+                                        <a href="http://mdev.digitalvidhya.com/dts/en/welcome/studentProfile/29" target="_blank" title="View Details" >
+                                            <li><img src="http://mdev.digitalvidhya.com/dts/uploads/users/students/student_29.jpg" height="39" width="39"></li>
                                         </a>
 
-                                        <a href="#" target="_blank" title="View Details" >
-                                            <li>Need Manual Testor at Location <strong>Violet Ave</strong></li> </a>
-                                        <li> <span>1 Year ago</span> </li>
+                                        <a href="http://mdev.digitalvidhya.com/dts/en/admin/lead_details/13" target="_blank" title="View Details" >
+                                            <li>Need Chemistry Tutor at Location <strong>Sun Valley</strong></li>
+                                        </a>
+                                        <li> <span>11 Months ago</span> </li>
                                     </ul>
                                     <ul>
-                                        <a href="#" target="_blank" title="View Details" >
-                                            <li><img src="../../uploads/users/students/noimage.jpg" height="39" width="39"></li>
+                                        <a href="http://mdev.digitalvidhya.com/dts/en/welcome/studentProfile/29" target="_blank" title="View Details" >
+                                            <li><img src="http://mdev.digitalvidhya.com/dts/uploads/users/students/student_29.jpg" height="39" width="39"></li>
                                         </a>
 
-                                        <a href="#" target="_blank" title="View Details" >
-                                            <li>Need Applied physics tutor at Location <strong>Delaware</strong></li> </a>
-                                        <li> <span>1 Year ago</span> </li>
+                                        <a href="http://mdev.digitalvidhya.com/dts/en/admin/lead_details/13" target="_blank" title="View Details" >
+                                            <li>Need Chemistry Tutor at Location <strong>Sun Valley</strong></li>
+                                        </a>
+                                        <li> <span>11 Months ago</span> </li>
                                     </ul>
+                                    <ul>
+                                        <a href="http://mdev.digitalvidhya.com/dts/en/welcome/studentProfile/29" target="_blank" title="View Details" >
+                                            <li><img src="http://mdev.digitalvidhya.com/dts/uploads/users/students/student_29.jpg" height="39" width="39"></li>
+                                        </a>
 
+                                        <a href="http://mdev.digitalvidhya.com/dts/en/admin/lead_details/13" target="_blank" title="View Details" >
+                                            <li>Need Chemistry Tutor at Location <strong>Sun Valley</strong></li>
+                                        </a>
+                                        <li> <span>11 Months ago</span> </li>
+                                    </ul>
                                 </div>
                             </div>
-
                         </div>
                     </div>
                 </div>
@@ -302,6 +269,22 @@ Locations </span><span class="holder" style="border-color: rgba(0, 0, 0, 0.34902
         </div>
     </div>
 </section>
+<!--./footer-->
+<section class="bottom_footer">
+    <div class="container">
+        <div class="col-lg-7 col-md-7 col-sm-12 padding-lr">
+            <div class="copyright-left">
+                <p>© STP 2016. All rights reserved.</p>
+            </div>
+        </div>
+        <div class="col-lg-5 col-md-5 col-sm-12 padding-lr">
+            <div class="footer_menu">
+                <p>Powered by:TeamSTP</p>
+            </div>
+        </div>
+    </div>
+</section>
+<!--/footer-->
 <script type= "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" ></script>
 <script src="http://code.jquery.com/ui/1.11.1/jquery-ui.js"></script>
 <script src="../../assets/system_design/js/bootstrap.js"></script>
