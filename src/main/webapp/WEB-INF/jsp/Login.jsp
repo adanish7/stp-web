@@ -1,11 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
   User: Abdul Basit
-  Date: 3/23/2016
-  Time: 5:46 PM
+  Date: 3/30/2016
+  Time: 3:21 PM
   To change this template use File | Settings | File Templates.
 --%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<!DOCTYPE html>
 <html lang="en">
 <!--[if IE 7]>
 <html lang="en" class="ie7">
@@ -29,7 +30,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <title> Index</title>
+    <title>Log in</title>
     <!--style start-->
     <link href="../../assets/system_design/css/bootstrap.css" rel="stylesheet">
     <link href="../../assets/system_design/css/style.css" rel="stylesheet">
@@ -53,6 +54,7 @@
         <div class="col-md-6 pull-left">
             <div class="top-add"><i class="fa fa-phone"></i>  0900-78601 </div>
         </div>
+
     </div>
 </div>
 <section class="top_wrapper">
@@ -67,7 +69,7 @@
                 </button>
                 <div class="navbar-brand">
                     <div class="logo">
-                        <a href="#"><img src="../../assets/system_design/images/logo-index.png" width="140" height="100" style="padding-bottom:10px;"></a>
+                        <a href="#"><img src="../../assets/system_design/images/logo-index.png" width="140" height="100" style="padding-bottom:10px"></a>
                     </div>
                     <!--./logo-->
                 </div>
@@ -93,88 +95,47 @@
 
 <!--bg-image-->
 <div class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="intro-message">
-                    <h1>STP</h1>
-                    <h3>A Student & Teacher Web Portal</h3>
-                    <hr class="intro-divider">
-                    <ul class="list-inline intro-social-buttons">
-                        <li>
-                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                        </li>
-                        <li>
-                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
-                        </li>
-                        <li>
-                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
-                        </li>
-                    </ul>
+    <section class="single-page-section login_D">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 ">
+                    <div class="login_Div">
+                        <div class="sidebar_heading">
+                            <h4>Login</h4>
+                        </div>
+                        <form action="#" method="post" accept-charset="utf-8" id="login_form" name="login_form">
+                            <div style="display:none">
+                                <input type="hidden" name="digi_turor_system" value="662d34aa24ae30f29628342d57a03174" />
+                            </div>
+                            <div class="form-group pull-down-20">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div style="float:left;"><label><i class="fa fa-envelope"></i> Email</label> <span style="color:red;">*</span></div>
+                                        <input type="text" name="identity" value="" id="identity" title=""  />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <div class="row">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div style="float:left;"><label><i class="fa fa-key"></i> Password</label> <span style="color:red;">*</span></div>
+                                        <input type="password" name="password" value="" id="password" title=""  />
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="col-lg-12 col-md-12 col-sm-12">
+                                <div style="float:right;"><button type="submit" class="btn btn-primary right">Login</button></div>
+                            </div>
+
+                        </form>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
-    <!-- /.container -->
+    </section>
 </div>
-<!--bg-image-->
-
-<section class="work_section white-home">
-    <div class="container" style="position:inherit">
-        <div class="col-lg-12 col-md-12 col-sm-12 padding-lr">
-            <div class="col-lg-8 col-md-8 col-sm-12 padding-lr col-lg-offset-2 col-md-offset-2 col-sm-offset-0">
-                <div class="page_title">
-                    <h1>How It Works</h1>
-                </div><!--./page_title-->
-            </div><!--./col-lg-8-->
-        </div><!--./col-lg-12-->
-        <div class="col-lg-12 col-md-12 col-sm-12 padding-lr">
-            <div class="hs_work">
-                <div class="col-lg-3 col-md-3 col-sm-3 padding-lr work">
-                    <div class="work_steps">
-                        <div class="circle">
-                            <a href="#"><!--<i class="fa fa-newspaper-o"></i>--><i class="fa fa-user  "></i></a>
-                        </div>
-
-                        <h2>Create Profile</h2>
-
-                    </div><!--./work_steps-->
-                </div><!--./col-lg-3-->
-                <div class="col-lg-3 col-md-3 col-sm-3 padding-lr work">
-                    <div class="work_steps">
-                        <div class="circle orang-site">
-                            <a href="#"><!--<i class="fa fa-file-pdf-o"></i>--><i class="fa fa-envelope"></i></a>
-                        </div>
-
-                        <h2>Post Requirement</h2>
-
-                    </div><!--./work_steps-->
-                </div><!--./col-lg-3-->
-                <div class="col-lg-3 col-md-3 col-sm-3 padding-lr work">
-                    <div class="work_steps">
-                        <div class="circle blue-site">
-                            <a href="#"><i class="fa fa-life-ring"></i></a>
-                        </div>
-
-                        <h2>Search Tutor</h2>
-
-                    </div><!--./work_steps-->
-                </div><!--./col-lg-3-->
-                <div class="col-lg-3 col-md-3 col-sm-3 padding-lr work">
-                    <div class="work_steps">
-                        <div class="circle red-site">
-                            <a href="#"><i class="fa fa-male"></i></a>
-                        </div>
-
-                        <h2>Get Tutor</h2>
-
-                    </div><!--./work_steps-->
-                </div><!--./col-lg-3-->
-            </div><!--./hs_work-->
-        </div><!--./col-lg-12-->
-    </div><!--./container-->
-</section><!--./work_section-->
-
 <section class="footer" style="background-color:#e5e5e5;">
     <div class="container">
         <div class="col-lg-12 col-md-12 col-sm-12 padding-lr">
@@ -242,7 +203,7 @@
     <!--./container-->
 </section>
 <!--./footer-->
-<section class="bottom_footer_index">
+<section class="bottom_footer">
     <div class="container">
         <div class="col-lg-7 col-md-7 col-sm-12 padding-lr">
             <div class="copyright-left">
