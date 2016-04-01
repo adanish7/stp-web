@@ -10,6 +10,8 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Rehan on 3/7/16.
@@ -43,6 +45,33 @@ public class UserProfileController {
             e.printStackTrace();
         }
         return "redirect:/home";
+    }
+
+    @RequestMapping(value = "/list/students", method = RequestMethod.GET)
+    public String showStudentsList(Model model) {
+        List<User> users = new ArrayList<User>();
+
+        try {
+            users = manageUserBL.getUsersByRole("student");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        model.addAttribute("users", users);
+        return "ListStudents";
+    }
+
+    @RequestMapping(value = "/list/tutor" , method = RequestMethod.GET)
+    public String showTutorsList(Model model)
+    {
+        List<User> users =  new ArrayList<User>();
+
+        try {
+            users = manageUserBL.getUsersByRole("tutor");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        model.addAttribute("users" , users);
+        return "ListTutors";
     }
 
 }

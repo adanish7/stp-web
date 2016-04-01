@@ -10,8 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ListStudentsController {
 
-    @RequestMapping("/liststudents")
+    /*@RequestMapping("/list/user")
     public String showListStudents(){
         return "ListStudents";
-    }
+    }*/
 }

@@ -1,11 +1,5 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Abdul Basit
-  Date: 3/30/2016
-  Time: 3:40 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html lang="en">
 <!--[if IE 7]>
@@ -187,11 +181,13 @@
                         </tr>
                         </tfoot>
                         <tbody>
+                        <c:forEach items="${users}" var="user" varStatus="counter">
+
                         <tr>
-                            <td>1</td>
-                            <td>Danish Ali</td>
-                            <td>123</td>
-                            <td>student@student.com</td>
+                            <td>${counter.count}</td>
+                            <td>${user.userName}</td>
+                            <td>${user.phone}</td>
+                            <td>${user.email}</td>
                             <td>
                                 <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(27)" title="Delete">
                                     <i class="fa fa-trash-o delet"></i>
@@ -200,7 +196,8 @@
                                 <a href="#" class="warning active">  Active </a>
                             </td>
                         </tr>
-                        <tr>
+                        </c:forEach>
+                        <%--<tr>
                             <td>2</td>
                             <td>Zunaira Arif</td>
                             <td>456</td>
@@ -368,7 +365,7 @@
                                 <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
                                 <a href="#" class="warning active">  Active </a>
                             </td>
-                        </tr>
+                        </tr>--%>
                         </tbody>
                     </table>
                 </div>
