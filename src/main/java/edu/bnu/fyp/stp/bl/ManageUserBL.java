@@ -26,12 +26,22 @@ public class ManageUserBL {
         return userMongoRepository.findOne(userId);
     }
 
+    public List<User> getAllUsers() throws Exception
+    {
+        return userMongoRepository.findAll();
+    }
+
     public void updateUserProfile(User user) throws Exception {
         userMongoRepository.save(user);
     }
 
     public List<User> getUsersByRoles(List<String> roles) {
         Criteria criteria = Criteria.where("userRoles").in(roles);
+        return mongoTemplate.find(new Query(criteria), User.class);
+    }
+
+    public List<User> getUsersByRole(String roles) {
+        Criteria criteria = Criteria.where("role").in(roles);
         return mongoTemplate.find(new Query(criteria), User.class);
     }
 }

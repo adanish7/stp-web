@@ -23,6 +23,15 @@ public class User {
     private String phone;
     private Date birthDate;
     private List<String> userRoles;
+    private String role;
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
 
     public String getUserId() {
         return userId;
