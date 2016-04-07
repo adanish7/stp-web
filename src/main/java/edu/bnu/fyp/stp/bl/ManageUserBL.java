@@ -27,8 +27,8 @@ public class ManageUserBL {
         return userMongoRepository.findOne(userId);
     }
 
-    public User getUserByEmail(String email) throws Exception {
-        return userMongoRepository.findByEmail(email);
+    public User getUserByEmailAndPassword(String email , String Password) throws Exception {
+        return userMongoRepository.findByEmailAndPassword(email, Password);
     }
 
     public List<User> getAllUsers() throws Exception

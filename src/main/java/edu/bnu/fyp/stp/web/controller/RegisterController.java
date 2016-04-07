@@ -27,6 +27,14 @@ public class RegisterController {
         return "RegisterStudent";
     }
 
+    @RequestMapping("/tutor/register")
+    public String showRegisterTutor(Model model) {
+        User user = new User();
+        model.addAttribute("user" , user);
+
+        return "RegisterTutor";
+    }
+
     @RequestMapping(value = "/user/register/student" , method = RequestMethod.POST)
     public String studentRegisteration(@Valid @ModelAttribute User user , BindingResult bindingResult) {
 
@@ -36,6 +44,23 @@ public class RegisterController {
             }
 
             user.setRole("student");
+            manageUserBL.registerStudent(user);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return "Login";
+    }
+
+    @RequestMapping(value = "/user/register/tutor" , method = RequestMethod.POST)
+    public String tutorRegisteration(@Valid @ModelAttribute User user , BindingResult bindingResult) {
+
+        try {
+            if (bindingResult.hasErrors()) {
+                System.out.println(bindingResult.getAllErrors().iterator().next().toString());
+            }
+
+            user.setRole("tutor");
             manageUserBL.registerStudent(user);
         } catch (Exception e) {
             e.printStackTrace();

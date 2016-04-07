@@ -10,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <title>Register Student</title>
+    <title>Register Tutor</title>
     <!--style start-->
     <link href="../../assets/system_design/css/bootstrap.css" rel="stylesheet">
     <link href="../../assets/system_design/css/style.css" rel="stylesheet">
@@ -81,9 +81,9 @@
                 <div class="col-lg-12 col-md-12 col-sm-12 ">
                     <div class="login_Div reigi">
                         <div class="sidebar_heading">
-                            <h4>Student Registration</h4>
+                            <h4>Tutor Registration</h4>
                         </div>
-                        <spring:form action="${pageContext.request.contextPath}/user/register/student" modelAttribute="user" accept-charset="utf-8" id="registration_form" name="registration_form">
+                        <spring:form action="${pageContext.request.contextPath}/user/register/tutor" modelAttribute="user" accept-charset="utf-8" id="registration_form" name="registration_form">
                             <div style="display:none">
                                 <input type="hidden" name="digi_turor_system" value="2c4694f6a6edc5a9adae39e3707fbeec" />
                             </div>

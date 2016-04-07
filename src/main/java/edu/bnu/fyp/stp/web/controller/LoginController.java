@@ -38,20 +38,20 @@ public class LoginController {
         try {
             if (bindingResult.hasErrors()) {
                 System.out.println(bindingResult.getAllErrors().iterator().next().toString());
+                return "Login";
             }
-            user1 = manageUserBL.getUserByEmail(email);
+            user1 = manageUserBL.getUserByEmailAndPassword(email , password);
+            if ((!user1.getEmail().equals("")) && (!user1.getPassword().equals(""))) {
 
-            if (user1.getRole().equals("student"))
-            {
-                return "StudentDashboard";
-            }
-            else if (user1.getRole().equals("tutor"))
-            {
-                return "TutorDasbhboard";
-            }
-            else if (user1.getRole().equals("admin"))
-            {
-                return "AdminDashboard";
+                if (user1.getRole().equals("student"))
+                    return "StudentDashboard";
+
+                else if (user1.getRole().equals("tutor"))
+                    return "TutorDasbhboard";
+
+                else if (user1.getRole().equals("admin"))
+                    return "AdminDashboard";
+
             }
 
         } catch (Exception e) {

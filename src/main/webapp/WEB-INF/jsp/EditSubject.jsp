@@ -9,7 +9,7 @@
     <spring:form action="${pageContext.request.contextPath}/subject/save" modelAttribute="subject">
         <spring:hidden path="subjectId" />
         Subject Code: <spring:input path="subjectCode" />
-                      <spring:errors  />
+                      <spring:errors path="subjectCode"  />
         <br/>
 
         Subject Title: <spring:input path="subjectName" /><br/>
