@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.data.mongodb.core.query.Criteria;
 import org.springframework.data.mongodb.core.query.Query;
 import org.springframework.stereotype.Service;
+import org.springframework.util.StringUtils;
 
 import java.util.List;
 
@@ -26,12 +27,23 @@ public class ManageUserBL {
         return userMongoRepository.findOne(userId);
     }
 
+    public User getUserByEmail(String email) throws Exception {
+        return userMongoRepository.findByEmail(email);
+    }
+
     public List<User> getAllUsers() throws Exception
     {
         return userMongoRepository.findAll();
     }
 
     public void updateUserProfile(User user) throws Exception {
+        userMongoRepository.save(user);
+    }
+
+    public void registerStudent(User user) throws Exception {
+        if (StringUtils.isEmpty(user.getUserId()))
+            user.setUserId(null);
+
         userMongoRepository.save(user);
     }
 

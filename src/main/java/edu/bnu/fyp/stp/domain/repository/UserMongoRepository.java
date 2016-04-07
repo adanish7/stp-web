@@ -7,4 +7,6 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  * Created by Rehan on 3/7/16.
  */
 public interface UserMongoRepository extends MongoRepository<User, String> {
+
+    public User findByEmail(String emial) throws Exception;
 }

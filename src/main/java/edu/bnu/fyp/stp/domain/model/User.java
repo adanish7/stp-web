@@ -1,5 +1,7 @@
 package edu.bnu.fyp.stp.domain.model;
 
+import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.index.Indexed;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -16,22 +18,18 @@ public class User {
     @Id
     private String userId;
 
-    @Indexed(unique = true)
-    private String userName;
+    private String firstName;
+    private String lastName;
     private String password;
+
+    @NotEmpty
+    @Email
     private String email;
+
     private String phone;
     private Date birthDate;
     private List<String> userRoles;
     private String role;
-
-    public String getRole() {
-        return role;
-    }
-
-    public void setRole(String role) {
-        this.role = role;
-    }
 
     public String getUserId() {
         return userId;
@@ -41,12 +39,20 @@ public class User {
         this.userId = userId;
     }
 
-    public String getUserName() {
-        return userName;
+    public String getFirstName() {
+        return firstName;
     }
 
-    public void setUserName(String userName) {
-        this.userName = userName;
+    public void setFirstName(String firstName) {
+        this.firstName = firstName;
+    }
+
+    public String getLastName() {
+        return lastName;
+    }
+
+    public void setLastName(String lastName) {
+        this.lastName = lastName;
     }
 
     public String getPassword() {
@@ -81,21 +87,6 @@ public class User {
         this.birthDate = birthDate;
     }
 
-    public User() {
-        this.userId = "";
-        this.userName = "";
-        this.password = "";
-        this.email = "";
-        this.phone = "";
-        this.birthDate = null;
-    }
-
-    public User (String userId)
-    {
-        userId = userId;
-    }
-
-
     public List<String> getUserRoles() {
         return userRoles;
     }
@@ -103,4 +94,29 @@ public class User {
     public void setUserRoles(List<String> userRoles) {
         this.userRoles = userRoles;
     }
+
+    public String getRole() {
+        return role;
+    }
+
+    public void setRole(String role) {
+        this.role = role;
+    }
+
+    public User() {
+        this.userId = "";
+        this.firstName = "";
+        this.lastName = "";
+        this.password = "";
+        this.email = "";
+        this.phone = "";
+        this.birthDate = null;
+        this.role = "";
+    }
+
+    public User (String userId)
+    {
+        userId = userId;
+    }
+
 }

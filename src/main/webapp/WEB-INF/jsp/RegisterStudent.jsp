@@ -1,21 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
+
 <html lang="en">
-<!--[if IE 7]>
-<html lang="en" class="ie7">
-<![endif]-->
-<!--[if IE 8]>
-<html lang="en" class="ie8">
-<![endif]-->
-<!--[if IE 9]>
-<html lang="en" class="ie9">
-<![endif]-->
-<!--[if (gt IE 9)|!(IE)]>
-<html lang="en">
-<![endif]-->
-<!--[if !IE]>
-<html lang="en">
-<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -23,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <title>Log in</title>
+    <title>Register Student</title>
     <!--style start-->
     <link href="../../assets/system_design/css/bootstrap.css" rel="stylesheet">
     <link href="../../assets/system_design/css/style.css" rel="stylesheet">
@@ -92,43 +79,62 @@
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 ">
-                    <div class="login_Div">
+                    <div class="login_Div reigi">
                         <div class="sidebar_heading">
-                            <h4>Login</h4>
+                            <h4>Student Registration</h4>
                         </div>
-                        <spring:form action="${pageContext.request.contextPath}/user/login" modelAttribute="user" accept-charset="utf-8" id="login_form" name="login_form">
+                        <spring:form action="${pageContext.request.contextPath}/user/register/student" modelAttribute="user" accept-charset="utf-8" id="registration_form" name="registration_form">
                             <div style="display:none">
-                                <input type="hidden" name="digi_turor_system" value="662d34aa24ae30f29628342d57a03174" />
+                                <input type="hidden" name="digi_turor_system" value="2c4694f6a6edc5a9adae39e3707fbeec" />
                             </div>
-                            <div class="form-group pull-down-20">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <div style="float:left;"><label><i class="fa fa-envelope"></i> Email</label> <span style="color:red;">*</span></div>
-                                        <spring:input path="email" type="text" name="identity" value="" id="identity" title=""  />
-                                    </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div style="float:left;"><label><i class="fa fa-user"></i> First Name</label> <span style="color:red;">*</span></div>
+                                    <spring:input path="firstName" type="text" name="first_name" value="" id="first_name"  />
                                 </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><i class="fa fa-user"></i> Last Name</label> <span style="color:red;">*</span></div>
+                                    <spring:input path="lastName" type="text" name="last_name" value="" id="last_name"  />
+                                </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><i class="fa fa-envelope"></i> Email</label> <span style="color:red;">*</span></div>
+                                    <spring:input path="email" type="text" name="email" value="" id="email"  />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div style="float:left;"><label><i class="fa fa-phone"></i> Phone</label> <span style="color:red;">*</span></div>
+                                    <spring:input path="phone" type="text" name="phone" value="" id="phone" maxlength="11"  />
+                                </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><i class="fa fa-key"></i> Password</label> <span style="color:red;">*</span></div>
+                                    <spring:input path="password" type="password" name="password" value="" id="password"  />
+                                </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><i class="fa fa-key"></i> Confirm Password</label> <span style="color:red;">*</span></div>
+                                    <spring:input path="" type="password" name="password_confirm" value="" id="password_confirm"  />
+                                </div>
+
                             </div>
 
                             <div class="form-group">
-                                <div class="row">
-                                    <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <div style="float:left;"><label><i class="fa fa-key"></i> Password</label> <span style="color:red;">*</span></div>
-                                        <spring:input path="password" type="password" name="password" value="" id="password" title=""  />
-                                    </div>
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div style="float:right;"><button type="submit" class="btn btn-primary">Register</button></div>
                                 </div>
-                            </div>
-
-                            <div class="col-lg-12 col-md-12 col-sm-12">
-                                <div style="float:right;">
-                                    <spring:button type="submit" class="btn btn-primary right">Login</spring:button></div>
                             </div>
 
                         </spring:form>
                     </div>
-                </div>
-            </div>
-        </div>
-    </section>
+
+                </div><!--./col-lg-12-->
+            </div><!--./row-->
+        </div><!--./container-->
+    </section><!--./single-page-section-->
 </div>
 <section class="footer" style="background-color:#e5e5e5;">
     <div class="container">
@@ -194,7 +200,6 @@
         </div>
         <!--./col-lg-3-->
     </div>
-    <!--./container-->
 </section>
 <!--./footer-->
 <section class="bottom_footer">

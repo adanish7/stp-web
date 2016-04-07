@@ -9,8 +9,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller
 public class ListTutorsController {
 
-    @RequestMapping("/listtutors")
+    /*@RequestMapping("/listtutors")
     public String showListTutors(){
         return "ListTutors";
-    }
+    }*/
 }
