@@ -1,6 +1,8 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
 
 <html lang="en">
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -8,7 +10,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <title> Index</title>
+    <title>Register Student</title>
     <!--style start-->
     <link href="../../assets/system_design/css/bootstrap.css" rel="stylesheet">
     <link href="../../assets/system_design/css/style.css" rel="stylesheet">
@@ -32,6 +34,7 @@
         <div class="col-md-6 pull-left">
             <div class="top-add"><i class="fa fa-phone"></i>  0900-78601 </div>
         </div>
+
     </div>
 </div>
 <section class="top_wrapper">
@@ -46,7 +49,7 @@
                 </button>
                 <div class="navbar-brand">
                     <div class="logo">
-                        <a href="#"><img src="../../assets/system_design/images/logo-index.png" width="140" height="100" style="padding-bottom:10px;"></a>
+                        <a href="#"><img src="../../assets/system_design/images/logo-index.png" width="140" height="100" style="padding-bottom:10px"></a>
                     </div>
                     <!--./logo-->
                 </div>
@@ -72,88 +75,67 @@
 
 <!--bg-image-->
 <div class="intro-header">
-    <div class="container">
-        <div class="row">
-            <div class="col-lg-12">
-                <div class="intro-message">
-                    <h1>STP</h1>
-                    <h3>A Student & Teacher Web Portal</h3>
-                    <hr class="intro-divider">
-                    <ul class="list-inline intro-social-buttons">
-                        <li>
-                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-twitter fa-fw"></i> <span class="network-name">Twitter</span></a>
-                        </li>
-                        <li>
-                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-facebook fa-fw"></i> <span class="network-name">Facebook</span></a>
-                        </li>
-                        <li>
-                            <a href="#" class="btn btn-default btn-lg"><i class="fa fa-linkedin fa-fw"></i> <span class="network-name">Linkedin</span></a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- /.container -->
+    <section class="single-page-section login_D">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 col-md-12 col-sm-12 ">
+                    <div class="login_Div reigi">
+                        <div class="sidebar_heading">
+                            <h4>Student Registration</h4>
+                        </div>
+                        <spring:form action="${pageContext.request.contextPath}/user/register/student" modelAttribute="user" accept-charset="utf-8" id="registration_form" name="registration_form">
+                            <div style="display:none">
+                                <input type="hidden" name="digi_turor_system" value="2c4694f6a6edc5a9adae39e3707fbeec" />
+                            </div>
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div style="float:left;"><label><i class="fa fa-user"></i> First Name</label> <span style="color:red;">*</span></div>
+                                    <spring:input path="firstName" type="text" name="first_name" value="" id="first_name"  />
+                                </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><i class="fa fa-user"></i> Last Name</label> <span style="color:red;">*</span></div>
+                                    <spring:input path="lastName" type="text" name="last_name" value="" id="last_name"  />
+                                </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><i class="fa fa-envelope"></i> Email</label> <span style="color:red;">*</span></div>
+                                    <spring:input path="email" type="text" name="email" value="" id="email"  />
+                                </div>
+                            </div>
+
+                            <div class="col-md-6">
+                                <div class="form-group">
+                                    <div style="float:left;"><label><i class="fa fa-phone"></i> Phone</label> <span style="color:red;">*</span></div>
+                                    <spring:input path="phone" type="text" name="phone" value="" id="phone" maxlength="11"  />
+                                </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><i class="fa fa-key"></i> Password</label> <span style="color:red;">*</span></div>
+                                    <spring:input path="password" type="password" name="password" value="" id="password"  />
+                                </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><i class="fa fa-key"></i> Confirm Password</label> <span style="color:red;">*</span></div>
+                                    <spring:input path="" type="password" name="password_confirm" value="" id="password_confirm"  />
+                                </div>
+
+                            </div>
+
+                            <div class="form-group">
+                                <div class="col-lg-12 col-md-12 col-sm-12">
+                                    <div style="float:right;"><button type="submit" class="btn btn-primary">Register</button></div>
+                                </div>
+                            </div>
+
+                        </spring:form>
+                    </div>
+
+                </div><!--./col-lg-12-->
+            </div><!--./row-->
+        </div><!--./container-->
+    </section><!--./single-page-section-->
 </div>
-<!--bg-image-->
-
-<section class="work_section white-home">
-    <div class="container" style="position:inherit">
-        <div class="col-lg-12 col-md-12 col-sm-12 padding-lr">
-            <div class="col-lg-8 col-md-8 col-sm-12 padding-lr col-lg-offset-2 col-md-offset-2 col-sm-offset-0">
-                <div class="page_title">
-                    <h1>How It Works</h1>
-                </div><!--./page_title-->
-            </div><!--./col-lg-8-->
-        </div><!--./col-lg-12-->
-        <div class="col-lg-12 col-md-12 col-sm-12 padding-lr">
-            <div class="hs_work">
-                <div class="col-lg-3 col-md-3 col-sm-3 padding-lr work">
-                    <div class="work_steps">
-                        <div class="circle">
-                            <a href="#"><!--<i class="fa fa-newspaper-o"></i>--><i class="fa fa-user  "></i></a>
-                        </div>
-
-                        <h2>Create Profile</h2>
-
-                    </div><!--./work_steps-->
-                </div><!--./col-lg-3-->
-                <div class="col-lg-3 col-md-3 col-sm-3 padding-lr work">
-                    <div class="work_steps">
-                        <div class="circle orang-site">
-                            <a href="#"><!--<i class="fa fa-file-pdf-o"></i>--><i class="fa fa-envelope"></i></a>
-                        </div>
-
-                        <h2>Post Requirement</h2>
-
-                    </div><!--./work_steps-->
-                </div><!--./col-lg-3-->
-                <div class="col-lg-3 col-md-3 col-sm-3 padding-lr work">
-                    <div class="work_steps">
-                        <div class="circle blue-site">
-                            <a href="#"><i class="fa fa-life-ring"></i></a>
-                        </div>
-
-                        <h2>Search Tutor</h2>
-
-                    </div><!--./work_steps-->
-                </div><!--./col-lg-3-->
-                <div class="col-lg-3 col-md-3 col-sm-3 padding-lr work">
-                    <div class="work_steps">
-                        <div class="circle red-site">
-                            <a href="#"><i class="fa fa-male"></i></a>
-                        </div>
-
-                        <h2>Get Tutor</h2>
-
-                    </div><!--./work_steps-->
-                </div><!--./col-lg-3-->
-            </div><!--./hs_work-->
-        </div><!--./col-lg-12-->
-    </div><!--./container-->
-</section><!--./work_section-->
-
 <section class="footer" style="background-color:#e5e5e5;">
     <div class="container">
         <div class="col-lg-12 col-md-12 col-sm-12 padding-lr">
@@ -218,10 +200,9 @@
         </div>
         <!--./col-lg-3-->
     </div>
-    <!--./container-->
 </section>
 <!--./footer-->
-<section class="bottom_footer_index">
+<section class="bottom_footer">
     <div class="container">
         <div class="col-lg-7 col-md-7 col-sm-12 padding-lr">
             <div class="copyright-left">

@@ -1,28 +1,9 @@
-<%--
-  Created by IntelliJ IDEA.
-  User: Abdul Basit
-  Date: 3/30/2016
-  Time: 3:21 PM
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
-<!DOCTYPE html>
+<%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form" %>
+
 <html lang="en">
-<!--[if IE 7]>
-<html lang="en" class="ie7">
-<![endif]-->
-<!--[if IE 8]>
-<html lang="en" class="ie8">
-<![endif]-->
-<!--[if IE 9]>
-<html lang="en" class="ie9">
-<![endif]-->
-<!--[if (gt IE 9)|!(IE)]>
-<html lang="en">
-<![endif]-->
-<!--[if !IE]>
-<html lang="en">
-<![endif]-->
+
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -78,10 +59,10 @@
                 <ul class="navbar-right">
                     <li><a href="#" class="btn btn-primary f-login"> <i class="fa fa-sign-in"></i> Login</a></li>
                     <li>
-                        <a href="#" class="btn btn-default regi"> <i class="fa fa-file-text"></i> Register</a>
+                        <a href="<%=request.getContextPath() %>/login" class="btn btn-default regi"> <i class="fa fa-file-text"></i> Register</a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                            <li><a tabindex="-1" href="#"> <i class="fa fa-user"></i>As a Tutor</a></li>
-                            <li><a tabindex="-1" href="#"> <i class="fa fa-user"></i> As a student</a></li>
+                            <li><a tabindex="-1" href="<%=request.getContextPath() %>/tutor/register"> <i class="fa fa-user"></i>As a Tutor</a></li>
+                            <li><a tabindex="-1" href="<%=request.getContextPath() %>/student/register"> <i class="fa fa-user"></i> As a student</a></li>
                         </ul>
                     </li>
                 </ul>
@@ -103,7 +84,7 @@
                         <div class="sidebar_heading">
                             <h4>Login</h4>
                         </div>
-                        <form action="#" method="post" accept-charset="utf-8" id="login_form" name="login_form">
+                        <spring:form action="${pageContext.request.contextPath}/user/login" modelAttribute="user" accept-charset="utf-8" id="login_form" name="login_form">
                             <div style="display:none">
                                 <input type="hidden" name="digi_turor_system" value="662d34aa24ae30f29628342d57a03174" />
                             </div>
@@ -111,7 +92,8 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div style="float:left;"><label><i class="fa fa-envelope"></i> Email</label> <span style="color:red;">*</span></div>
-                                        <input type="text" name="identity" value="" id="identity" title=""  />
+                                        <spring:input path="email" type="text" name="identity" value="" id="identity" title=""  />
+                                        <spring:errors path="email" cssClass="error"></spring:errors>
                                     </div>
                                 </div>
                             </div>
@@ -120,16 +102,17 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div style="float:left;"><label><i class="fa fa-key"></i> Password</label> <span style="color:red;">*</span></div>
-                                        <input type="password" name="password" value="" id="password" title=""  />
+                                        <spring:input path="password" type="password" name="password" value="" id="password" title=""  />
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12">
-                                <div style="float:right;"><button type="submit" class="btn btn-primary right">Login</button></div>
+                                <div style="float:right;">
+                                    <spring:button type="submit" class="btn btn-primary right">Login</spring:button></div>
                             </div>
 
-                        </form>
+                        </spring:form>
                     </div>
                 </div>
             </div>

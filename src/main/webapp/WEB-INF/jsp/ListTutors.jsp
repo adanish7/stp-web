@@ -1,6 +1,5 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<!DOCTYPE html>
 <html lang="en">
 <!--[if IE 7]>
 <html lang="en" class="ie7">
@@ -129,7 +128,6 @@
                             <li><a href="#"><span>Add Areas</span></a></li>
                         </ul>
                     </li>
-                    <!---Locations End-->
 
                     <!---Reports-->
                     <li>
@@ -147,7 +145,7 @@
                     <li>
                         <a href="#"><span><i class="fa fa-power-off"></i>Logout</span></a>
                     </li>
-                    <!--Logout End-->
+                    <!--Logout Ends-->
                 </ul>
             </div>
         </div>
@@ -182,12 +180,25 @@
                         </tfoot>
                         <tbody>
                         <c:forEach items="${users}" var="user" varStatus="counter">
-
-                        <tr>
-                            <td>${counter.count}</td>
-                            <td>${user.userName}</td>
-                            <td>${user.phone}</td>
-                            <td>${user.email}</td>
+                            <tr>
+                                <td>${counter.count}</td>
+                                <td>${user.userName}</td>
+                                <td>${user.phone}</td>
+                                <td>${user.email}</td>
+                                <td>
+                                    <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(27)" title="Delete">
+                                        <i class="fa fa-trash-o delet"></i>
+                                    </a>&nbsp;
+                                    <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
+                                    <a href="#" class="warning active">  Active </a>
+                                </td>
+                            </tr>
+                        </c:forEach>
+                        <%--<tr>
+                            <td>1</td>
+                            <td>Danish Ali</td>
+                            <td>123</td>
+                            <td>student@student.com</td>
                             <td>
                                 <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(27)" title="Delete">
                                     <i class="fa fa-trash-o delet"></i>
@@ -196,8 +207,7 @@
                                 <a href="#" class="warning active">  Active </a>
                             </td>
                         </tr>
-                        </c:forEach>
-                        <%--<tr>
+                        <tr>
                             <td>2</td>
                             <td>Zunaira Arif</td>
                             <td>456</td>
@@ -207,7 +217,7 @@
                                     <i class="fa fa-trash-o delet"></i>
                                 </a>&nbsp;
                                 <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning inactive">  Inactive </a>
+                                <a href="#" class="warning active">  Active </a>
                             </td>
                         </tr>
                         <tr>
@@ -442,3 +452,6 @@
 <!--./script end-->
 </body>
 </html>
+
+
+

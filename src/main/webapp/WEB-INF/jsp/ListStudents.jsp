@@ -375,8 +375,8 @@
                                 <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
                                 <a href="#" class="warning active">  Active </a>
                             </td>
-                        </tr>
-                        </tbody>--%>
+                        </tr>--%>
+                        </tbody>
                     </table>
                 </div>
             </div>
