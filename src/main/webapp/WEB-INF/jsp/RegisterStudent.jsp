@@ -211,7 +211,7 @@
         </div>
         <div class="col-lg-5 col-md-5 col-sm-12 padding-lr">
             <div class="footer_menu">
-                <p>Powered by:TeamSTP</p>
+                <p>Powered by: Team STP</p>
             </div>
         </div>
     </div>
