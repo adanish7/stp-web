@@ -7,6 +7,7 @@ import edu.bnu.fyp.stp.constants.Duration;
 import edu.bnu.fyp.stp.constants.RequirementsPriority;
 import edu.bnu.fyp.stp.constants.TutorType;
 import edu.bnu.fyp.stp.domain.model.Requirement;
+import edu.bnu.fyp.stp.domain.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
@@ -45,7 +46,7 @@ public class RequirementController {
     }
 
     @RequestMapping(value = "/requirement/save" , method = RequestMethod.POST)
-    public String saveStudentRequirement(@Validated @ModelAttribute Requirement requirement, BindingResult bindingResult) {
+    public String saveStudentRequirement(@Valid @ModelAttribute Requirement requirement, BindingResult bindingResult, Model model) {
 
         try {
             if (bindingResult.hasErrors()) {
@@ -57,7 +58,11 @@ public class RequirementController {
             e.printStackTrace();
         }
 
-        return "Login";
+        Requirement requirement1 = new Requirement();
+
+        model.addAttribute("requirement" , requirement1);
+
+        return "PostRequirement";
     }
 
 }

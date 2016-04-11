@@ -15,8 +15,16 @@ public class Course {
 
     private String courseName;
 
-    public Course(String courseId) {
+    private String subject;
+
+    public Course() {
+        super();
+    }
+
+    public Course(String courseId, String courseName, String subject) {
         this.courseId = courseId;
+        this.courseName = courseName;
+        this.subject = subject;
     }
 
     public String getCourseId() {
@@ -33,5 +41,13 @@ public class Course {
 
     public void setCourseName(String courseName) {
         this.courseName = courseName;
+    }
+
+    public String getSubject() {
+        return subject;
+    }
+
+    public void setSubject(String subject) {
+        this.subject = subject;
     }
 }

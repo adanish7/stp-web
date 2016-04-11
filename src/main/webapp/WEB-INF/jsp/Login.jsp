@@ -92,8 +92,8 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div style="float:left;"><label><i class="fa fa-envelope"></i> Email</label> <span style="color:red;">*</span></div>
-                                        <spring:input path="email" type="text" name="identity" value="" id="identity" title=""  />
-                                        <spring:errors path="email" cssClass="error"></spring:errors>
+                                        <spring:input path="email"/>
+                                        <%--<spring:errors path="email" cssClass="error"></spring:errors>--%>
                                     </div>
                                 </div>
                             </div>

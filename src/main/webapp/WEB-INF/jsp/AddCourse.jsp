@@ -26,7 +26,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <title>Add Subject</title>
+    <title>Add Course</title>
     <!--style start-->
     <link href="../../assets/system_design/css/bootstrap.css" rel="stylesheet">
     <link href="../../assets/system_design/css/style.css" rel="stylesheet">
@@ -173,51 +173,38 @@
         </div>
     </div>
 
-    <div class="col-lg-10 col-md-10 col-sm-12 padding-lr">
-        <div class="body-content">
+        <div class="col-lg-10 col-md-10 col-sm-12 padding-lr">
+            <div class="body-content">
 
-            <div class="col-md-6 padding-p-l">
-                <div class="module">
-                    <div class="module-head">
-                        <h3> Add Course </h3><br>
-                    </div>
-                    <div class="module-body">
-                        <div id="infoMessage">
+                <div class="col-md-6 padding-p-l">
+                    <div class="module">
+                        <div class="module-head">
+                            <h3> Add Course </h3>
                         </div>
-                        <cf:form action="${pageContext.request.contextPath}/subject/save" modelAttribute="subject">
-                            <cf:hidden path="subjectId" />
-                            <div class="form-group">
-                                <label>Subject Code</label><span style="color:red;">*</span>
-                                <cf:input path="subjectCode" />
-                                <%--<cf:errors path="subjectCode"  />--%>
-                                <br/>
+                        <div class="module-body">
+                            <div id="infoMessage">
                             </div>
+                            <cf:form action="${pageContext.request.contextPath}/course/save" modelAttribute="course" >
+                                    <div class="form-group">
+                                        <label>Name</label><span style="color:red;">*</span>
+                                        <cf:input path="courseName" />
+                                    </div>
+                                    <div class="form-group">
+                                        <label>Subject Type</label>	<span style="color:red;">*</span>
+                                        <cf:input path="subject" />
+                                    </div>
 
-                            <div class="form-group">
-                                <label>Subject Title</label><span style="color:red;">*</span>
-                                <cf:input path="subjectName" />
-                            </div>
-
-                            <div class="form-group">
-                                <label>Status</label><span style="color:red;">*</span>
-                                <cf:select path="status">
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                </cf:select>
-                            </div>
-
-                            <div class="form-group">
-                                <div>
-                                    <button type="submit" style="height: 40px; width: 150px;" class="add-new">Add Subject</button>
+                                <div class="form-group">
+                                    <div>
+                                        <button type="submit" style="height: 40px; width: 150px;" class="add-new">Add Course</button>
+                                    </div>
                                 </div>
-                            </div>
-
-                        </cf:form>
+                            </cf:form>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
-    </div>
 </section>
 <!--./footer-->
 <section class="bottom_footer">

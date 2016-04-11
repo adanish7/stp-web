@@ -175,7 +175,10 @@
         <div class="col-lg-10 col-md-10 col-sm-12 padding-lr">
             <div class="body-content">
                 <div class="admin-body">
-                    <div class="inner-elements">
+                    <br class="inner-elements">
+
+                        <h4 style="margin-left: 15px; font-weight: bold">Post a Requirement</h4><br><br>
+
                         <cf:form action="${pageContext.request.contextPath}/requirement/save" modelAttribute="requirement"><div style="display:none">
                             <input type="hidden" name="digi_turor_system" value="c699c2cc1d6c664d734a5cf887461889" />
                         </div>
@@ -255,7 +258,9 @@
                                     </cf:select>
                                 </div>
                                 <div class="form-group">
-                                    <cf:button type="submit" name="add" class="add-new" value="Post"/>
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <div style="float:right;"><button type="submit" style="height: 40px; width: 100px;" class="btn btn-primary">Post</button></div>
+                                    </div>
                                 </div>
                             </div>
                         </cf:form>
