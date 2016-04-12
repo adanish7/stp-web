@@ -8,5 +8,5 @@ import org.springframework.data.mongodb.repository.MongoRepository;
  */
 public interface UserMongoRepository extends MongoRepository<User, String> {
 
-    public User findByEmailAndPassword(String emial,String password) throws Exception;
+    public User findByEmailAndPassword(String email,String password) throws Exception;
 }

@@ -115,7 +115,8 @@
     </div>
 </section>
 <section class="work_section tp">
-    <div class="container-fluid"><div class="col-lg-2 col-md-2 col-sm-12 padding-lr">
+    <div class="container-fluid">
+        <div class="col-lg-2 col-md-2 col-sm-12 padding-lr">
         <div id='cssmenu'>
             <ul>
                 <li class="active">
@@ -171,114 +172,60 @@
         </div>
     </div>
 
-        <div class="col-md-10 padding-0">
-            <div class="brade">
-                <a href="http://mdev.digitalvidhya.com/dts/en/student" style="text-decoration:none;">Home</a>
-                > My Requirements > List   </div>
-        </div>
-        <div class="col-lg-10 col-md-10 col-sm-12 padding-lr">
-            <div class="body-content">
-                <div class="col-lg-12 col-md-12 col-sm-12">
-                    <a href="http://mdev.digitalvidhya.com/dts/en/student/postRequirement" class="add-new flt-right">Post a Requirement</a>
-                    <ul class="list my_list new-list">
-                        <li class="my_requirements_list">
-                            <div class="closed" id="11" style='display:block;'></div>
-                            <div class="list-left list-con" id="div_11" style='opacity:0.4;'>
-                                <div class="col-md-8 padding-l">
-                     <span class="title">
-                        <p> <strong> Need Manual Testor </strong> </p>
-                     </span>
-                                    <p> Good knowledge on manual testing concepts  </p>
-                                    <p>  Frederick Ave, Kensington  </p>
-                                    <p> <i class="fa fa-calendar"></i> Posted On:  &nbsp; 1 Year ago  </p>
-                                </div>
-                                <div class="col-md-4 padding-l">
-                                    </br> </br>
-                                    <p><i class="fa fa-clock-o"></i>
-                                        Duration Needed: 2 Months                     </p>
-                                    <p><i class="fa fa-usd"></i>
-                                        Budget: 4500                     </p>
-                                    <p><i class="fa fa-align-center"></i>
-                                        Budget Type: Monthly
-                                    </p>
-                                </div>
+                            <style>
+                                .flt-right {
+                                    float: right;
+                                }
+                            </style>
+                            <div class="col-md-10 padding-0">
+                                <div class="brade">
+                                    <a href="http://mdev.digitalvidhya.com/dts/en/student" style="text-decoration:none;">Home</a>
+                                    > My Requirements > List   </div>
                             </div>
-                            <div class="list-image midd">
-                                <div class="std_notili">
-                                    <span><i class="fa fa-eye"></i> </span>
-                                    <div class="not_txt1"><font>1</font><br>
-                                        Views                     </div>
+                            <div class="col-lg-10 col-md-10 col-sm-12 padding-lr">
+                                <div class="body-content">
+                                    <div class="col-lg-12 col-md-12 col-sm-12">
+                                        <a href="${pageContext.request.contextPath}/postrequirement" class="add-new flt-right"><b>Post a Requirement</b></a>
+                                        <c:forEach items="${requirements}" var="user" varStatus="counter">
+                                        <ul class="list my_list new-list">
+                                            <li class="my_requirements_list">
+                                                <div class="closed" id="11" style='display:block;'></div>
+                                                <div class="list-left list-con" id="div_11" style='opacity:0.4;'>
+                                                    <div class="col-md-8 padding-l">
+                                                        <span class="title">
+                                                            <p> <strong> ${requirement.title} </strong> </p>
+                                                        </span>
+                                                        <p> ${requirement.requirementDetails}  </p>
+                                                        <p>  Frederick Ave, Kensington  </p>
+                                                        <p> <i class="fa fa-calendar"></i> Posted On:  &nbsp; 1 Year ago  </p>
+                                                    </div>
+                                                    <div class="col-md-4 padding-1">
+                                                        </br> </br>
+                                                        <p style="color: black"><i class="fa fa-clock-o"></i>
+                                                            Duration Needed: &nbsp; ${requirement.duration}
+                                                        </p>
+                                                        <p><i class="fa fa-usd"></i>
+                                                            Budget: &nbsp; ${requirement.budget}   </p>
+                                                        <p><i class="fa fa-align-center"></i>
+                                                            Budget Type: &nbsp; ${requirement.budgetType}
+                                                        </p>
+                                                    </div>
+                                                </div>
+
+                                                <div class="list-right last-box">
+                                      <span class="checkbox tutor-check pa-ch">
+                                      <input type="checkbox" id="checkboxInput_11" class="is_tutor_found" onclick="performAction(this.id)" name="status" checked>
+                                      <label for="checkboxInput_11"></label>
+                                      </span>
+                                                    <p>Found Tutor</p>
+                                                </div>
+                                            </li>
+                                            </ul>
+                                        </c:forEach>
+                                        </div>
+                                    </div>
                                 </div>
-                            </div>
-                            <div class="list-right last-box">
-                  <span class="checkbox tutor-check pa-ch">
-                  <input type="checkbox" id="checkboxInput_11" class="is_tutor_found" onclick="performAction(this.id)" name="status" checked>
-                  <label for="checkboxInput_11"></label>
-                  </span>
-                                <p>Found Tutor</p>
-                            </div>
 
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <script>
-            $(document).ready(function () {
-                tot_records = 4;
-                size_li = $(".my_requirements_list").size();
-                x=4;
-                $('#showLess').hide();
-                $('.my_requirements_list').not(':lt('+(size_li-(size_li-x))+')').hide();
-                $('#loadMore').click(function () {
-                    x= (x+6 <= size_li) ? x+6 : size_li;
-                    $('.my_requirements_list:lt('+x+')').slideDown();
-                    if(tot_records == $('.my_requirements_list:visible').size()) {
-
-                        $('#loadMore').hide();
-                        $('#showLess').show();
-                    }
-                });
-                $('#showLess').click(function () {
-
-                    $('.my_requirements_list').not(':lt('+4+')').slideUp();
-                    $('#showLess').hide();
-                    $('#loadMore').show();
-                });
-            });
-
-            function performAction(id)
-            {
-                var closeid = id.split('_')[1];
-                var status = "";
-                if($('#'+id).is(':checked')) {
-                    $('#'+closeid).fadeIn();
-                    $('#div_'+closeid).attr('style','opacity:0.4');
-                    status = "Closed";
-                }
-                else {
-                    $('#'+closeid).fadeOut();
-                    $('#div_'+closeid).attr('style','opacity:1');
-                    status = "";
-                }
-
-                $.ajax({
-                    type: "post",
-                    async: false,
-                    url: "http://mdev.digitalvidhya.com/dts/en/student/changeStudentLeadStatus",
-                    data: { status:status, lead_id:closeid, "digi_turor_system":"380992c5b51021786aa8219b5ec222e7"},
-                    success: function(data) {
-
-                    },
-                    error: function(){
-                        alert('Ajax Error');
-                    }
-                });
-
-            }
-
-        </script></div>
-
-    </div>
 
     </div>
 </section>

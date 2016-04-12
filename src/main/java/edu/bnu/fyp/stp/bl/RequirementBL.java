@@ -7,6 +7,8 @@ import org.springframework.data.mongodb.core.MongoTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.util.StringUtils;
 
+import java.util.List;
+
 /**
  * Created by Rehan on 4/8/16.
  */
@@ -25,6 +27,11 @@ public class RequirementBL {
             requirement.setId(null);
 
         requirementsMongoRepository.save(requirement);
+    }
+
+    public List<Requirement> getRequirementlist() throws Exception
+    {
+        return requirementsMongoRepository.findAll();
     }
 
 }

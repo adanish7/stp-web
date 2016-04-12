@@ -5,5 +5,5 @@ package edu.bnu.fyp.stp.constants;
  */
 public enum RequirementsPriority {
 
-    High , Medium , Low
+    HIGH , MEDIUM , LOW
 }

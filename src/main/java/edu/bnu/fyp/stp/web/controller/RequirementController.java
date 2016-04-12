@@ -7,6 +7,7 @@ import edu.bnu.fyp.stp.constants.Duration;
 import edu.bnu.fyp.stp.constants.RequirementsPriority;
 import edu.bnu.fyp.stp.constants.TutorType;
 import edu.bnu.fyp.stp.domain.model.Requirement;
+import edu.bnu.fyp.stp.domain.model.Subject;
 import edu.bnu.fyp.stp.domain.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -18,6 +19,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 
 import javax.validation.Valid;
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by Rehan on 4/8/16.
@@ -66,8 +69,23 @@ public class RequirementController {
     }
 
     @RequestMapping(value = "/requirement/list")
-    public String listRequirement()
+    public String listRequirement(Model model)
     {
+
+        List<Requirement> listRequirement = new ArrayList<Requirement>();
+
+        try
+        {
+
+            listRequirement = requirementBL.getRequirementlist();
+
+            model.addAttribute("requirements", listRequirement);
+
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+        }
 
         return("ListRequirements");
     }
