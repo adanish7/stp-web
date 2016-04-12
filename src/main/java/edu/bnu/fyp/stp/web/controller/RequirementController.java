@@ -27,12 +27,13 @@ import java.util.List;
  */
 
 @Controller
+@RequestMapping (value = "/requirement")
 public class RequirementController {
 
     @Autowired
     private RequirementBL requirementBL;
 
-    @RequestMapping(value = "/postrequirement")
+    @RequestMapping(value = "/post")
     public String showStudentRequirement(Model model)
     {
 
@@ -48,7 +49,7 @@ public class RequirementController {
         return "PostRequirement";
     }
 
-    @RequestMapping(value = "/requirement/save" , method = RequestMethod.POST)
+    @RequestMapping(value = "/save" , method = RequestMethod.POST)
     public String saveStudentRequirement(@Valid @ModelAttribute Requirement requirement, BindingResult bindingResult, Model model) {
 
         try {
@@ -68,7 +69,7 @@ public class RequirementController {
         return "PostRequirement";
     }
 
-    @RequestMapping(value = "/requirement/list")
+    @RequestMapping(value = "/list")
     public String listRequirement(Model model)
     {
 
@@ -78,6 +79,8 @@ public class RequirementController {
         {
 
             listRequirement = requirementBL.getRequirementlist();
+
+            /*System.out.println(listRequirement.get(1));*/
 
             model.addAttribute("requirements", listRequirement);
 

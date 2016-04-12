@@ -185,11 +185,12 @@
                             <div class="col-lg-10 col-md-10 col-sm-12 padding-lr">
                                 <div class="body-content">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
-                                        <a href="${pageContext.request.contextPath}/postrequirement" class="add-new flt-right"><b>Post a Requirement</b></a>
+                                        <a href="${pageContext.request.contextPath}/requirement/post" class="add-new flt-right"><b>Post a Requirement</b></a>
                                         <c:forEach items="${requirements}" var="user" varStatus="counter">
+
                                         <ul class="list my_list new-list">
                                             <li class="my_requirements_list">
-                                                <div class="closed" id="11" style='display:block;'></div>
+                                                <div class="closed" id="${requirement.id}" style='display:block;'></div>
                                                 <div class="list-left list-con" id="div_11" style='opacity:0.4;'>
                                                     <div class="col-md-8 padding-l">
                                                         <span class="title">
@@ -225,6 +226,63 @@
                                         </div>
                                     </div>
                                 </div>
+
+
+        <script>
+            $(document).ready(function () {
+                tot_records = 4;
+                size_li = $(".my_requirements_list").size();
+                x=4;
+                $('#showLess').hide();
+                $('.my_requirements_list').not(':lt('+(size_li-(size_li-x))+')').hide();
+                $('#loadMore').click(function () {
+                    x= (x+6 <= size_li) ? x+6 : size_li;
+                    $('.my_requirements_list:lt('+x+')').slideDown();
+                    if(tot_records == $('.my_requirements_list:visible').size()) {
+
+                        $('#loadMore').hide();
+                        $('#showLess').show();
+                    }
+                });
+                $('#showLess').click(function () {
+
+                    $('.my_requirements_list').not(':lt('+4+')').slideUp();
+                    $('#showLess').hide();
+                    $('#loadMore').show();
+                });
+            });
+
+            function performAction(id)
+            {
+                var closeid = id.split('_')[1];
+                var status = "";
+                if($('#'+id).is(':checked')) {
+                    $('#'+closeid).fadeIn();
+                    $('#div_'+closeid).attr('style','opacity:0.4');
+                    status = "Closed";
+                }
+                else {
+                    $('#'+closeid).fadeOut();
+                    $('#div_'+closeid).attr('style','opacity:1');
+                    status = "";
+                }
+
+                $.ajax({
+                    type: "post",
+                    async: false,
+                    url: "http://mdev.digitalvidhya.com/dts/en/student/changeStudentLeadStatus",
+                    data: { status:status, lead_id:closeid, "digi_turor_system":"8f605e10c031ce4f7eb84780a7182c38"},
+                    success: function(data) {
+
+                    },
+                    error: function(){
+                        alert('Ajax Error');
+                    }
+                });
+
+            }
+
+        </script>
 
 
     </div>
