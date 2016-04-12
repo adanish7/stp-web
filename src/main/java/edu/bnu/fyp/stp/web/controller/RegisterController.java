@@ -43,13 +43,15 @@ public class RegisterController {
                 System.out.println(bindingResult.getAllErrors().iterator().next().toString());
             }
 
-            user.setRole("student");
-            manageUserBL.registerStudent(user);
+            if (user.getPassword().equals(user.getConfirmPassword())) {
+                user.setRole("student");
+                manageUserBL.registerStudent(user);
+            }
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        return "Login";
+        return "redirect:/login";
     }
 
     @RequestMapping(value = "/user/register/tutor" , method = RequestMethod.POST)
@@ -66,6 +68,6 @@ public class RegisterController {
             e.printStackTrace();
         }
 
-        return "Login";
+        return "redirect:/login";
     }
 }

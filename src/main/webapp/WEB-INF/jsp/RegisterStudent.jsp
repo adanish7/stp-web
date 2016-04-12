@@ -91,16 +91,19 @@
                                 <div class="form-group">
                                     <div style="float:left;"><label><i class="fa fa-user"></i> First Name</label> <span style="color:red;">*</span></div>
                                     <spring:input path="firstName" type="text" name="first_name" value="" id="first_name"  />
+                                    <spring:errors path="firstName" cssClass="error"></spring:errors>
                                 </div>
 
                                 <div class="form-group">
                                     <div style="float:left;"><label><i class="fa fa-user"></i> Last Name</label> <span style="color:red;">*</span></div>
                                     <spring:input path="lastName" type="text" name="last_name" value="" id="last_name"  />
+                                    <spring:errors path="lastName" cssClass="error"></spring:errors>
                                 </div>
 
                                 <div class="form-group">
                                     <div style="float:left;"><label><i class="fa fa-envelope"></i> Email</label> <span style="color:red;">*</span></div>
                                     <spring:input path="email" type="text" name="email" value="" id="email"  />
+                                    <spring:errors path="email" cssClass="error"></spring:errors>
                                 </div>
                             </div>
 
@@ -108,16 +111,19 @@
                                 <div class="form-group">
                                     <div style="float:left;"><label><i class="fa fa-phone"></i> Phone</label> <span style="color:red;">*</span></div>
                                     <spring:input path="phone" type="text" name="phone" value="" id="phone" maxlength="11"  />
+                                    <spring:errors path="phone" cssClass="error"></spring:errors>
                                 </div>
 
                                 <div class="form-group">
                                     <div style="float:left;"><label><i class="fa fa-key"></i> Password</label> <span style="color:red;">*</span></div>
                                     <spring:input path="password" type="password" name="password" value="" id="password"  />
+                                    <spring:errors path="password" cssClass="error"></spring:errors>
                                 </div>
 
                                 <div class="form-group">
                                     <div style="float:left;"><label><i class="fa fa-key"></i> Confirm Password</label> <span style="color:red;">*</span></div>
-                                    <spring:input path="" type="password" name="password_confirm" value="" id="password_confirm"  />
+                                    <spring:input path="confirmPassword" type="password" name="password_confirm" value="" id="password_confirm"  />
+                                    <spring:errors path="confirmPassword" cssClass="error"></spring:errors>
                                 </div>
 
                             </div>

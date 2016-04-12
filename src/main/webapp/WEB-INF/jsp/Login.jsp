@@ -84,7 +84,8 @@
                         <div class="sidebar_heading">
                             <h4>Login</h4>
                         </div>
-                        <spring:form action="${pageContext.request.contextPath}/user/login" modelAttribute="user" accept-charset="utf-8" id="login_form" name="login_form">
+                        <spring:form action="${pageContext.request.contextPath}/user/login" modelAttribute="user"
+                                     accept-charset="utf-8" id="login_form" name="login_form" method="post">
                             <div style="display:none">
                                 <input type="hidden" name="digi_turor_system" value="662d34aa24ae30f29628342d57a03174" />
                             </div>
@@ -104,6 +105,7 @@
                                         <div style="float:left;"><label><i class="fa fa-key"></i> Password</label> <span style="color:red;">*</span></div>
                                         <spring:input path="password" type="password" name="password" value="" id="password" title=""  />
                                     </div>
+                                    <div class="error">${error}</div>
                                 </div>
                             </div>
 

@@ -18,14 +18,21 @@ public class User {
     @Id
     private String userId;
 
+    @NotEmpty
     private String firstName;
+    @NotEmpty
     private String lastName;
+    @NotEmpty
     private String password;
+
+    @NotEmpty
+    private String confirmPassword;
 
     @NotEmpty
     @Email
     private String email;
 
+    @NotEmpty
     private String phone;
     private Date birthDate;
     private List<String> userRoles;
@@ -61,6 +68,14 @@ public class User {
 
     public void setPassword(String password) {
         this.password = password;
+    }
+
+    public String getConfirmPassword() {
+        return confirmPassword;
+    }
+
+    public void setConfirmPassword(String confirmPassword) {
+        this.confirmPassword = confirmPassword;
     }
 
     public String getEmail() {

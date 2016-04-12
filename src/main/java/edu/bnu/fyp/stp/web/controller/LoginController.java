@@ -4,6 +4,7 @@ import edu.bnu.fyp.stp.domain.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -11,6 +12,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import edu.bnu.fyp.stp.bl.ManageUserBL;
 
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 @Controller
@@ -20,14 +23,14 @@ public class LoginController {
     private ManageUserBL manageUserBL;
 
     @RequestMapping("/login")
-    public String showLogin(Model model){
+    public String showLogin(Model model) {
         User user = new User();
         model.addAttribute("user", user);
         return "Login";
     }
 
-    @RequestMapping(value = "/user/login" , method = RequestMethod.POST)
-    public String userLogin(@Valid @ModelAttribute User user, BindingResult bindingResult) {
+    @RequestMapping(value = "/user/login", method = RequestMethod.POST)
+    public String userLogin(@Valid @ModelAttribute User user, BindingResult bindingResult, ModelMap modelMap, HttpServletRequest request) {
 
 
         String email = user.getEmail();
@@ -38,26 +41,43 @@ public class LoginController {
         try {
             if (bindingResult.hasErrors()) {
                 System.out.println(bindingResult.getAllErrors().iterator().next().toString());
-                return "Login";
+                //return "Login";
             }
-            user1 = manageUserBL.getUserByEmailAndPassword(email , password);
+            user1 = manageUserBL.getUserByEmailAndPassword(email, password);
             if ((!user1.getEmail().equals("")) && (!user1.getPassword().equals(""))) {
 
+                HttpSession session = request.getSession();
+                session.setAttribute("user", user1);
+                //modelMap.put("username", user1.getFirstName() + " " + user1.getLastName());
+
                 if (user1.getRole().equals("student"))
-                    return "StudentDashboard";
+                    return "redirect:/Studentdashboard";
 
                 else if (user1.getRole().equals("tutor"))
-                    return "TutorDasbhboard";
+                    return "redirect:/Tutordashboard";
 
                 else if (user1.getRole().equals("admin"))
-                    return "AdminDashboard";
+                    return "redirect:/admindashboard";
 
             }
 
         } catch (Exception e) {
-
+            e.printStackTrace();
         }
 
-        return "Index";
+        modelMap.put("error", "Invalid username/password");
+        return "Login";
+    }
+
+    @RequestMapping("/logout")
+    public String logoutUser(HttpServletRequest request) {
+        HttpSession session = request.getSession(false);
+
+        if (session != null) {
+            /* clear everything inside this session memory */
+            session.invalidate();
+        }
+
+        return "/login";
     }
 }
