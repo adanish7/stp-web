@@ -1,8 +1,7 @@
 package edu.bnu.fyp.stp.constants;
 
 /**
- * Created by Abdul Basit on 3/2/2016.
+ * Created by Rehan on 4/12/16.
  */
 public enum RequirementsPriority {
-    HIGH, LOW, MEDIUM
 }
