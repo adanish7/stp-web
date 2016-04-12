@@ -65,4 +65,11 @@ public class RequirementController {
         return "PostRequirement";
     }
 
+    @RequestMapping(value = "/requirement/list")
+    public String listRequirement()
+    {
+
+        return("ListRequirements");
+    }
+
 }

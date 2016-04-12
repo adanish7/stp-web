@@ -26,7 +26,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <title>List Requirement</title>
+    <title>List Requirements</title>
     <!--style start-->
     <link href="../../assets/system_design/css/bootstrap.css" rel="stylesheet">
     <link href="../../assets/system_design/css/style.css" rel="stylesheet">
@@ -217,118 +217,7 @@
                   </span>
                                 <p>Found Tutor</p>
                             </div>
-                        </li>
-                        <li class="my_requirements_list">
-                            <div class="closed" id="9" style='display:block;'></div>
-                            <div class="list-left list-con" id="div_9" style='opacity:0.4;'>
-                                <div class="col-md-8 padding-l">
-                     <span class="title">
-                        <p> <strong> Need advance java </strong> </p>
-                     </span>
-                                    <p> Should be strong in form handling concepts.  </p>
-                                    <p>  Frederick Ave, Kensington  </p>
-                                    <p> <i class="fa fa-calendar"></i> Posted On:  &nbsp; 1 Year ago  </p>
-                                </div>
-                                <div class="col-md-4 padding-l">
-                                    </br> </br>
-                                    <p><i class="fa fa-clock-o"></i>
-                                        Duration Needed: 1 Month                     </p>
-                                    <p><i class="fa fa-usd"></i>
-                                        Budget: 2200                     </p>
-                                    <p><i class="fa fa-align-center"></i>
-                                        Budget Type: Monthly
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="list-image midd">
-                                <div class="std_notili">
-                                    <span><i class="fa fa-eye"></i> </span>
-                                    <div class="not_txt1"><font>2</font><br>
-                                        Views                     </div>
-                                </div>
-                            </div>
-                            <div class="list-right last-box">
-                  <span class="checkbox tutor-check pa-ch">
-                  <input type="checkbox" id="checkboxInput_9" class="is_tutor_found" onclick="performAction(this.id)" name="status" checked>
-                  <label for="checkboxInput_9"></label>
-                  </span>
-                                <p>Found Tutor</p>
-                            </div>
-                        </li>
-                        <li class="my_requirements_list">
-                            <div class="closed" id="6" style='display:block;'></div>
-                            <div class="list-left list-con" id="div_6" style='opacity:0.4;'>
-                                <div class="col-md-8 padding-l">
-                     <span class="title">
-                        <p> <strong> Need Windows Admin </strong> </p>
-                     </span>
-                                    <p> Good knowledge on windows networking concepts.  </p>
-                                    <p>  Frederick Ave, Kensington  </p>
-                                    <p> <i class="fa fa-calendar"></i> Posted On:  &nbsp; 1 Year ago  </p>
-                                </div>
-                                <div class="col-md-4 padding-l">
-                                    </br> </br>
-                                    <p><i class="fa fa-clock-o"></i>
-                                        Duration Needed: 3 Months                     </p>
-                                    <p><i class="fa fa-usd"></i>
-                                        Budget: 4000                     </p>
-                                    <p><i class="fa fa-align-center"></i>
-                                        Budget Type: One Time
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="list-image midd">
-                                <div class="std_notili">
-                                    <span><i class="fa fa-eye"></i> </span>
-                                    <div class="not_txt1"><font>2</font><br>
-                                        Views                     </div>
-                                </div>
-                            </div>
-                            <div class="list-right last-box">
-                  <span class="checkbox tutor-check pa-ch">
-                  <input type="checkbox" id="checkboxInput_6" class="is_tutor_found" onclick="performAction(this.id)" name="status" checked>
-                  <label for="checkboxInput_6"></label>
-                  </span>
-                                <p>Found Tutor</p>
-                            </div>
-                        </li>
-                        <li class="my_requirements_list">
-                            <div class="closed" id="5" style='display:block;'></div>
-                            <div class="list-left list-con" id="div_5" style='opacity:0.4;'>
-                                <div class="col-md-8 padding-l">
-                     <span class="title">
-                        <p> <strong> Need Share Point Admin </strong> </p>
-                     </span>
-                                    <p> Good knowledge on Share point network topics  </p>
-                                    <p>  Frederick Ave, Kensington  </p>
-                                    <p> <i class="fa fa-calendar"></i> Posted On:  &nbsp; 1 Year ago  </p>
-                                </div>
-                                <div class="col-md-4 padding-l">
-                                    </br> </br>
-                                    <p><i class="fa fa-clock-o"></i>
-                                        Duration Needed: 4 Months                     </p>
-                                    <p><i class="fa fa-usd"></i>
-                                        Budget: 9000                     </p>
-                                    <p><i class="fa fa-align-center"></i>
-                                        Budget Type: Monthly
-                                    </p>
-                                </div>
-                            </div>
-                            <div class="list-image midd">
-                                <div class="std_notili">
-                                    <span><i class="fa fa-eye"></i> </span>
-                                    <div class="not_txt1"><font>2</font><br>
-                                        Views                     </div>
-                                </div>
-                            </div>
-                            <div class="list-right last-box">
-                  <span class="checkbox tutor-check pa-ch">
-                  <input type="checkbox" id="checkboxInput_5" class="is_tutor_found" onclick="performAction(this.id)" name="status" checked>
-                  <label for="checkboxInput_5"></label>
-                  </span>
-                                <p>Found Tutor</p>
-                            </div>
-                        </li>
+
                     </ul>
                 </div>
             </div>
