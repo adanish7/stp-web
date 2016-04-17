@@ -129,8 +129,8 @@
                 <li class="has-sub">
                     <a href="#"><span> <i class="fa fa-tree"></i>My Requirements </span></a>
                     <ul class="bb">
-                        <li><a href="#"><span>List</span></a></li>
-                        <li><a href="#"><span>Post a Requirement</span></a></li>
+                        <li><a href="${pageContext.request.contextPath}/requirement/list"><span>List</span></a></li>
+                        <li><a href="${pageContext.request.contextPath}/requirement/post"><span>Post a Requirement</span></a></li>
                     </ul>
                 </li>
                 <!---Messages Settings-->
@@ -179,36 +179,36 @@
                             </style>
                             <div class="col-md-10 padding-0">
                                 <div class="brade">
-                                    <a href="http://mdev.digitalvidhya.com/dts/en/student" style="text-decoration:none;">Home</a>
+                                    <a href="${pageContext.request.contextPath}/studentdashboard" style="text-decoration:none;">Home</a>
                                     > My Requirements > List   </div>
                             </div>
                             <div class="col-lg-10 col-md-10 col-sm-12 padding-lr">
                                 <div class="body-content">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <a href="${pageContext.request.contextPath}/requirement/post" class="add-new flt-right"><b>Post a Requirement</b></a>
-                                        <c:forEach items="${requirements}" var="user" varStatus="counter">
+                                        <c:forEach items="${requirements}" var="requirements" varStatus="counter">
 
                                         <ul class="list my_list new-list">
                                             <li class="my_requirements_list">
-                                                <div class="closed" id="${requirement.id}" style='display:block;'></div>
+                                                <div class="closed" id="11" style='display:block;'></div>
                                                 <div class="list-left list-con" id="div_11" style='opacity:0.4;'>
                                                     <div class="col-md-8 padding-l">
                                                         <span class="title">
-                                                            <p> <strong> ${requirement.title} </strong> </p>
+                                                            <p> <strong> ${requirements.title} </strong> </p>
                                                         </span>
-                                                        <p> ${requirement.requirementDetails}  </p>
+                                                        <p> ${requirements.requirementDetails}  </p>
                                                         <p>  Frederick Ave, Kensington  </p>
                                                         <p> <i class="fa fa-calendar"></i> Posted On:  &nbsp; 1 Year ago  </p>
                                                     </div>
                                                     <div class="col-md-4 padding-1">
                                                         </br> </br>
                                                         <p style="color: black"><i class="fa fa-clock-o"></i>
-                                                            Duration Needed: &nbsp; ${requirement.duration}
+                                                            Duration Needed: &nbsp; ${requirements.duration}
                                                         </p>
                                                         <p><i class="fa fa-usd"></i>
-                                                            Budget: &nbsp; ${requirement.budget}   </p>
+                                                            Budget: &nbsp; ${requirements.budget}   </p>
                                                         <p><i class="fa fa-align-center"></i>
-                                                            Budget Type: &nbsp; ${requirement.budgetType}
+                                                            Budget Type: &nbsp; ${requirements.budgetType}
                                                         </p>
                                                     </div>
                                                 </div>
@@ -271,7 +271,7 @@
                     type: "post",
                     async: false,
                     url: "http://mdev.digitalvidhya.com/dts/en/student/changeStudentLeadStatus",
-                    data: { status:status, lead_id:closeid, "digi_turor_system":"8f605e10c031ce4f7eb84780a7182c38"},
+                    data: { status:status, lead_id:closeid, "digi_turor_system":"8f605e10c031ce4f7eb84780a7182c38"}, //Need to check about this id
                     success: function(data) {
 
                     },

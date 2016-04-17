@@ -176,6 +176,13 @@
             </div>
         </div>
 
+        <div class="col-md-10 padding-0">
+            <div class="brade">
+                <a href="${pageContext.request.contextPath}/admindashboard">Home</a>
+                > Subjects > List Subjects
+            </div>
+        </div>
+
         <div class="col-lg-10 col-md-10 col-sm-12 padding-lr">
             <div class="body-content">
                 <div class="main-hed">
@@ -221,7 +228,7 @@
                 </div>
             </div>
 
-    <%--<div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
             <div class="modal-content my-popup">
                 <div class="modal-header">
@@ -229,7 +236,7 @@
                         <span class="sr-only">Close</span></button>
                     <h4 class="modal-title" id="myModalLabel">Delete</h4>
                 </div>
-                <div class="modal-body">  Are You Sure to Delete?    </div>
+                <div class="modal-body">  Are You Sure to Delete?  </div>
                 <div class="modal-footer">
                     <a type="button" class="btn btn-success" id="delete_no" href="">Yes</a>  <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                 </div>
@@ -238,10 +245,10 @@
     </div>
     <script>
         function changeDeleteId(x) {
-            var str = "http://mdev.digitalvidhya.com/dts/en/admin/students/delete/" + x;
+            var str = "${pageContext.request.contextPath}/subject/delete/" + x;
             $("#delete_no").attr("href",str);
         }
-    </script></div>--%>
+    </script></div>
 
 
 

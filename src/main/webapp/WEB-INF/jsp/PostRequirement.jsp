@@ -128,8 +128,8 @@
                 <li class="has-sub">
                     <a href="#"><span> <i class="fa fa-tree"></i>My Requirements </span></a>
                     <ul class="bb">
-                        <li><a href="#"><span>List</span></a></li>
-                        <li><a href="#"><span>Post a Requirement</span></a></li>
+                        <li><a href="${pageContext.request.contextPath}/requirement/list"><span>List</span></a></li>
+                        <li><a href="${pageContext.request.contextPath}/requirement/post"><span>Post a Requirement</span></a></li>
                     </ul>
                 </li>
                 <!---Messages Settings-->
@@ -186,7 +186,7 @@
                                 <div class="form-group">
                                     <label>Type of Tutor</label><span style="color:red;">*</span>
                                     <cf:select path="tutorType">
-                                        <option value=""></option>
+                                        <option value="" selected="selected">Select Tutor Type</option>
                                         <c:forEach items="${tutorType}" var="value">
                                             <option>
                                                     ${value}
@@ -196,13 +196,13 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Subject</label><span style="color:red;">*</span>
-                                    <cf:select path="subject">
-                                        <option value="" selected="selected">Select Segment</option>
-                                        <option value="50">Programming Languages</option>
-                                        <option value="53">Testing Courses</option>
-                                        <option value="61">News</option>
-                                        <option value="62">Maths</option>
-                                        <option value="63">Science</option>
+                                    <cf:select path="subject" name="subjectSelect">
+                                        <option value="" selected="selected">Select Subject</option>
+                                        <c:forEach items="${subjects}" var="name">
+                                            <option>
+                                                ${name.subjectName};
+                                            </option>
+                                        </c:forEach>
                                     </cf:select>
                                 </div>
                                 <div class="form-group">

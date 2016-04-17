@@ -34,4 +34,9 @@ public class SubjectBL {
         return subjectMongoRepository.findAll();
     }
 
+    public List<Subject> findBySubjectName(String subject) throws Exception
+    {
+        return subjectMongoRepository.findBySubjectName(subject);
+    }
+
 }

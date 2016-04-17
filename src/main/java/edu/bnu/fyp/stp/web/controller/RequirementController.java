@@ -2,6 +2,7 @@ package edu.bnu.fyp.stp.web.controller;
 
 import edu.bnu.fyp.stp.bl.ManageUserBL;
 import edu.bnu.fyp.stp.bl.RequirementBL;
+import edu.bnu.fyp.stp.bl.SubjectBL;
 import edu.bnu.fyp.stp.constants.BudgetType;
 import edu.bnu.fyp.stp.constants.Duration;
 import edu.bnu.fyp.stp.constants.RequirementsPriority;
@@ -33,14 +34,32 @@ public class RequirementController {
     @Autowired
     private RequirementBL requirementBL;
 
+    @Autowired
+    private SubjectBL subjectBL;
+
     @RequestMapping(value = "/post")
     public String showStudentRequirement(Model model)
     {
+
+        List<Subject> subjects = new ArrayList<Subject>();
+
+        try
+        {
+            subjects = subjectBL.getAllSubjects();
+        }
+        catch (Exception e)
+        {
+            e.getStackTrace();
+        }
 
         model.addAttribute("tutorType", TutorType.values());
         model.addAttribute("duration", Duration.values());
         model.addAttribute("priority", RequirementsPriority.values());
         model.addAttribute("budgetType", BudgetType.values());
+
+        /*System.out.println(subjects.size());*/
+
+        model.addAttribute("subjects", subjects);
 
         Requirement requirement = new Requirement();
 

@@ -16,4 +16,6 @@ public interface SubjectMongoRepository extends MongoRepository<Subject, String>
     public List<Subject> findBySubjectCodeAndSubjectName(String subjectCode, String subjectName) throws Exception;
 
     public List<Subject> findBySubjectCodeOrSubjectName(String subjectCode, String subjectName) throws Exception;
+
+    public List<Subject> findBySubjectName(String subjectName) throws Exception;
 }
