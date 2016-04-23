@@ -47,7 +47,7 @@ public class LoginController {
                     return "StudentDashboard";
 
                 else if (user1.getRole().equals("tutor"))
-                    return "TutorDasbhboard";
+                    return "TutorDashboard";
 
                 else if (user1.getRole().equals("admin"))
                     return "AdminDashboard";

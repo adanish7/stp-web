@@ -43,7 +43,7 @@
     <link rel="icon" type="image/png" href=""/>
     <!--fevicon icon end-->
 </head>
-<body class="bg-col">
+<body class="bg-col" onload="listSubjects()">
 <!-- Modal for contacting Admin -->
 <div class="modal fade" id="studentToAdmin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -198,31 +198,16 @@
 
                             </div>
 
-                            <div class="table-responsive" >
-                                        <table width="80%" id="example" class="table table-hover" cellspacing="0" style="font-size: 14px ; margin-left: 10px; text-align: center; border: 1px solid black;">
+                            <%--<div class="table-responsive" >--%>
 
-                                                <tr style="background-color: white; color: black; border: 1px solid black; text-align: center">
-                                                    <th style="text-align: center">Sr.</th>
-                                                    <th style="text-align: center">Id</th>
-                                                    <th style="text-align: center">Title</th>
-                                                    <th style="text-align: center">Status</th>
-                                                    <th style="text-align: center">Actions</th>
-                                                </tr>
+                                <div id="subjectArea">
 
-                                            <c:forEach items="${subjects}" var="subject" varStatus="counter">
-                                                <tr>
-                                                    <td style="font-size: 14px ; border: 1px solid black; background-color: white">${counter.count}</td>
-                                                    <td style="font-size: 14px ; border: 1px solid black; background-color: white">${subject.subjectCode}</td>
-                                                    <td style="font-size: 14px ; border: 1px solid black; background-color: white">${subject.subjectName}</td>
-                                                    <td style="font-size: 14px ; border: 1px solid black; background-color: white">${subject.status}</td>
-                                                    <td style="font-size: 14px ; border: 1px solid black; background-color: white">
-                                                        <a style="color: green; font-weight: bold" href="${pageContext.request.contextPath}/subject/edit/${subject.subjectId}">Edit</a> &nbsp;|&nbsp;
-                                                        <a style="color: red; font-weight: bold" href="${pageContext.request.contextPath}/subject/delete/${subject.subjectId}">Delete</a>
-                                                    </td>
-                                                </tr>
-                                            </c:forEach>
-                                        </table>
-                            </div>
+
+
+                                </div>
+
+
+                            <%--</div>--%>
                         </div>
                     </div>
                 </div>
@@ -236,20 +221,22 @@
                         <span class="sr-only">Close</span></button>
                     <h4 class="modal-title" id="myModalLabel">Delete</h4>
                 </div>
-                <div class="modal-body">  Are You Sure to Delete?  </div>
+                <div class="modal-body">  Are You Sure to Delete? </div>
                 <div class="modal-footer">
                     <a type="button" class="btn btn-success" id="delete_no" href="">Yes</a>  <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                 </div>
             </div>
         </div>
+
     </div>
+
     <script>
         function changeDeleteId(x) {
+
             var str = "${pageContext.request.contextPath}/subject/delete/" + x;
             $("#delete_no").attr("href",str);
         }
-    </script></div>
-
+    </script>
 
 
     </section>
@@ -281,6 +268,7 @@
 <script type="text/javascript" src="../../assets/system_design/js/bootstrap-datepicker.js"></script>
 <script src="../../assets/system_design/js/sidemenu-script.js" type="text/javascript"></script>
 <script src="../../assets/system_design/js/jquery.mixitup.min.js"></script>
+<script src="../../assets/system_design/js/main.js"></script>
 <!--./script end-->
 </body>
 </html>

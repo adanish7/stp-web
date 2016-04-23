@@ -27,7 +27,13 @@ public class SubjectController {
     @Autowired
     private ManageSubjectsBL manageSubjectsBL;
 
-    @RequestMapping(value = "/list", method = RequestMethod.GET)
+    @RequestMapping(value = "/show", method = RequestMethod.GET)
+    public String showListSubject(Model model) {
+
+        return "ListSubjects";
+    }
+
+    @RequestMapping(value = "/show/list", method = RequestMethod.GET)
     public String listSubjects(Model model) {
         List<Subject> subjects = new ArrayList<Subject>();
         try {
@@ -36,7 +42,7 @@ public class SubjectController {
             e.printStackTrace();
         }
         model.addAttribute("subjects", subjects);
-        return "ListSubjects";
+        return "include/SubjectList";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
@@ -76,6 +82,9 @@ public class SubjectController {
     public String deleteSubject(@PathVariable String subjectId, Model model) {
         Subject subject = new Subject();
         try {
+
+            System.out.println(subjectId);
+
             manageSubjectsBL.deleteSubject(subjectId);
         } catch (Exception e) {
             e.printStackTrace();

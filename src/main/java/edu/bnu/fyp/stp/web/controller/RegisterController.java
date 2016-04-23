@@ -1,6 +1,9 @@
 package edu.bnu.fyp.stp.web.controller;
 
 import edu.bnu.fyp.stp.bl.ManageUserBL;
+import edu.bnu.fyp.stp.constants.City;
+import edu.bnu.fyp.stp.constants.Gender;
+import edu.bnu.fyp.stp.constants.TutorType;
 import edu.bnu.fyp.stp.domain.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -24,6 +27,12 @@ public class RegisterController {
         User user = new User();
         model.addAttribute("user" , user);
 
+        model.addAttribute("tutorType", TutorType.values());
+
+        model.addAttribute("city" , City.values());
+
+        model.addAttribute("gender" , Gender.values());
+
         return "RegisterStudent";
     }
 
@@ -31,6 +40,12 @@ public class RegisterController {
     public String showRegisterTutor(Model model) {
         User user = new User();
         model.addAttribute("user" , user);
+
+        model.addAttribute("tutorType", TutorType.values());
+
+        model.addAttribute("city" , City.values());
+
+        model.addAttribute("gender" , Gender.values());
 
         return "RegisterTutor";
     }

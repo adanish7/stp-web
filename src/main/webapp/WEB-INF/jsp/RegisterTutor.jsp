@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="spring" uri="http://www.springframework.org/tags/form" %>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <html lang="en">
 
@@ -74,8 +75,8 @@
 <!--./top_wrapper-->
 
 <!--bg-image-->
-<div class="intro-header">
-    <section class="single-page-section login_D">
+<div class="intro-header" style="height: 150px; width: auto">
+    <section class="single-page-section login_D" style="height: auto;">
         <div class="container">
             <div class="row">
                 <div class="col-lg-12 col-md-12 col-sm-12 ">
@@ -90,34 +91,95 @@
                             <div class="col-md-6">
                                 <div class="form-group">
                                     <div style="float:left;"><label><i class="fa fa-user"></i> First Name</label> <span style="color:red;">*</span></div>
-                                    <spring:input path="firstName" type="text" name="first_name" value="" id="first_name"  />
+                                    <spring:input path="firstName" type="text" name="first_name" value="" id="first_name" required="required" />
                                 </div>
 
                                 <div class="form-group">
                                     <div style="float:left;"><label><i class="fa fa-user"></i> Last Name</label> <span style="color:red;">*</span></div>
-                                    <spring:input path="lastName" type="text" name="last_name" value="" id="last_name"  />
+                                    <spring:input path="lastName" type="text" name="last_name" value="" id="last_name" required="required" />
+                                </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><i class="fa fa-user"></i> User Name</label> <span style="color:red;">*</span></div>
+                                    <spring:input path="userName" type="text" name="userName" value="" id="userName"  required="required"/>
                                 </div>
 
                                 <div class="form-group">
                                     <div style="float:left;"><label><i class="fa fa-envelope"></i> Email</label> <span style="color:red;">*</span></div>
-                                    <spring:input path="email" type="text" name="email" value="" id="email"  />
+                                    <spring:input path="email" type="text" name="email" value="" id="email" required="required" />
                                 </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><%--<i class="fa fa-envelope"></i>--%> Qualification </label> <span style="color:red;">*</span></div>
+                                    <spring:input path="tutorQualification" type="text" name="tutorQualification" value="" id="tutorQualification" required="required" />
+                                </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><%--<i class="fa fa-envelope"></i>--%> Teaching Subject </label> <span style="color:red;">*</span></div>
+                                    <spring:input path="subject" type="text" name="subject" value="" id="subject" required="required" />
+                                </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><%--<i class="fa fa-envelope"></i>--%> Type of Tutoring </label> <span style="color:red;">*</span></div>
+                                    <spring:select path="tutorType" type="text" name="tutorType" value="" id="tutorType" required="required">
+
+                                        <spring:option value="Home">Home</spring:option>
+                                        <spring:option value="Online">Online</spring:option>
+
+                                    </spring:select>
+                                </div>
+
                             </div>
 
                             <div class="col-md-6">
+
                                 <div class="form-group">
-                                    <div style="float:left;"><label><i class="fa fa-phone"></i> Phone</label> <span style="color:red;">*</span></div>
-                                    <spring:input path="phone" type="text" name="phone" value="" id="phone" maxlength="11"  />
+                                    <div style="float:left;"><label><%--<i class="fa fa-envelope"></i>--%> City </label> <span style="color:red;">*</span></div>
+                                    <spring:select path="city" name="city" value="" id="city" required="required">
+
+                                        <spring:option value="Lahore">Lahore</spring:option>
+                                        <spring:option value="Lahore">Islamabad</spring:option>
+                                        <spring:option value="Lahore">Multan</spring:option>
+                                        <spring:option value="Lahore">Karachi</spring:option>
+                                        <spring:option value="Lahore">Quetta</spring:option>
+                                        <spring:option value="Lahore">Peshawar</spring:option>
+                                        <spring:option value="Lahore">AJK</spring:option>
+
+                                    </spring:select>
+                                </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><%--<i class="fa fa-envelope"></i>--%> Experience </label> <span style="color:red;">*</span></div>
+                                    <spring:select path="tutorExperience" name="tutorExperience" id="tutorExperience" required="required">
+                                        <spring:option value="1 - 2 Years">1 - 2 Years</spring:option>
+                                        <spring:option value="2 - 3 Years">2 - 3 Years</spring:option>
+                                        <spring:option value="3 - 5 Years">3 - 5 Years</spring:option>
+                                        <spring:option value="> 5 Years"> > 5 Years</spring:option>
+                                    </spring:select>
+
                                 </div>
 
                                 <div class="form-group">
                                     <div style="float:left;"><label><i class="fa fa-key"></i> Password</label> <span style="color:red;">*</span></div>
-                                    <spring:input path="password" type="password" name="password" value="" id="password"  />
+                                    <spring:input path="password" type="password" name="password" value="" id="password" required="required" />
                                 </div>
 
                                 <div class="form-group">
                                     <div style="float:left;"><label><i class="fa fa-key"></i> Confirm Password</label> <span style="color:red;">*</span></div>
-                                    <spring:input path="" type="password" name="password_confirm" value="" id="password_confirm"  />
+                                    <spring:input path="" type="password" name="password_confirm" value="" id="password_confirm" required="required" />
+                                </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><i class="fa fa-phone"></i> Phone</label> <span style="color:red;">*</span></div>
+                                    <spring:input path="phone" type="text" name="phone" value="" id="phone" maxlength="11" required="required" />
+                                </div>
+
+                                <div class="form-group">
+                                    <div style="float:left;"><label><%--<i class="fa fa-phone"></i>--%> Gender </label> <span style="color:red;">*</span></div>
+                                    <spring:select path="gender" name="gender" value="" id="gender" >
+                                            <spring:option value="Male"> Male </spring:option>
+                                            <spring:option value="Female"> Female </spring:option>
+                                    </spring:select>
                                 </div>
 
                             </div>
@@ -211,7 +273,7 @@
         </div>
         <div class="col-lg-5 col-md-5 col-sm-12 padding-lr">
             <div class="footer_menu">
-                <p>Powered by:TeamSTP</p>
+                <p>Powered by: Team STP</p>
             </div>
         </div>
     </div>

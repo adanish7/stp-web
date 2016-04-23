@@ -156,44 +156,28 @@
                                 <ul>
                                     <li class="has-sub open">
                                         <a href="#"><span> Location </span><span class="holder"></span></a>
-                                        <ul class="search-side-list" style='display:block;'>
+                                        <ul class="search-side-list">
                                             <div class="search-sidte-total">
                                                 <div class="search-sidte-list">
-                                                    <h5><a>Kensington</a></h5>
-                                                    <li><a class="active" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/location/2/kensington_frederick-ave">Frederick Ave </a></li>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/location/6/kensington_wheatley-ste">Wheatley ste </a></li>
-                                                    <h5><a>Polymouth</a></h5>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/location/4/polymouth_butler-pike">Butler pike </a></li>
-                                                    <h5><a>Camden</a></h5>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/location/35/camden_old-north-road">Old north road </a></li>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/location/36/camden_mardella-dr">Mardella dr </a></li>
-                                                    <h5><a>Oxford</a></h5>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/location/13/oxford_delaware">Delaware </a></li>
+                                                    <li>
+                                                        <input type="checkbox" name="location" class="locations" value="Lahore" onclick="findTutors()">&nbsp;Lahore
+                                                    </li>
+                                                    <li>
+                                                        <input type="checkbox" name="location" class="locations" value="Karachi" onclick="findTutors()">&nbsp;Karachi
+                                                    </li>
                                                 </div>
                                             </div>
                                         </ul>
                                     </li>
                                     <li class="has-sub">
-                                        <a href="#" ><span> Subject</span><span class="holder"></span></a>
+                                        <a href="#" ><span> Subjects </span><span class="holder"></span></a>
+
                                         <ul class="search-side-list" >
                                             <div class="search-sidte-total">
                                                 <div class="search-sidte-list">
-
-                                                    <h5><a>Programming Languages</a></h5>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/subject/52/programming-languages_java">java </a></li>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/subject/58/programming-languages_net">.Net </a></li>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/subject/59/programming-languages_c">C </a></li>
-
-                                                    <h5><a>Testing Courses</a></h5>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/subject/54/testing-courses_manual-testing">Manual Testing </a></li>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/subject/55/testing-courses_qtp">QTP </a></li>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/subject/56/testing-courses_selenium">Selenium </a></li>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/subject/107/testing-courses_silk-test-performance">Silk Test (Performance) </a></li>
-
-                                                    <h5><a>News</a></h5>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/subject/74/news_tv9">TV9 </a></li>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/subject/78/news_tv5">TV5 </a></li>
-
+                                                    <c:forEach items="${subjectList}" var="subjectList" varStatus="counter">
+                                                        <li><input type="checkbox" name="subject" class="subjects" value="${subjectList.subjectName}" onclick="findTutors()"> ${subjectList.subjectName} </li>
+                                                    </c:forEach>
                                                 </div>
                                             </div>
                                         </ul>
@@ -203,9 +187,10 @@
                                         <ul class="search-side-list" >
                                             <div class="search-sidte-total">
                                                 <div class="search-sidte-list">
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/experience/2"> 1 - 2 Years</a></li>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/experience/3"> 2 - 3 Years</a></li>
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/experience/5"> 3 - 5 Years</a></li>
+                                                    <li><input type="checkbox" name="experience" class="experiences" value="1 - 2 Years" onclick="findTutors()"> 1 - 2 Years </li>
+                                                    <li><input type="checkbox" name="experience" class="experiences" value="2 - 3 Years" onclick="findTutors()"> 2 - 3 Years  </li>
+                                                    <li><input type="checkbox" name="experience" class="experiences" value="3 - 5 Years" onclick="findTutors()" > 3 - 5 Years </li>
+                                                    <li><input type="checkbox" name="experience" class="experiences" value="> 5 Years" onclick="findTutors()" > > 5 Years </li>
                                                 </div>
                                             </div>
                                         </ul>
@@ -216,11 +201,9 @@
                                             <div class="search-sidte-total">
                                                 <div class="search-sidte-list">
 
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/tutor_type/1/home-tutor"> Home Tutor </a></li>
+                                                    <li><input type="checkbox" name="tutorType" class="tutorTypes" value="Home" onclick="findTutors()"> Home Tutor </li>
 
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/tutor_type/2/online-tutor"> Online Tutor </a></li>
-
-                                                    <li><a class="" href="http://mdev.digitalvidhya.com/dts/en/welcome/searchTutor/tutor_type/3/home-online"> Home/Online </a></li>
+                                                    <li><input type="checkbox" name="tutorType" class="tutorTypes" value="Online" onclick="findTutors()"> Online Tutor </li>
 
                                                 </div>
                                             </div>
@@ -229,78 +212,27 @@
                                 </ul>
                             </div>
                         </div>
-                        <!--./col-lg-3-->            <div class="col-lg-9 col-md-9 col-sm-12">
+
+                        <!--./col-lg-3-->
+                        <div class="col-lg-9 col-md-9 col-sm-12">
                         <div class="col-md-12 padding-0 back" >
                             <div class="ctbg">
                                 <div class="form-group ct">
-                                    <label> Location</label>
-                                    <a href="http://mdev.digitalvidhya.com/dts/en/welcome/clearLocationFilter/selected/searchTutor" class="btn btn-default cate"> kensington > frederick-ave <i class="fa fa-close"></i> </a>
+                                    <label style="font-size: 16px; font-weight: bold"> Search Results </label>
+                                    <%--<a href="#" class="btn btn-default cate">  <i class="fa fa-close"></i> </a>--%>
                                 </div>
                             </div>
-                            <div class="clear-all">
-                                <a href="http://mdev.digitalvidhya.com/dts/en/welcome/clearAllFilters/selected/searchTutor"> <i class="fa fa-close"></i>Clear all filters</a>
+                        </div>
+
+                            <div style="margin-top: 10px; margin-bottom: 10px">
+
+
                             </div>
-                        </div>
-                        <div class="search_content">
-                            <ul>
-                                <li class="tutorz_list">
-                                    <div class="premiumuser" ></div>
-                                    <div class="search_result_header">
-                                        <div class="company_img">
-                                            <a href="#"><img height="80" width="80" src="http://mdev.digitalvidhya.com/dts/uploads/users/tutors/tutor_37.jpg"></a>
-                                        </div>
-                                        <div class="job_title">
-                                            <h3> <a target="_blank" href="http://mdev.digitalvidhya.com/dts/en/welcome/tutorProfile/37">James  Smith</a></h3>
-                                            <span class="job_detail"><i class="fa fa-user"></i> <strong>Gender </strong> Male</span>
-                                            <span class="job_detail"><i class="fa fa-line-chart"></i><strong> Experience </strong> 3</span>
-                                            <span class="job_detail"><i class="fa fa-calendar"></i> <strong>Age  </strong> 32 Years</span>
-                              <span class="job_detail"><i class="fa fa-graduation-cap"/></i>
-                                  <strong>Qualification  </strong> M.Tech</span>
-                                        </div>
-                                    </div>
-                                    <div class="search_result_content">
-                                        <div class="dl-horizontal">
-                                            <div class="col-md-6">
-                                                <ul>
 
-                                                    <li> <i class="fa fa-map-marker fa-1x"></i> <strong> Area</strong> &nbsp; Frederick Ave, Kensington </li>
-                                                    <li> <i class="fa fa-phone"></i><strong> Phone </strong>  &nbsp;
-                                                        xxxxxxxx99
-                                                    </li>
-                                                    <li>  <i class="fa fa-building"></i> <strong> Teaches</strong>  &nbsp; java, .Net.</li>
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-6">
-                                                <ul>
-                                                    <li>
-                                                        Tutor Avg. Rating &nbsp;  &nbsp;
-                                                        <div class="stars" id="37" ></div>
-                                                    </li>
-                                                    <li><i class="fa fa-phone-square"></i>
-                                                        <strong>WhatsApp</strong> &nbsp;
-                                                        xxxxxxxx99
-                                                    </li>
+                            <div id="searchResults">
 
-                                                </ul>
-                                            </div>
-                                            <div class="col-md-12 padding-0">
-                                                <div class="bottom-list">
-                                                    <ul>
-                                                        <li> <a data-toggle='modal' data-target='#myModal1' onclick="assignVal(37)"> <i class="fa fa-star-o"> </i>
-                                                            Add to Watch List</a>
-                                                        </li>
-                                                        <li> <a data-toggle='modal' data-target='#myModal4' onclick="assignVal(37)" id="reqmodal_37"> <i class="fa fa-phone"> </i> Request a Callback</a> </li>
-                                                        <li><a data-toggle='modal' data-target='#myModal2' onclick="assignVal(37)" id="msgmodal_37"><i class="fa fa-envelope"> </i> Send a Message                                          </a>&nbsp;
-                                                        </li>
-                                                        <li> <a href="http://mdev.digitalvidhya.com/dts/en/welcome/tutorProfile/37" class="view_more"> <i class="fa fa-long-arrow-right"></i> VIEW MORE </a>  </li>
-                                                    </ul>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </li>
-                            </ul>
-                        </div>
+                            </div>
+
                         <!--./search_content-->
                     </div>
                         <!--./col-lg-9-->
@@ -474,6 +406,13 @@
 <script type="text/javascript" src="../../assets/system_design/js/bootstrap-datepicker.js"></script>
 <script src="../../assets/system_design/js/sidemenu-script.js" type="text/javascript"></script>
 <script src="../../assets/system_design/js/jquery.mixitup.min.js"></script>
+<script src="../../assets/system_design/js/main.js"></script>
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log("Calling findTutors()");
+       findTutors();
+    });
+</script>
 <!--./script end-->
 </body>
 </html>

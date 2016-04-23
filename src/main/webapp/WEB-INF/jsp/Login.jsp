@@ -57,12 +57,12 @@
             </div>
             <nav class="collapse navbar-collapse bs-navbar-collapse padding-0" role="navigation">
                 <ul class="navbar-right">
-                    <li><a href="#" class="btn btn-primary f-login"> <i class="fa fa-sign-in"></i> Login</a></li>
+                    <%--<li><a href="#" class="btn btn-primary f-login"> <i class="fa fa-sign-in"></i> Login</a></li>--%>
                     <li>
                         <a href="<%=request.getContextPath() %>/login" class="btn btn-default regi"> <i class="fa fa-file-text"></i> Register</a>
                         <ul class="dropdown-menu" role="menu" aria-labelledby="dLabel">
-                            <li><a tabindex="-1" href="<%=request.getContextPath() %>/tutor/register"> <i class="fa fa-user"></i>As a Tutor</a></li>
-                            <li><a tabindex="-1" href="<%=request.getContextPath() %>/student/register"> <i class="fa fa-user"></i> As a student</a></li>
+                            <li><a tabindex="-1" href="${pageContext.request.contextPath}/tutor/register"> <i class="fa fa-user"></i>As a Tutor</a></li>
+                            <li><a tabindex="-1" href="${pageContext.request.contextPath}/student/register"> <i class="fa fa-user"></i> As a student</a></li>
                         </ul>
                     </li>
                 </ul>

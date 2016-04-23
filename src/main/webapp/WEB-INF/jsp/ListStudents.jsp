@@ -155,233 +155,12 @@
             <a href="#">Home</a> > Users > List Students
         </div>
     </div>
-    <div class="col-lg-10 col-md-10 col-sm-12 padding-lr">
-        <div class="body-content">
-            <div class="main-hed">
-                <div class="col-md-12">
-                    <table id="example" class="cell-border example" cellspacing="0" width="100%">
-                        <thead>
-                        <tr>
-                            <th>Sno</th>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>Email</th>
-                            <th>Action</th>
-                        </tr>
-                        </thead>
-                        <tfoot>
-                        <tr>
-                            <th>Sno</th>
-                            <th>Name</th>
-                            <th>Phone</th>
-                            <th>Email</th>
-                            <th>Action</th>
-                        </tr>
-                        </tfoot>
-                        <tbody>
-                        <c:forEach items="${users}" var="user" varStatus="counter">
-                            <tr>
-                                <td>${counter.count}</td>
-                                <td>${user.userName}</td>
-                                <td>${user.phone}</td>
-                                <td>${user.email}</td>
-                                <td>
-                                    <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(27)" title="Delete">
-                                        <i class="fa fa-trash-o delet"></i>
-                                    </a>&nbsp;
-                                    <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                    <a href="#" class="warning active">  Active </a>
-                                </td>
-                            </tr>
-                        </c:forEach>
-                        <%--<tr>
-                            <td>1</td>
-                            <td>Danish Ali</td>
-                            <td>123</td>
-                            <td>student@student.com</td>
-                            <td>
-                                <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(27)" title="Delete">
-                                    <i class="fa fa-trash-o delet"></i>
-                                </a>&nbsp;
-                                <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning active">  Active </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>2</td>
-                            <td>Zunaira Arif</td>
-                            <td>456</td>
-                            <td>za@gmail.com</td>
-                            <td>
-                                <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(29)" title="Delete">
-                                    <i class="fa fa-trash-o delet"></i>
-                                </a>&nbsp;
-                                <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning active">  Active </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Abdul Basit</td>
-                            <td>789</td>
-                            <td>ab@gmail.com</td>
-                            <td>
-                                <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(29)" title="Delete">
-                                    <i class="fa fa-trash-o delet"></i>
-                                </a>&nbsp;
-                                <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning active">  Active </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Abdul Basit</td>
-                            <td>789</td>
-                            <td>ab@gmail.com</td>
-                            <td>
-                                <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(29)" title="Delete">
-                                    <i class="fa fa-trash-o delet"></i>
-                                </a>&nbsp;
-                                <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning active">  Active </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Abdul Basit</td>
-                            <td>789</td>
-                            <td>ab@gmail.com</td>
-                            <td>
-                                <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(29)" title="Delete">
-                                    <i class="fa fa-trash-o delet"></i>
-                                </a>&nbsp;
-                                <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning active">  Active </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Abdul Basit</td>
-                            <td>789</td>
-                            <td>ab@gmail.com</td>
-                            <td>
-                                <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(29)" title="Delete">
-                                    <i class="fa fa-trash-o delet"></i>
-                                </a>&nbsp;
-                                <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning active">  Active </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Abdul Basit</td>
-                            <td>789</td>
-                            <td>ab@gmail.com</td>
-                            <td>
-                                <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(29)" title="Delete">
-                                    <i class="fa fa-trash-o delet"></i>
-                                </a>&nbsp;
-                                <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning active">  Active </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Abdul Basit</td>
-                            <td>789</td>
-                            <td>ab@gmail.com</td>
-                            <td>
-                                <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(29)" title="Delete">
-                                    <i class="fa fa-trash-o delet"></i>
-                                </a>&nbsp;
-                                <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning active">  Active </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Abdul Basit</td>
-                            <td>789</td>
-                            <td>ab@gmail.com</td>
-                            <td>
-                                <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(29)" title="Delete">
-                                    <i class="fa fa-trash-o delet"></i>
-                                </a>&nbsp;
-                                <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning active">  Active </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Abdul Basit</td>
-                            <td>789</td>
-                            <td>ab@gmail.com</td>
-                            <td>
-                                <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(29)" title="Delete">
-                                    <i class="fa fa-trash-o delet"></i>
-                                </a>&nbsp;
-                                <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning active">  Active </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Abdul Basit</td>
-                            <td>789</td>
-                            <td>ab@gmail.com</td>
-                            <td>
-                                <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(29)" title="Delete">
-                                    <i class="fa fa-trash-o delet"></i>
-                                </a>&nbsp;
-                                <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning active">  Active </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Abdul Basit</td>
-                            <td>789</td>
-                            <td>ab@gmail.com</td>
-                            <td>
-                                <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(29)" title="Delete">
-                                    <i class="fa fa-trash-o delet"></i>
-                                </a>&nbsp;
-                                <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning active">  Active </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Abdul Basit</td>
-                            <td>789</td>
-                            <td>ab@gmail.com</td>
-                            <td>
-                                <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(29)" title="Delete">
-                                    <i class="fa fa-trash-o delet"></i>
-                                </a>&nbsp;
-                                <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning active">  Active </a>
-                            </td>
-                        </tr>
-                        <tr>
-                            <td>3</td>
-                            <td>Abdul Basit</td>
-                            <td>789</td>
-                            <td>ab@gmail.com</td>
-                            <td>
-                                <a data-toggle="modal" data-target="#myModal" onclick="changeDeleteId(29)" title="Delete">
-                                    <i class="fa fa-trash-o delet"></i>
-                                </a>&nbsp;
-                                <a href="#" target="_blank" title="View Details" class="warning active">View Details</a>&nbsp;
-                                <a href="#" class="warning active">  Active </a>
-                            </td>
-                        </tr>--%>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
+
+    <div id="studentList">
+
     </div>
+
+
     <!-- Modal -->
     <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
         <div class="modal-dialog">
@@ -391,7 +170,7 @@
                         <span class="sr-only">Close</span></button>
                     <h4 class="modal-title" id="myModalLabel">Delete</h4>
                 </div>
-                <div class="modal-body">  Are You Sure to Delete?    </div>
+                <div class="modal-body">  Are You Sure to Delete? </div>
                 <div class="modal-footer">
                     <a type="button" class="btn btn-success" id="delete_no" href="">Yes</a>  <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                 </div>
@@ -401,7 +180,7 @@
     <!-- Modal -->
     <script>
         function changeDeleteId(x) {
-            var str = "http://mdev.digitalvidhya.com/dts/en/admin/students/delete/" + x;
+            var str = "${pageContext.request.contextPath}/delete/{" + x + "}";
             $("#delete_no").attr("href",str);
         }
     </script>
