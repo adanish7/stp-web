@@ -8,11 +8,11 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
+
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.PathVariable;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+
+import org.springframework.web.bind.annotation.*;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,22 +27,20 @@ public class SubjectController {
     @Autowired
     private ManageSubjectsBL manageSubjectsBL;
 
-    @RequestMapping(value = "/show", method = RequestMethod.GET)
+    @RequestMapping(value = "/list", method = RequestMethod.GET)
     public String showListSubject(Model model) {
 
-        return "ListSubjects";
-    }
-
-    @RequestMapping(value = "/show/list", method = RequestMethod.GET)
-    public String listSubjects(Model model) {
         List<Subject> subjects = new ArrayList<Subject>();
         try {
             subjects = manageSubjectsBL.getAllSubjects();
         } catch (Exception e) {
             e.printStackTrace();
         }
+
+        /*mySession.setAttribute("subjects",subjects);*/
+
         model.addAttribute("subjects", subjects);
-        return "include/SubjectList";
+        return "ListSubjects";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
@@ -89,6 +87,6 @@ public class SubjectController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/subject/list";
+        return "include/SubjectList";
     }
 }

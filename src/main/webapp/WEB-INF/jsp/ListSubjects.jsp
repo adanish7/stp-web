@@ -35,6 +35,7 @@
     <link href="../../assets/system_design/css/jquery.bxslider.css" rel="stylesheet">
     <link href="../../assets/system_design/css/jquery.steps.css" rel="stylesheet">
     <link href="../../assets/system_design/css/side-menu.css" rel="stylesheet">
+    <script src="../../assets/system_design/js/main.js"></script>
     <%--<link href="../../assets/system_design/mybootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../../assets/system_design/mybootstrap/css/bootstrap-theme.css" rel="stylesheet">
     <link href="../../assets/system_design/mybootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -200,11 +201,23 @@
 
                             <%--<div class="table-responsive" >--%>
 
+                        <table width="100%" id="example" class="table table-bordered" cellspacing="0" style="font-size: 14px ; margin-left: 10px; text-align: center; border: 1px solid black;">
+
+                                <tr style="background-color: white; color: black; border: 1px solid black; text-align: center">
+                                    <th style="text-align: center">Sr.</th>
+                                    <th style="text-align: center">Code</th>
+                                    <th style="text-align: center">Title</th>
+                                    <th style="text-align: center">Status</th>
+                                    <th style="text-align: center">Actions</th>
+                                </tr>
+
                                 <div id="subjectArea">
 
 
 
                                 </div>
+
+                            </table>
 
 
                             <%--</div>--%>
@@ -268,7 +281,6 @@
 <script type="text/javascript" src="../../assets/system_design/js/bootstrap-datepicker.js"></script>
 <script src="../../assets/system_design/js/sidemenu-script.js" type="text/javascript"></script>
 <script src="../../assets/system_design/js/jquery.mixitup.min.js"></script>
-<script src="../../assets/system_design/js/main.js"></script>
 <!--./script end-->
 </body>
 </html>

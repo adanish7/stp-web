@@ -53,8 +53,52 @@ function findTutors() {
     });
 }
 
+function findStudents() {
+    var url = 'find/searchCriteria';
+    var locations = "";
+    var subjects = "";
+
+    $(".locations:checkbox:checked").each(function(index, element) {
+        console.log(index + " = " + element.value);
+        if (index > 0) {
+            locations += ",";
+        }
+        locations += element.value;
+    });
+
+    $(".subjects:checkbox:checked").each(function(index, element) {
+        console.log(index + " = " + element.value);
+        if (index > 0) {
+            subjects += ",";
+        }
+        subjects += element.value;
+    });
+
+    url += "?locations=" + locations;
+    url += "&subjects=" + subjects;
+
+    $.get(url, function(content) {
+        $("#searchResults").html(content);
+    }).fail(function() {
+        alert("Something Went Wrong, Try Again!")
+    });
+}
+
 function listSubjects() {
-    var url = 'subject/show/list';
+    var url = 'subject/list';
+
+    $.get(url, function(content) {
+        $("#subjectArea").html(content);
+    }).fail(function() {
+        alert("Something Went Wrong, Try Again!")
+    });
+}
+
+function deleteSubjects(x) {
+    var url = 'subject/delete/' + x;
+
+    alert(x);
+
     $.get(url, function(content) {
         $("#subjectArea").html(content);
     }).fail(function() {

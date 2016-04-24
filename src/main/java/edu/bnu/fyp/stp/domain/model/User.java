@@ -39,6 +39,8 @@ public class User {
 
     private String tutorQualification;
 
+    private String studentEducationLevel;
+
     private String subject;
 
     private String phone;
@@ -184,21 +186,32 @@ public class User {
         this.tutorType = tutorType;
     }
 
-    public User(String userId, String firstName, String lastName, String password, String email, Gender gender, City city, String tutorExperience, String tutorQualification, String subject, String phone, Date birthDate, List<String> userRoles, String role) {
+    public String getStudentEducationLevel() {
+        return studentEducationLevel;
+    }
+
+    public void setStudentEducationLevel(String studentEducationLevel) {
+        this.studentEducationLevel = studentEducationLevel;
+    }
+
+    public User(String userId, String firstName, String lastName, String password, String email, String userName, Gender gender, City city, String tutorExperience, String tutorQualification, String studentEducationLevel, String subject, String phone, Date birthDate, List<String> userRoles, String role, TutorType tutorType) {
         this.userId = userId;
         this.firstName = firstName;
         this.lastName = lastName;
         this.password = password;
         this.email = email;
+        this.userName = userName;
         this.gender = gender;
         this.city = city;
         this.tutorExperience = tutorExperience;
         this.tutorQualification = tutorQualification;
+        this.studentEducationLevel = studentEducationLevel;
         this.subject = subject;
         this.phone = phone;
         this.birthDate = birthDate;
         this.userRoles = userRoles;
         this.role = role;
+        this.tutorType = tutorType;
     }
 
     public User() {

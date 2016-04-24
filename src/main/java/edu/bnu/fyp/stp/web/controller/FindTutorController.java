@@ -112,7 +112,9 @@ public class FindTutorController {
                 tutorList = findTutorBL.tutorListAll();
             }
 
-            System.out.println(tutorList.size());
+            /*System.out.println(tutorList.size());*/
+
+            //need to renew this
 
             model.addAttribute("tutorList", tutorList);
             //throw new Exception("Error");
