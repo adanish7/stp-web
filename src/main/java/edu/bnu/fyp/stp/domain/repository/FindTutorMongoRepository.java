@@ -16,12 +16,12 @@ public interface FindTutorMongoRepository extends MongoRepository<User, String> 
 
     public List <User> findByRole(String role) throws Exception;
 
-    public List <User> findByTutorExperience(String tutorExperience) throws Exception;
+    public List <User> findByTutorExperienceAndRole(String tutorExperience, String role) throws Exception;
 
-    public List <User> findByCity(String city) throws Exception;
+    public List <User> findByCityAndRole(String city, String role) throws Exception;
 
-    public List <User> findByTutorType(String tutorType) throws Exception;
+    public List <User> findByTutorTypeAndRole(String tutorType, String role) throws Exception;
 
-    public List <User> findBySubject(String subject) throws Exception;
+    public List <User> findBySubjectAndRole(String subject, String role) throws Exception;
 
 }

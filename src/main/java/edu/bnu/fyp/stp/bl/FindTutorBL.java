@@ -34,9 +34,11 @@ public class FindTutorBL {
 
         List <User> fullList = new ArrayList<User>();
 
+        String y = "tutor";
+
         for (int i = 0 ; i<x.length ; i++)
         {
-            fullList.addAll(findTutorMongoRepository.findByCity(x[i]));
+            fullList.addAll(findTutorMongoRepository.findByCityAndRole(x[i],y));
         }
 
 
@@ -47,9 +49,11 @@ public class FindTutorBL {
 
         List <User> fullList = new ArrayList<User>();
 
+        String y = "tutor";
+
         for (int i = 0 ; i<x.length ; i++)
         {
-            fullList.addAll(findTutorMongoRepository.findBySubject(x[i]));
+            fullList.addAll(findTutorMongoRepository.findBySubjectAndRole(x[i],y));
         }
 
         return fullList;
@@ -59,9 +63,11 @@ public class FindTutorBL {
 
         List <User> fullList = new ArrayList<User>();
 
+        String y = "tutor";
+
         for (int i = 0 ; i<x.length ; i++)
         {
-            fullList.addAll(findTutorMongoRepository.findByTutorExperience(x[i]));
+            fullList.addAll(findTutorMongoRepository.findByTutorExperienceAndRole(x[i],y));
         }
 
         return fullList;
@@ -71,9 +77,11 @@ public class FindTutorBL {
 
         List <User> fullList = new ArrayList<User>();
 
+        String y = "tutor";
+
         for (int i = 0 ; i<x.length ; i++)
         {
-            fullList.addAll(findTutorMongoRepository.findByTutorType(x[i]));
+            fullList.addAll(findTutorMongoRepository.findByTutorTypeAndRole(x[i],y));
         }
 
         return fullList;

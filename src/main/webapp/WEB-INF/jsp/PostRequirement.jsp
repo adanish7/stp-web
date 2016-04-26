@@ -196,20 +196,29 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Subject</label><span style="color:red;">*</span>
-                                    <cf:select path="subject" name="subjectSelect">
-                                        <option value="" selected="selected">Select Subject</option>
+                                    <cf:select path="subject" name="subject" onchange="getCourse(this.options[this.selectedIndex].text)">
+                                        <option value="" selected="selected" >Select Subject</option>
                                         <c:forEach items="${subjects}" var="name">
                                             <option>
-                                                ${name.subjectName};
+                                                ${name.subjectName}
                                             </option>
                                         </c:forEach>
                                     </cf:select>
                                 </div>
                                 <div class="form-group">
                                     <label>Course</label><span style="color:red;">*</span>
+
+
                                     <cf:select path="course">
-                                        <option value="" selected="selected">Select Segment First.</option>
+                                    <option value="" selected="selected">Select Segment First.</option>
+
+                                        <div id="courseList">
+
+
+
+                                        </div>
                                     </cf:select>
+
                                 </div>
                                 <div class="form-group">
                                     <label>Duration Needed</label><span style="color:red;">*</span>
@@ -299,6 +308,15 @@
 <script type="text/javascript" src="../../assets/system_design/js/bootstrap-datepicker.js"></script>
 <script src="../../assets/system_design/js/sidemenu-script.js" type="text/javascript"></script>
 <script src="../../assets/system_design/js/jquery.mixitup.min.js"></script>
+<script src="../../assets/system_design/js/main.js"></script>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log("Calling getCourse()");
+        /*getCourse(${subject.subjectName});*/
+    });
+</script>
+
 <!--./script end-->
 </body>
 </html>

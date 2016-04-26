@@ -35,7 +35,7 @@
     <link href="../../assets/system_design/css/jquery.bxslider.css" rel="stylesheet">
     <link href="../../assets/system_design/css/jquery.steps.css" rel="stylesheet">
     <link href="../../assets/system_design/css/side-menu.css" rel="stylesheet">
-    <script src="../../assets/system_design/js/main.js"></script>
+
     <%--<link href="../../assets/system_design/mybootstrap/css/bootstrap.css" rel="stylesheet">
     <link href="../../assets/system_design/mybootstrap/css/bootstrap-theme.css" rel="stylesheet">
     <link href="../../assets/system_design/mybootstrap/css/bootstrap.min.css" rel="stylesheet">
@@ -44,7 +44,7 @@
     <link rel="icon" type="image/png" href=""/>
     <!--fevicon icon end-->
 </head>
-<body class="bg-col" onload="listSubjects()">
+<body class="bg-col">
 <!-- Modal for contacting Admin -->
 <div class="modal fade" id="studentToAdmin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
     <div class="modal-dialog">
@@ -263,7 +263,7 @@
         </div>
         <div class="col-lg-5 col-md-5 col-sm-12 padding-lr">
             <div class="footer_menu">
-                <a href="http://www.digitalvidhya.com" target="_blank" style="text-decoration: none;">
+                <a href="#" target="_blank" style="text-decoration: none;">
                     <p>Powered by: Team STP</p>
                 </a>
             </div>
@@ -281,6 +281,19 @@
 <script type="text/javascript" src="../../assets/system_design/js/bootstrap-datepicker.js"></script>
 <script src="../../assets/system_design/js/sidemenu-script.js" type="text/javascript"></script>
 <script src="../../assets/system_design/js/jquery.mixitup.min.js"></script>
+
+<script src="../../assets/system_design/js/main.js"></script>
+
+<%--<script src="../../assets/system_design/js/jquery.min.js"></script>--%>
+<%--<script src="../../assets/system_design/js/jqu--%>
+
+<script type="text/javascript">
+    $(document).ready(function () {
+        console.log("Calling listSubjects()");
+        listSubjects();
+    });
+</script>
+
 <!--./script end-->
 </body>
 </html>

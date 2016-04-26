@@ -30,6 +30,11 @@ public class CourseBL {
         coursesMongoRepository.save(course);
     }
 
+    public List<Course> findBySubject(String subject) throws Exception
+    {
+        return coursesMongoRepository.findBySubject(subject);
+    }
+
     public CourseBL() {
         super();
     }

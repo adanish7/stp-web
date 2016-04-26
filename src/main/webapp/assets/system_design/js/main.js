@@ -85,7 +85,7 @@ function findStudents() {
 }
 
 function listSubjects() {
-    var url = 'subject/list';
+    var url = 'subject/show';
 
     $.get(url, function(content) {
         $("#subjectArea").html(content);
@@ -101,6 +101,16 @@ function deleteSubjects(x) {
 
     $.get(url, function(content) {
         $("#subjectArea").html(content);
+    }).fail(function() {
+        alert("Something Went Wrong, Try Again!")
+    });
+}
+
+function getCourse(subject) {
+    var url = 'courseList/' + subject;
+
+    $.get(url, function(content) {
+        $("#courseList").html(content);
     }).fail(function() {
         alert("Something Went Wrong, Try Again!")
     });

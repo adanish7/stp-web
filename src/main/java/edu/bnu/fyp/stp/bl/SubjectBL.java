@@ -1,5 +1,6 @@
 package edu.bnu.fyp.stp.bl;
 
+import edu.bnu.fyp.stp.domain.model.Course;
 import edu.bnu.fyp.stp.domain.model.Subject;
 import edu.bnu.fyp.stp.domain.repository.SubjectMongoRepository;
 import org.springframework.beans.factory.annotation.Autowired;

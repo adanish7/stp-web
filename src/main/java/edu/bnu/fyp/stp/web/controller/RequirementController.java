@@ -1,5 +1,6 @@
 package edu.bnu.fyp.stp.web.controller;
 
+import edu.bnu.fyp.stp.bl.CourseBL;
 import edu.bnu.fyp.stp.bl.ManageUserBL;
 import edu.bnu.fyp.stp.bl.RequirementBL;
 import edu.bnu.fyp.stp.bl.SubjectBL;
@@ -7,6 +8,7 @@ import edu.bnu.fyp.stp.constants.BudgetType;
 import edu.bnu.fyp.stp.constants.Duration;
 import edu.bnu.fyp.stp.constants.RequirementsPriority;
 import edu.bnu.fyp.stp.constants.TutorType;
+import edu.bnu.fyp.stp.domain.model.Course;
 import edu.bnu.fyp.stp.domain.model.Requirement;
 import edu.bnu.fyp.stp.domain.model.Subject;
 import edu.bnu.fyp.stp.domain.model.User;
@@ -15,9 +17,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
-import org.springframework.web.bind.annotation.ModelAttribute;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.util.ArrayList;
@@ -36,6 +36,9 @@ public class RequirementController {
 
     @Autowired
     private SubjectBL subjectBL;
+
+    @Autowired
+    private CourseBL courseBL;
 
     @RequestMapping(value = "/post")
     public String showStudentRequirement(Model model)
@@ -71,11 +74,16 @@ public class RequirementController {
     @RequestMapping(value = "/save" , method = RequestMethod.POST)
     public String saveStudentRequirement(@Valid @ModelAttribute Requirement requirement, BindingResult bindingResult, Model model) {
 
-        try {
+        try
+        {
             if (bindingResult.hasErrors()) {
                 System.out.println(bindingResult.getAllErrors().iterator().next().toString());
             }
 
+            else
+            {
+                // This else has no use here
+            }
             requirementBL.saveRequirement(requirement);
         } catch (Exception e) {
             e.printStackTrace();
@@ -110,6 +118,30 @@ public class RequirementController {
         }
 
         return("ListRequirements");
+    }
+
+    @RequestMapping(value = "/courseList/{subject}")
+    public String showCourseList(@PathVariable String subject, Model model)
+    {
+
+        List<Course> subjectList = new ArrayList<Course>();
+
+        try
+        {
+            subjectList = courseBL.findBySubject(subject);
+        }
+        catch (Exception e)
+        {
+            e.getStackTrace();
+        }
+
+        model.addAttribute("subjectList", subjectList);
+
+        Requirement requirement = new Requirement();
+
+        model.addAttribute("requirement" , requirement);
+
+        return "include/CourseList";
     }
 
 }

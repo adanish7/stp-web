@@ -37,10 +37,24 @@ public class SubjectController {
             e.printStackTrace();
         }
 
+        model.addAttribute("subjects", subjects);
+        return "ListSubjects";
+    }
+
+    @RequestMapping(value = "/show", method = RequestMethod.GET)
+    public String showSubject(Model model) {
+
+        List<Subject> subjects = new ArrayList<Subject>();
+        try {
+            subjects = manageSubjectsBL.getAllSubjects();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
         /*mySession.setAttribute("subjects",subjects);*/
 
         model.addAttribute("subjects", subjects);
-        return "ListSubjects";
+        return "include/SubjectList";
     }
 
     @RequestMapping(value = "/add", method = RequestMethod.GET)
