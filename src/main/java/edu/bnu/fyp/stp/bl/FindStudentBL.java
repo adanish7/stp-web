@@ -23,6 +23,11 @@ public class FindStudentBL {
         return findStudentMongoRepository.findByFirstName(x);
     }
 
+    public User getStudentById (String x) throws Exception {
+
+        return findStudentMongoRepository.findOne(x);
+    }
+
     public List <User> studentListAll () throws Exception {
 
         String x = "student";

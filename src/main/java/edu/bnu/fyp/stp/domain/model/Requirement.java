@@ -10,9 +10,6 @@ import org.springframework.stereotype.Service;
 
 import java.util.Date;
 
-/**
- * Created by Abdul Basit on 3/2/2016.
- */
 @Document(collection = "requirement")
 public class Requirement {
 

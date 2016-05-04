@@ -38,33 +38,9 @@
     <link rel="icon" type="image/png" href=""/>
     <!--fevicon icon end-->
 </head>
-<body class="bg-col">
-<!-- Modal for contacting Admin -->
-<div class="modal fade" id="studentToAdmin" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-    <div class="modal-dialog">
-        <div class="modal-content my-popup">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
-                    <span class="sr-only">Close</span>
-                </button>
-                <h4 class="modal-title" id="myModalLabel">Contact Admin</h4>
-            </div>
-            <div class="modal-body">
-                <form action="#" method="post" accept-charset="utf-8">
-                    <div style="display:none">
-                        <input type="hidden" name="digi_turor_system" value="b56380fdbde1679e2553e9a9cb2d4fc9" />
-                    </div>
-                    <div class="form-group">
-                        <textarea rows="2" cols="40" name="message" required placeholder="Enter your message"></textarea>
-                    </div>
-                    <input type="hidden" name="tutor" value="1">
-                    <input type="hidden" name="redirect_path" value="student/messages/sent">
-                    <button type="submit" class="btn btn-default">Submit</button>
-                </form>
-            </div>
-        </div>
-    </div>
-</div>
+
+<%--<%@ include file="include/TutorHeader.jsp" %>--%>
+
 <section class="top_wrapper">
     <div class="container-fluid">
         <div class="header admin-header">
@@ -75,7 +51,7 @@
                 </button>
                 <div class="navbar-brand lg">
                     <div class="logo">
-                        <a href="http://mdev.digitalvidhya.com/dts/en"> <img src="../../assets/system_design/images/logo-dark.png" width="100" height="30" >  </a>			                                     	</div>
+                        <a href="#"> <img src="../../assets/system_design/images/logo-dark.png" width="100" height="30" >  </a>	</div>
                     <!--./logo-->
                 </div>
             </div>
@@ -84,12 +60,12 @@
                     <ul class="navbar-right login user_proile">
                         <li>
                             <a href="#">
-                                <img src="../../uploads/users/noimage.jpg" height="38" width="55"><p style="color:#FFF; float:right; font-size:15px;">Administrator</p>
+                                <img src="../../uploads/users/noimage.jpg" height="38" width="55"><p style="color:#FFF; float:right; font-size:15px;">${sessionScope.user.firstName} ${sessionScope.user.lastName}</p>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a tabindex="-1" href="#"> <i class="fa fa-user"></i>My Profile</a></li>
                                 <li><a tabindex="-1" href="#"> <i class="fa fa-cog"></i>Change Password</a></li>
-                                <li><a tabindex="-1" href="#"> <i class="fa fa-power-off"></i>Log out</a></li>
+                                <li><a tabindex="-1" href="${pageContext.request.contextPath}/logout"> <i class="fa fa-power-off"></i>Log out</a></li>
                             </ul>
                         </li>
                     </ul>
@@ -114,6 +90,7 @@
     </div>
 </section>
 
+
 <section class="search_section">
     <div class="container">
         <div class="col-lg-12 col-md-12 col-sm-12 padding-lr">
@@ -131,7 +108,7 @@
     </div>
 </section>
 
-<section class="work_section tp">
+<div class="work_section tp">
 
             <style>
                 .flt-rght {
@@ -266,6 +243,7 @@
                 </div>
             </div>
         </div>
+    </div>
 
         <script src="../../assets/system_design/js/jquery.min.js"></script>
         <link href="../../assets/system_design/css/jquery.raty.css" rel="stylesheet" media="screen">
@@ -377,24 +355,10 @@
 
         </script>
 
-</section>
 <!--./footer-->
-<section class="bottom_footer">
-    <div class="container">
-        <div class="col-lg-7 col-md-7 col-sm-12 padding-lr">
-            <div class="copyright-left">
-                <p>© STP 2016. All rights reserved.</p>
-            </div>
-        </div>
-        <div class="col-lg-5 col-md-5 col-sm-12 padding-lr">
-            <div class="footer_menu">
-                <a href="http://www.digitalvidhya.com" target="_blank" style="text-decoration: none;">
-                    <p>Powered by: Team STP</p>
-                </a>
-            </div>
-        </div>
-    </div>
-</section>
+
+<%@ include file="include/Footer.jsp" %>
+
 <!--./bottom_footer-->
 <!--script start-->
 <script type= "text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.2/jquery.min.js" ></script>

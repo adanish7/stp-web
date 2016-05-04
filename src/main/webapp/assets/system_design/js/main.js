@@ -85,7 +85,7 @@ function findStudents() {
 }
 
 function listSubjects() {
-    var url = 'subject/show';
+    var url = contextPath + '/subject/show';
 
     $.get(url, function(content) {
         $("#subjectArea").html(content);
@@ -94,13 +94,32 @@ function listSubjects() {
     });
 }
 
-function deleteSubjects(x) {
-    var url = 'subject/delete/' + x;
-
-    alert(x);
+function deleteSubjects(event) {
+    var url = 'delete/' + event.data.subject;
 
     $.get(url, function(content) {
         $("#subjectArea").html(content);
+    }).fail(function() {
+        alert("Something Went Wrong, Try Again!")
+    });
+
+}
+
+function listRequirements() {
+    var url = contextPath + 'requirement/show';
+
+    $.get(url, function(content) {
+        $("#requirementArea").html(content);
+    }).fail(function() {
+        alert("Something Went Wrong, Try Again!")
+    });
+}
+
+function deleteRequirement(x) {
+    var url = contextPath + 'requirement/delete/' + x;
+
+    $.get(url, function(content) {
+        $("#requirementArea").html(content);
     }).fail(function() {
         alert("Something Went Wrong, Try Again!")
     });
@@ -114,4 +133,27 @@ function getCourse(subject) {
     }).fail(function() {
         alert("Something Went Wrong, Try Again!")
     });
+
 }
+
+function listStudents() {
+    var url = 'show';
+
+    $.get(url, function(content) {
+        $("#studentArea").html(content);
+    }).fail(function() {
+        alert("Something Went Wrong, Try Again!")
+    });
+}
+
+function listTutors() {
+    var url = 'show';
+
+    $.get(url, function(content) {
+        $("#tutorArea").html(content);
+    }).fail(function() {
+        alert("Something Went Wrong, Try Again!")
+    });
+}
+
+

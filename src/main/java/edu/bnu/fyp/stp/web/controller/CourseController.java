@@ -21,6 +21,7 @@ import java.util.List;
  */
 
 @Controller
+@RequestMapping(value = "/course")
 public class CourseController {
 
     @Autowired
@@ -29,10 +30,9 @@ public class CourseController {
     @Autowired
     private SubjectBL subjectBL;
 
-    @RequestMapping ("/addcourse")
+    @RequestMapping (value = "/add" , method = RequestMethod.GET)
     private String addCourse(Model model)
     {
-
 
         Course course = new Course();
 
@@ -42,7 +42,7 @@ public class CourseController {
         return "AddCourse";
     }
 
-    @RequestMapping(value = "/course/save" , method = RequestMethod.POST)
+    @RequestMapping(value = "/save" , method = RequestMethod.POST)
     public String saveStudentRequirement(@Valid @ModelAttribute Course course, BindingResult bindingResult, Model model) {
 
         try {

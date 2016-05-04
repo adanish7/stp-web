@@ -92,7 +92,7 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div style="float:left;"><label><i class="fa fa-envelope"></i> Email</label> <span style="color:red;">*</span></div>
-                                        <spring:input path="email"/>
+                                        <spring:input path="email" name="email" id="email" required="required" />
                                         <%--<spring:errors path="email" cssClass="error"></spring:errors>--%>
                                     </div>
                                 </div>
@@ -102,22 +102,23 @@
                                 <div class="row">
                                     <div class="col-lg-12 col-md-12 col-sm-12">
                                         <div style="float:left;"><label><i class="fa fa-key"></i> Password</label> <span style="color:red;">*</span></div>
-                                        <spring:input path="password" type="password" name="password" value="" id="password" title=""  />
+                                        <spring:input path="password" type="password" name="password" value="" id="password" title="" required="required" />
                                     </div>
                                 </div>
                             </div>
 
                             <div class="col-lg-12 col-md-12 col-sm-12">
-                                <div style="float:right;">
+                                <div style="float:left; margin-left: 180px">
                                     <spring:button type="submit" class="btn btn-primary right">Login</spring:button></div>
+                                    <spring:button type="reset" class="btn btn-primary right">Clear</spring:button></div>
                             </div>
 
                         </spring:form>
                     </div>
                 </div>
             </div>
-        </div>
-    </section>
+        </section>
+    </div>
 </div>
 <section class="footer" style="background-color:#e5e5e5;">
     <div class="container">
@@ -195,7 +196,7 @@
         </div>
         <div class="col-lg-5 col-md-5 col-sm-12 padding-lr">
             <div class="footer_menu">
-                <p>Powered by:TeamSTP</p>
+                <p>Powered by: Team STP</p>
             </div>
         </div>
     </div>

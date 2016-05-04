@@ -51,15 +51,19 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/user/register/student" , method = RequestMethod.POST)
-    public String studentRegisteration(@Valid @ModelAttribute User user , BindingResult bindingResult) {
+    public String studentRegistration(@Valid @ModelAttribute User user , BindingResult bindingResult) {
 
         try {
             if (bindingResult.hasErrors()) {
                 System.out.println(bindingResult.getAllErrors().iterator().next().toString());
             }
 
-            user.setRole("student");
-            manageUserBL.registerStudent(user);
+            if(manageUserBL.getUserByUserEmail(user.getEmail()).getUserId().isEmpty());
+            {
+                user.setRole("student");
+                manageUserBL.registerStudent(user);
+            }
+
         } catch (Exception e) {
             e.printStackTrace();
         }
@@ -68,7 +72,7 @@ public class RegisterController {
     }
 
     @RequestMapping(value = "/user/register/tutor" , method = RequestMethod.POST)
-    public String tutorRegisteration(@Valid @ModelAttribute User user , BindingResult bindingResult) {
+    public String tutorRegistration(@Valid @ModelAttribute User user , BindingResult bindingResult) {
 
         try {
             if (bindingResult.hasErrors()) {

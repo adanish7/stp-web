@@ -23,6 +23,11 @@ public class FindTutorBL {
         return findTutorMongoRepository.findByFirstName(x);
     }
 
+    public User getTutorById (String x) throws Exception {
+
+        return findTutorMongoRepository.findOne(x);
+    }
+
     public List <User> tutorListAll () throws Exception {
 
         String x = "tutor";

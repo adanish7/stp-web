@@ -26,7 +26,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <title>Add Subject</title>
+    <title>Update Profile</title>
     <!--style start-->
     <link href="../../assets/system_design/css/bootstrap.css" rel="stylesheet">
     <link href="../../assets/system_design/css/style.css" rel="stylesheet">
@@ -48,36 +48,55 @@
             <div class="col-md-6 padding-p-l">
                 <div class="module">
                     <div class="module-head">
-                        <h3> Add Subject </h3><br>
+                        <h3> Update Profile </h3><br>
                     </div>
                     <div class="module-body">
                         <div id="infoMessage">
                         </div>
-                        <cf:form action="${pageContext.request.contextPath}/subject/save" modelAttribute="subject">
-                            <cf:hidden path="subjectId" />
+                        <cf:form action="${pageContext.request.contextPath}/user/profile/update" modelAttribute="user">
+                            <cf:hidden path="userId" />
                             <div class="form-group">
-                                <label>Subject Code</label><span style="color:red;">*</span>
-                                <cf:input path="subjectCode" />
-                                <%--<cf:errors path="subjectCode"  />--%>
+                                <label>First Name</label><span style="color:red;">*</span>
+                                <cf:input path="firstName" />
+                                <cf:errors path="firstName" />
                                 <br/>
                             </div>
 
                             <div class="form-group">
-                                <label>Subject Title</label><span style="color:red;">*</span>
-                                <cf:input path="subjectName" />
+                                <label>Last Name</label><span style="color:red;">*</span>
+                                <cf:input path="lastName" />
                             </div>
 
                             <div class="form-group">
-                                <label>Status</label><span style="color:red;">*</span>
-                                <cf:select path="status">
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
+                                <label>Email</label><span style="color:red;">*</span>
+                                <cf:input path="email" disabled="true"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Password</label><span style="color:red;">*</span>
+                                <cf:input type="password" path="password" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Phone</label><span style="color:red;">*</span>
+                                <cf:input path="phone" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>City</label><span style="color:red;">*</span>
+                                <cf:select path="city" name="city" id="city">
+                                    <option></option>
+                                    <c:forEach items="${cities}" var="value">
+                                        <option>
+                                                ${value}
+                                        </option>
+                                    </c:forEach>
                                 </cf:select>
                             </div>
 
                             <div class="form-group">
                                 <div>
-                                    <button type="submit" style="height: 40px; width: 150px;" class="add-new">Add Subject</button>
+                                    <button type="submit" style="height: 40px; width: 150px;" class="add-new">Update Profile</button>
                                 </div>
                             </div>
 

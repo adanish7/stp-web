@@ -1,5 +1,6 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+
 <c:forEach items="${tutorList}" var="tutorList" varStatus="counter">
     <div class="search_content">
         <ul>
@@ -9,6 +10,7 @@
                     <div class="company_img">
                         <a href="#"><img src="../../images/no-image.png" height="100" width="100" alt="image"></a>
                     </div>
+
                     <div class="job_title">
                         <h3> ${tutorList.firstName} &nbsp; ${tutorList.lastName} </h3>
                         <span class="job_detail"><i class="fa fa-user"></i> <strong> Gender </strong> ${tutorList.gender} </span>
@@ -53,7 +55,10 @@
                         <div class="col-md-12 padding-0">
                             <div class="bottom-list">
                                 <ul>
-                                    <li> <a data-toggle='modal' data-target='#myModal1' onclick="assignVal(37)"> <i class="fa fa-star-o"> </i>
+
+                                    <%--Not using modal popup here for now--%>
+
+                                    <li> <a href="${pageContext.request.contextPath}/watchlist/add/?tutorId=${tutorList.userId}&studentId=${sessionScope.user.userId}"> <i class="fa fa-star-o"> </i>
                                         Add to Watch List</a>
                                     </li>
                                         <%--<li> <a data-toggle='modal' data-target='#myModal4' onclick="assignVal(37)" id="reqmodal_37"> <i class="fa fa-phone"> </i> Request a Callback</a> </li>--%>

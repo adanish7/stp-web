@@ -26,7 +26,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <meta name="keywords" content="">
-    <title>Add Subject</title>
+    <title>Update Profile</title>
     <!--style start-->
     <link href="../../assets/system_design/css/bootstrap.css" rel="stylesheet">
     <link href="../../assets/system_design/css/style.css" rel="stylesheet">
@@ -48,38 +48,68 @@
             <div class="col-md-6 padding-p-l">
                 <div class="module">
                     <div class="module-head">
-                        <h3> Add Subject </h3><br>
+                        <h3> View Profile </h3><br>
                     </div>
-                    <div class="module-body">
+
+                    <div>
+
+                        <button type="submit" style="color: white; font-weight: bold" class="add-new"><a href="${pageContext.request.contextPath}/user/edit/${sessionScope.user.userId}"><p style="color: white; margin-bottom: 0px">Update Profile</p></a></button>
+
+                    </div>
+
+                    <div class="module-body" style="margin-top: 50px">
+
                         <div id="infoMessage">
                         </div>
-                        <cf:form action="${pageContext.request.contextPath}/subject/save" modelAttribute="subject">
-                            <cf:hidden path="subjectId" />
+                        <cf:form action="#" modelAttribute="user">
+                            <cf:hidden path="userId" />
+                        <div class="col-md-6">
                             <div class="form-group">
-                                <label>Subject Code</label><span style="color:red;">*</span>
-                                <cf:input path="subjectCode" />
-                                <%--<cf:errors path="subjectCode"  />--%>
+                                <label>First Name</label>
+                                <cf:input path="firstName" disabled="true"/>
+                                <cf:errors path="firstName" />
                                 <br/>
                             </div>
 
                             <div class="form-group">
-                                <label>Subject Title</label><span style="color:red;">*</span>
-                                <cf:input path="subjectName" />
+                                <label>Last Name</label>
+                                <cf:input path="lastName" disabled="true"/>
                             </div>
 
                             <div class="form-group">
-                                <label>Status</label><span style="color:red;">*</span>
-                                <cf:select path="status">
-                                    <option value="Active">Active</option>
-                                    <option value="Inactive">Inactive</option>
-                                </cf:select>
+                                <label>Email</label>
+                                <cf:input path="email" disabled="true"/>
                             </div>
 
                             <div class="form-group">
+                                <label>Password</label>
+                                <cf:input type="password" path="password" disabled="true"/>
+                            </div>
+                        </div>
+
+                        <div class="col-md-6">
+
+                            <div class="form-group">
+                                <label>Gender</label>
+                                <cf:input path="gender" disabled="true" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>Phone</label>
+                                <cf:input path="phone" disabled="true" />
+                            </div>
+
+                            <div class="form-group">
+                                <label>City</label>
+                                <cf:input path="city" disabled="true" />
+                            </div>
+
+                            <%--<div class="form-group">
                                 <div>
-                                    <button type="submit" style="height: 40px; width: 150px;" class="add-new">Add Subject</button>
+                                    <button type="submit" style="height: 40px; width: 150px;" class="add-new">Update Profile</button>
                                 </div>
-                            </div>
+                            </div>--%>
+                        </div>
 
                         </cf:form>
                     </div>

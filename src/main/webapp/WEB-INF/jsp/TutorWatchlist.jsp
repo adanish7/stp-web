@@ -198,21 +198,24 @@
         </style>
         <div class="col-md-10 padding-0">
             <div class="brade">
-                <a href="http://mdev.digitalvidhya.com/dts/en/student" style="text-decoration:none;">Home</a>
+                <a href="${pageContext.request.contextPath}/studentdashboard" style="text-decoration:none;">Home</a>
                 > Watch List > My Tutors   </div>
         </div>
         <div class="col-lg-10 col-md-10 col-sm-12 padding-lr">
             <div class="body-content">
                 <div class="search_content sc">
                     <ul>
+
+                        <c:forEach items="tutorWatchlist" var="tutorWatchlist">
+
                         <li class="tutorz_list">
-                            <a href="#" class="remove_from_watchlist" title="Remove From Watch List" onclick="removeTutorFromWatchlist(32)">x</a>
+                            <a href="#" class="remove_from_watchlist" title="Remove From Watch List" onclick="removeTutorFromWatchlist(${tutorWatchlist.id})">x</a>
                             <div class="search_result_header">
                                 <div class="company_img">
-                                    <a href="#"><img height="80" width="80" src="http://mdev.digitalvidhya.com/dts/uploads/users/tutors/tutor_32.jpg"></a>
+                                    <a href="#"><img height="80" width="80" src="../../images/no-image.png"></a>
                                 </div>
                                 <div class="job_title smt">
-                                    <h3> <a target="_blank" href="http://mdev.digitalvidhya.com/dts/en/welcome/tutorProfile/32">Denzel  Joyce</a></h3>
+                                    <h3> <a target="_blank" href="http://mdev.digitalvidhya.com/dts/en/welcome/tutorProfile/32">${tutorWatchlist.User.firstName} &nbsp; ${tutorWatchlist.User.lastName} </a></h3>
                                     <span class="job_detail smt1"><i class="fa fa-user"></i> <strong>Gender</strong>&nbsp;  Male</span>
                                     <span class="job_detail smt1"><i class="fa fa-line-chart"></i><strong>Experience</strong>&nbsp;  5</span>
                      <span class="job_detail smt1"><i class="fa fa-graduation-cap"></i> <strong>
@@ -230,14 +233,7 @@
                                             <li>  <i class="fa fa-building"></i> <strong> Teaches</strong>  &nbsp; Aptitude.</li>
                                         </ul>
                                     </div>
-                                    <div class="col-md-6">
-                                        <ul>
-                                            <li>
-                                                Tutor Avg. Rating: &nbsp;  &nbsp;
-                                                <div class="stars" id="32" ></div>
-                                            </li>
-                                        </ul>
-                                    </div>
+
                                     <div class="col-md-12 padding-0">
                                         <div class="bottom-list my-tu-list">
                                             <ul>
@@ -253,6 +249,9 @@
                                 </div>
                             </div>
                         </li>
+
+                        </c:forEach>
+
                     </ul>
                 </div>
             </div>

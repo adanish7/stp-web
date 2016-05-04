@@ -17,9 +17,6 @@ import org.springframework.web.bind.annotation.*;
 import java.util.ArrayList;
 import java.util.List;
 
-/**
- * Created by Abdul Basit on 3/23/2016.
- */
 @Controller
 @RequestMapping(value = "/subject")
 public class SubjectController {
@@ -28,21 +25,21 @@ public class SubjectController {
     private ManageSubjectsBL manageSubjectsBL;
 
     @RequestMapping(value = "/list", method = RequestMethod.GET)
-    public String showListSubject(Model model) {
+    public String showSubjects(Model model) {
 
-        List<Subject> subjects = new ArrayList<Subject>();
+        /*List<Subject> subjects = new ArrayList<Subject>();
         try {
             subjects = manageSubjectsBL.getAllSubjects();
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        model.addAttribute("subjects", subjects);
+        model.addAttribute("subjects", subjects);*/
         return "ListSubjects";
     }
 
     @RequestMapping(value = "/show", method = RequestMethod.GET)
-    public String showSubject(Model model) {
+    public String showListSubjects(Model model) {
 
         List<Subject> subjects = new ArrayList<Subject>();
         try {
@@ -50,8 +47,6 @@ public class SubjectController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-
-        /*mySession.setAttribute("subjects",subjects);*/
 
         model.addAttribute("subjects", subjects);
         return "include/SubjectList";
@@ -92,15 +87,24 @@ public class SubjectController {
 
     @RequestMapping(value = "/delete/{subjectId}", method = RequestMethod.GET)
     public String deleteSubject(@PathVariable String subjectId, Model model) {
+
+        List<Subject> subjects = new ArrayList<Subject>();
+
         Subject subject = new Subject();
         try {
 
-            System.out.println(subjectId);
+            /*System.out.println(subjectId);*/
 
             manageSubjectsBL.deleteSubject(subjectId);
+
+            subjects = manageSubjectsBL.getAllSubjects();
+
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "include/SubjectList";
+
+        model.addAttribute("subjects", subjects);
+
+        return "ListSubjects";
     }
 }

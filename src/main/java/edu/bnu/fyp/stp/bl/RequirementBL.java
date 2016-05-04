@@ -34,4 +34,9 @@ public class RequirementBL {
         return requirementsMongoRepository.findAll();
     }
 
+    public void deleteRequirement(String id)
+    {
+        requirementsMongoRepository.delete(id);
+    }
+
 }

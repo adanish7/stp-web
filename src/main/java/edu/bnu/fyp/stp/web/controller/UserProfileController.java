@@ -1,6 +1,7 @@
 package edu.bnu.fyp.stp.web.controller;
 
 import edu.bnu.fyp.stp.bl.ManageUserBL;
+import edu.bnu.fyp.stp.constants.City;
 import edu.bnu.fyp.stp.domain.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -10,6 +11,7 @@ import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -17,12 +19,13 @@ import java.util.List;
  * Created by Rehan on 3/7/16.
  */
 @Controller
+@RequestMapping (value = "/user")
 public class UserProfileController {
 
     @Autowired
     private ManageUserBL manageUserBL;
 
-    @RequestMapping(value = "/user/profile/{userId}", method = RequestMethod.GET)
+    @RequestMapping(value = "profile/{userId}", method = RequestMethod.GET)
     public String showUserProfile(@PathVariable String userId, Model model) {
         User user = new User();
         try {
@@ -31,10 +34,100 @@ public class UserProfileController {
             e.printStackTrace();
         }
         model.addAttribute("user", user);
-        return "UserProfile";
+        return "ViewProfile";
     }
 
-    @RequestMapping(value = "/user/profile", method = RequestMethod.POST)
+    @RequestMapping(value = "/student/list", method = RequestMethod.GET)
+    public String listStudents() {
+
+        return "ListStudents";
+    }
+
+    @RequestMapping(value = "/student/show", method = RequestMethod.GET)
+    public String showStudentsList(Model model , HttpSession session) {
+        List<User> users = new ArrayList<User>();
+        try {
+            users= manageUserBL.getAllUsersByRole("student");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        session.setAttribute("users" , users);
+        //model.addAttribute("subjects", subjects);
+        return "include/StudentList";
+    }
+
+    @RequestMapping(value = "/student/delete/{userId}", method = RequestMethod.GET)
+    public String deleteStudent(@PathVariable String userId, HttpSession session) {
+
+        List<User> users = new ArrayList<User>();
+
+        try {
+
+            manageUserBL.deleteSubject(userId);
+
+            users= manageUserBL.getAllUsersByRole("student");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        session.setAttribute("users" , users);
+
+        return "include/StudentList";
+    }
+
+    @RequestMapping(value = "/tutor/delete/{userId}", method = RequestMethod.GET)
+    public String deleteTutor(@PathVariable String userId, HttpSession session) {
+
+        List<User> users = new ArrayList<User>();
+
+        try {
+
+            manageUserBL.deleteSubject(userId);
+
+            users= manageUserBL.getAllUsersByRole("tutor");
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        session.setAttribute("users" , users);
+
+        return "ListTutors";
+    }
+
+    @RequestMapping(value = "/edit/{userId}", method = RequestMethod.GET)
+    public String editUser(@PathVariable String userId, Model model) {
+        User user = new User();
+
+        try {
+            user = manageUserBL.getUserByUserId(userId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        model.addAttribute("cities", City.values());
+        model.addAttribute("user", user);
+        return "UpdateProfile";
+    }
+
+    @RequestMapping(value = "/view/{userId}", method = RequestMethod.GET)
+    public String view(@PathVariable String userId, Model model) {
+        User user = new User();
+
+        try {
+            user = manageUserBL.getUserByUserId(userId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        model.addAttribute("cities", City.values());
+        model.addAttribute("user", user);
+        return "ViewProfile";
+    }
+
+    @RequestMapping(value = "/profile/update", method = RequestMethod.POST)
     public String saveUserProfile(@Validated @ModelAttribute User user, BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors())
@@ -44,34 +137,27 @@ public class UserProfileController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "redirect:/home";
+        return "ViewProfile";
     }
 
-    @RequestMapping(value = "/list/students", method = RequestMethod.GET)
-    public String showStudentsList(Model model) {
-        List<User> users = new ArrayList<User>();
+    @RequestMapping(value = "/tutor/list", method = RequestMethod.GET)
+    public String listTutors() {
 
-        try {
-            users = manageUserBL.getUsersByRole("student");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        model.addAttribute("users", users);
-        return "ListStudents";
-    }
-
-    @RequestMapping(value = "/list/tutor" , method = RequestMethod.GET)
-    public String showTutorsList(Model model)
-    {
-        List<User> users =  new ArrayList<User>();
-
-        try {
-            users = manageUserBL.getUsersByRole("tutor");
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-        model.addAttribute("users" , users);
         return "ListTutors";
+    }
+
+    @RequestMapping(value = "/tutor/show" , method = RequestMethod.GET)
+    public String showTutorsList(Model model, HttpSession session)
+    {
+        List<User> users = new ArrayList<User>();
+        try {
+            users= manageUserBL.getAllUsersByRole("tutor");
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        session.setAttribute("users" , users);
+        return "include/TutorList";
     }
 
 }

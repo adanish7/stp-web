@@ -27,6 +27,10 @@ public class ManageUserBL {
         return userMongoRepository.findOne(userId);
     }
 
+    public User getUserByUserEmail(String email) throws Exception {
+        return userMongoRepository.findOne(email);
+    }
+
     public User getUserByEmailAndPassword(String email , String Password) throws Exception {
         return userMongoRepository.findByEmailAndPassword(email, Password);
     }
@@ -47,13 +51,23 @@ public class ManageUserBL {
         userMongoRepository.save(user);
     }
 
-    public List<User> getUsersByRoles(List<String> roles) {
+    /*public List<User> getUsersByRoles(List<String> roles) {
         Criteria criteria = Criteria.where("userRoles").in(roles);
         return mongoTemplate.find(new Query(criteria), User.class);
-    }
+    }*/
 
     public List<User> getUsersByRole(String roles) {
         Criteria criteria = Criteria.where("role").in(roles);
         return mongoTemplate.find(new Query(criteria), User.class);
+    }
+
+    public List<User> getAllUsersByRole(String x) throws Exception {
+
+        return userMongoRepository.findByRole(x);
+
+    }
+
+    public void deleteSubject(String userId) throws Exception {
+        userMongoRepository.delete(userId);
     }
 }

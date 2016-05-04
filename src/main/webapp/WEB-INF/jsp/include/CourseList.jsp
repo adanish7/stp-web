@@ -11,6 +11,3 @@
 
 
 
-                    <c:forEach items="${subjectList}" var="subjectList" varStatus="counter">
-                                <option> ${subjectList.subject} </option>
-                    </c:forEach>

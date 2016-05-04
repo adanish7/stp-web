@@ -25,6 +25,9 @@
     <link rel="icon" type="image/png" href=""/>
     <!--fevicon icon end-->
 
+    <script src="http://maps.google.com/maps/api/js?sensor=false"
+            type="text/javascript"></script>
+
 </head>
 <body>
 <div class="top">
@@ -154,6 +157,64 @@
     </div><!--./container-->
 </section><!--./work_section-->
 
+<section id="maparea" class="work_section white-home">
+
+    <%--<div class="container" style="position:inherit">--%>
+        <div class="col-lg-12 col-md-12 col-sm-12 padding-lr">
+            <div class="col-lg-8 col-md-8 col-sm-12 padding-lr col-lg-offset-2 col-md-offset-2 col-sm-offset-0">
+                <div class="page_title">
+                    <h1>Cities where Tutors are available</h1>
+                </div><!--./page_title-->
+            </div><!--./col-lg-8-->
+        </div><!--./col-lg-12-->
+
+        <div id="map" style="width: 100%; height: 400px;">
+
+        </div>
+
+        <div id="mapblankarea">
+            <p></p>
+        </div>
+    <%--</div>--%>
+
+<script type="text/javascript">
+    var locations = [
+        ['Lahore', 31.5546, 74.3572, 11],
+        ['Karachi', 25.0115, 66.7845, 10],
+        ['Islamabad', 33.6693413, 72.8448902, 11],
+        ['Multan', 30.186177, 71.3373496, 11],
+        ['Queta', 30.1793205, 66.8493694, 11],
+        ['AJK', 33.944617, 73.2078233, 8],
+        ['Peshawar', 33.9917664, 71.443574, 12]
+    ];
+
+    var map = new google.maps.Map(document.getElementById('map'), {
+        zoom: 5,
+        center: new google.maps.LatLng(31.55, 74.35),
+        mapTypeId: google.maps.MapTypeId.ROADMAP
+    });
+
+    var infowindow = new google.maps.InfoWindow();
+
+    var marker, i;
+
+    for (i = 0; i < locations.length; i++) {
+        marker = new google.maps.Marker({
+            position: new google.maps.LatLng(locations[i][1], locations[i][2]),
+            map: map
+        });
+
+        google.maps.event.addListener(marker, 'click', (function(marker, i) {
+            return function() {
+                infowindow.setContent(locations[i][0]);
+                infowindow.open(map, marker);
+            }
+        })(marker, i));
+    }
+</script>
+
+</section>
+
 <section class="footer" style="background-color:#e5e5e5;">
     <div class="container">
         <div class="col-lg-12 col-md-12 col-sm-12 padding-lr">
@@ -230,7 +291,7 @@
         </div>
         <div class="col-lg-5 col-md-5 col-sm-12 padding-lr">
             <div class="footer_menu">
-                <p>Powered by:TeamSTP</p>
+                <p>Powered by: Team STP</p>
             </div>
         </div>
     </div>

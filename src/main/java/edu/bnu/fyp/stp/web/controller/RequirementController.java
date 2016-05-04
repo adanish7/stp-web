@@ -19,6 +19,7 @@ import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
@@ -96,6 +97,7 @@ public class RequirementController {
         return "PostRequirement";
     }
 
+
     @RequestMapping(value = "/list")
     public String listRequirement(Model model)
     {
@@ -121,13 +123,14 @@ public class RequirementController {
     }
 
     @RequestMapping(value = "/courseList/{subject}")
-    public String showCourseList(@PathVariable String subject, Model model)
+    public String showCourseList(@PathVariable String subject, Model model, HttpSession session)
     {
 
         List<Course> subjectList = new ArrayList<Course>();
 
         try
         {
+            System.out.println(subject);
             subjectList = courseBL.findBySubject(subject);
         }
         catch (Exception e)
@@ -137,11 +140,32 @@ public class RequirementController {
 
         model.addAttribute("subjectList", subjectList);
 
+        session.setAttribute("subjectList" , subjectList);
+
         Requirement requirement = new Requirement();
 
         model.addAttribute("requirement" , requirement);
 
-        return "include/CourseList";
+        return "PostRequirements";
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String deleteRequirement(@PathVariable String id, Model model) {
+
+        List<Requirement> listRequirement = new ArrayList<Requirement>();
+
+        try
+        {
+            requirementBL.deleteRequirement(id);
+
+            listRequirement = requirementBL.getRequirementlist();
+
+            model.addAttribute("requirements", listRequirement);
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+        return "ListRequirements";
     }
 
 }

@@ -52,8 +52,8 @@ public class FindTutorController {
 
             model.addAttribute("subjectList", subjectList);
 
-            model.addAttribute("tutorTypes", TutorType.values());
 
+            model.addAttribute("tutorTypes", TutorType.values());
             model.addAttribute("city", City.values());
 
             model.addAttribute("gender", Gender.values());
