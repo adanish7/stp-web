@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
+import javax.validation.Valid;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -112,8 +113,8 @@ public class UserProfileController {
         return "UpdateProfile";
     }
 
-    @RequestMapping(value = "/view/{userId}", method = RequestMethod.GET)
-    public String view(@PathVariable String userId, Model model) {
+    @RequestMapping(value = "/view/student/{userId}", method = RequestMethod.GET)
+    public String viewStudentProfile(@PathVariable String userId, Model model) {
         User user = new User();
 
         try {
@@ -124,11 +125,26 @@ public class UserProfileController {
 
         model.addAttribute("cities", City.values());
         model.addAttribute("user", user);
-        return "ViewProfile";
+        return "StudentViewProfile";
     }
 
-    @RequestMapping(value = "/profile/update", method = RequestMethod.POST)
-    public String saveUserProfile(@Validated @ModelAttribute User user, BindingResult bindingResult) {
+    @RequestMapping(value = "/view/tutor/{userId}", method = RequestMethod.GET)
+    public String viewTutorProfile(@PathVariable String userId, Model model) {
+        User user = new User();
+
+        try {
+            user = manageUserBL.getUserByUserId(userId);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        model.addAttribute("cities", City.values());
+        model.addAttribute("user", user);
+        return "TutorViewProfile";
+    }
+
+    @RequestMapping(value = "/profile/student/update", method = RequestMethod.POST)
+    public String saveUserProfile(@Valid @ModelAttribute User user, BindingResult bindingResult) {
         try {
             if (bindingResult.hasErrors())
                 System.out.println(bindingResult.getAllErrors().iterator().next().toString());
@@ -137,7 +153,7 @@ public class UserProfileController {
         } catch (Exception e) {
             e.printStackTrace();
         }
-        return "ViewProfile";
+        return "StudentViewProfile";
     }
 
     @RequestMapping(value = "/tutor/list", method = RequestMethod.GET)

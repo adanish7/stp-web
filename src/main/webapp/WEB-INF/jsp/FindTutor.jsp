@@ -221,24 +221,38 @@
             <!--./container-->
         </section>
         <!--./search_page-->
-        <!-- Modal1 -->
-        <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content my-popup">
+
+    <!-- Modal1 -->
+    <div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content my-popup">
+                <div class="modal-header">
                     <div class="modal-header">
                         <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
                             <span class="sr-only">Close</span></button>
-                        <h4 class="modal-title" id="myModalLabel">Add Tutor To Watch List</h4>
+                        <h4 class="modal-title" id="myModalLabel">Add</h4>
                     </div>
-                    <div class="modal-body">
-                        <form action="http://mdev.digitalvidhya.com/dts/en/student/addTutorToWatchList" method="post" accept-charset="utf-8"><div style="display:none">
-                            <input type="hidden" name="digi_turor_system" value="8b81c6788b826c25da9d0ed4745056f0" />
-                        </div>            <div class="form-group">
-                            <textarea rows="2" cols="40" name="message" placeholder="Enter your message"></textarea>
-                        </div>
-                            <input type="hidden" name="tutor" >
-                            <button type="submit" class="btn btn-default">Submit</button>
-                        </form>
+                    <div class="modal-body">  Add to Watchlist? </div>
+                    <div class="modal-footer">
+                        <a type="button" class="btn btn-success" id="watchlist_no" href="">Yes</a>  <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Modal2 -->
+    <div class="modal fade" id="myModal2" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content my-popup">
+                <div class="modal-header">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+                            <span class="sr-only">Close</span></button>
+                        <h4 class="modal-title" id="myModalLabel">Message</h4>
+                    </div>
+                    <div class="modal-body">  Send Message </div>
+                    <div class="modal-footer">
+                        <a type="button" class="btn btn-success" id="" href="">Yes</a>  <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
                     </div>
                 </div>
             </div>
@@ -276,24 +290,17 @@
             });
 
 
-
-            /****** Tutor Rating  ******/
-            $('div.stars').raty({
-
-                path: 'http://mdev.digitalvidhya.com/dts//assets/system_design/raty_images',
-                score: function() {
-                    return $(this).attr('data-score');
-                },
-                readOnly: true
-            });
-
-
             /****** Assign Tutor Value ******/
             function assignVal(tutor)
             {
                 $('input[name="tutor"]').val(tutor);
             }
 
+
+            function addToWatchList(x,y) {
+                var str = "${pageContext.request.contextPath}/watchlist/add/" + x + "/" + y;
+                $("#watchlist_no").attr("href",str);
+            }
 
             /* Get Child Records based on Parent ID */
             function getChildRecords(parentId, tbl)
@@ -354,7 +361,7 @@
             }
 
         </script>
-
+</div>
 <!--./footer-->
 
 <%@ include file="include/Footer.jsp" %>

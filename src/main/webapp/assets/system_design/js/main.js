@@ -115,7 +115,7 @@ function listRequirements() {
     });
 }
 
-function deleteRequirement(x) {
+/*function deleteRequirement(x) {
     var url = contextPath + 'requirement/delete/' + x;
 
     $.get(url, function(content) {
@@ -123,7 +123,7 @@ function deleteRequirement(x) {
     }).fail(function() {
         alert("Something Went Wrong, Try Again!")
     });
-}
+}*/
 
 function getCourse(subject) {
     var url = 'courseList/' + subject;
@@ -155,5 +155,18 @@ function listTutors() {
         alert("Something Went Wrong, Try Again!")
     });
 }
+
+/****** View Student Watch List ******/
+function listStudentWatchlist(id) {
+    var url = 'list/' + id;
+
+    $.get(url, function(content) {
+        $("#watchlistArea").html(content);
+    }).fail(function() {
+        alert("Something Went Wrong, Try Again!")
+    });
+}
+
+
 
 

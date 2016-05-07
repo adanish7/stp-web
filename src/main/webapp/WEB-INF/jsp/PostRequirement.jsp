@@ -38,6 +38,40 @@
     <!--fevicon icon-->
     <link rel="icon" type="image/png" href=""/>
     <!--fevicon icon end-->
+
+    <script>
+
+        function getCourses()
+        {
+            var subject=$("#subject").val();
+
+
+            var url = '/requirement/show?subject=' + subject;
+
+            $.get(url, function(content) {
+                $("#courseList").html(content);
+            }).fail(function() {
+                alert("Something Went Wrong, Try Again!")
+            });
+
+                /*$.ajax({
+                    type:'GET',
+                    url:'/requirement/show',
+                    /!*data:{subjectName:subject},*!/
+                    success:function(data){
+                        $('#courseList').val(data);//this is the field id of second drop down value should display here...but is show empty...
+                        alert(data);//here also i am getting the alertbox in jsp
+                    },
+                    error:function(xmlHttpRequest, textStatus, errorThrown){
+                        if(xmlHttpRequest.readyState=0 || xmlHttpRequest.status == 0)
+                            return;
+                    }
+                });*/
+
+        }
+
+    </script>
+
 </head>
 
 <%--Header File--%>
@@ -69,7 +103,7 @@
                                 </div>
                                 <div class="form-group">
                                     <label>Subject</label><span style="color:red;">*</span>
-                                    <cf:select path="subject" id="subject" name="subject" onchange="getCourses($('#subject option:selected').text())">
+                                    <cf:select path="subject" id="subject" name="subject" onchange="getCourses()">
                                         <option value="" selected="selected" >Select Subject</option>
                                         <c:forEach items="${subjects}" var="name">
                                             <option>
@@ -85,9 +119,9 @@
                                     <cf:select path="course" id="courseList">
                                     <option value="" selected="selected">Select Course First.</option>
 
-                                        <c:forEach items="${subjectList}" var="subjectList" varStatus="counter">
+                                        <%--<c:forEach items="${subjectList}" var="subjectList" varStatus="counter">--%>
                                             <option> ${subjectList.subject} </option>
-                                        </c:forEach>
+                                        <%--</c:forEach>--%>
 
                                     </cf:select>
 
@@ -167,24 +201,6 @@
 <script src="../../assets/system_design/js/sidemenu-script.js" type="text/javascript"></script>
 <script src="../../assets/system_design/js/jquery.mixitup.min.js"></script>
 <script src="../../assets/system_design/js/main.js"></script>
-
-<script type="text/javascript">
-
-    function getCourses(Subject)
-    {
-        var contextPath = "${pageContext.request.contextPath}";
-
-        var url = contextPath + "/courseList/" + Subject;
-
-        $.get(url, function(content) {
-            $("#courseList").setAttribute(content);
-        }).fail(function() {
-            alert("Something Went Wrong, Try Again!")
-        });
-
-    }
-
-</script>
 
 <!--./script end-->
 </body>

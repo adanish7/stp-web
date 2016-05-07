@@ -43,8 +43,12 @@ public class LoginController {
             }
             user1 = manageUserBL.getUserByEmailAndPassword(email, password);
             if ((!user1.getEmail().equals("")) && (!user1.getPassword().equals(""))) {
+
                 HttpSession session = request.getSession();
+
                 session.setAttribute("user", user1);
+
+                session.setAttribute("counter" , 0);
 
                 if (user1.getRole().equals("student")) {
 
@@ -60,6 +64,8 @@ public class LoginController {
                 }
             }
         } catch (Exception e) {
+
+            e.printStackTrace();
 
         }
         modelMap.put("error", "Invalid username/password");

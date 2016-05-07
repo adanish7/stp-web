@@ -79,6 +79,8 @@ public class RegisterController {
                 System.out.println(bindingResult.getAllErrors().iterator().next().toString());
             }
 
+            System.out.println("New user's name is " + user.getFirstName());
+
             user.setRole("tutor");
             manageUserBL.registerStudent(user);
         } catch (Exception e) {

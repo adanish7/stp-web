@@ -15,13 +15,17 @@ import edu.bnu.fyp.stp.domain.model.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -72,8 +76,44 @@ public class RequirementController {
         return "PostRequirement";
     }
 
+    @RequestMapping(value="/show/criteria",method=RequestMethod.GET)
+    public String[] getCourseNames(@RequestParam(value="subject",required=false)String subject, ModelMap model){
+
+        try {
+            List<Course> courses = courseBL.findBySubject(subject);
+
+            courses.size();
+
+            Course [] course = (Course[]) courses.toArray();
+
+            String[] courseNames = null;
+
+            for (int i=0 ; i<courses.size() ; i++)
+            {
+                courseNames[i] = course[i].getSubject();
+            }
+
+            /*model.addAttribute("courses" , courseNames);*/
+
+            return courseNames;
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return null;
+    }
+
     @RequestMapping(value = "/save" , method = RequestMethod.POST)
     public String saveStudentRequirement(@Valid @ModelAttribute Requirement requirement, BindingResult bindingResult, Model model) {
+
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+        System.out.println(dateFormat.format(date)); //2014/08/06 15:59:48
+
+        requirement.setCreatedOn(dateFormat);
+
+        List<Requirement> listRequirement = new ArrayList<Requirement>();
 
         try
         {
@@ -81,20 +121,17 @@ public class RequirementController {
                 System.out.println(bindingResult.getAllErrors().iterator().next().toString());
             }
 
-            else
-            {
-                // This else has no use here
-            }
             requirementBL.saveRequirement(requirement);
+
+            listRequirement = requirementBL.getRequirementlist();
+
+            model.addAttribute("requirements", listRequirement);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        Requirement requirement1 = new Requirement();
-
-        model.addAttribute("requirement" , requirement1);
-
-        return "PostRequirement";
+        return "ListRequirements";
     }
 
 

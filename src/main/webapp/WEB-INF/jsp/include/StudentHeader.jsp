@@ -81,10 +81,10 @@
         <div id='cssmenu'>
             <ul>
                 <li class="active">
-                    <a href="#"><span> <i class="fa fa-soundcloud"></i> Dashboard</span></a>
+                    <a href="${pageContext.request.contextPath}/studentdashboard"><span> <i class="fa fa-soundcloud"></i> Dashboard </span></a>
                 </li>
                 <li>
-                    <a href="${pageContext.request.contextPath}/tutor/find" target="_blank"><span> <i class="fa fa-life-ring"></i>Find Tutor</span></a>
+                    <a href="${pageContext.request.contextPath}/tutor/find"><span> <i class="fa fa-life-ring"></i>Find Tutor</span></a>
                 </li>
                 <!-- My Requirements --->
                 <li class="has-sub">
@@ -108,7 +108,7 @@
                 <li class="has-sub">
                     <a href="#"><span><i class="fa fa-indent"></i>Watch List </span></a>
                     <ul class="bb">
-                        <li><a href="${pageContext.request.contextPath}/watchlist" ><span>My Tutors</span></a></li>
+                        <li><a href="${pageContext.request.contextPath}/watchlist/list" ><span>My Tutors</span></a></li>
                     </ul>
                 </li>
                 <!--Wacth List End-->
@@ -116,8 +116,8 @@
                 <li class="has-sub">
                     <a href="#"><span> <i class="fa  fa-spinner"></i>Profile Settings</span></a>
                     <ul class="bb">
-                        <li><a href="${pageContext.request.contextPath}/user/view/${sessionScope.user.userId}"> View Profile</a></li>
-                        <li><a href="${pageContext.request.contextPath}/user/edit/${sessionScope.user.userId}"> Update Profile</a></li>
+                        <li><a href="${pageContext.request.contextPath}/user/view/student/${sessionScope.user.userId}"> My Profile</a></li>
+                        <%--<li><a href="${pageContext.request.contextPath}/user/edit/${sessionScope.user.userId}"> Update Profile</a></li>--%>
                     </ul>
                 </li>
                 <!--Profile Settings End-->

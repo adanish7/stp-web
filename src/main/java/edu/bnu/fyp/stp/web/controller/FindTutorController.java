@@ -78,7 +78,7 @@ public class FindTutorController {
             List<User> tutorList = new ArrayList<User>();
             /*List<User> tutorListTemp = new ArrayList<User>();*/
 
-            if (locations.length>0) {
+            if (locations.length>0 && subjects.length == 0 && experiences.length == 0 && tutorTypes.length == 0 ) {
 
                 /*for (int i = 0 ; i<locations.length ; i++)
                 {*/
@@ -89,22 +89,82 @@ public class FindTutorController {
                 /*}*/
             }
 
-            if (subjects.length>0)
+            if (locations.length == 0 && subjects.length>0 && experiences.length == 0 && tutorTypes.length == 0 )
             {
                 tutorList.addAll(findTutorBL.tutorListBySubject(subjects));
                 /*LOGGER.info("Subjects: {}", subjects.length);*/
             }
 
-            if (experiences.length>0)
+            if (locations.length == 0 && subjects.length == 0 && experiences.length>0 && tutorTypes.length == 0)
             {
                 tutorList.addAll(findTutorBL.tutorListByExperience(experiences));
                 /*LOGGER.info("Experiences: {}", experiences.length);*/
             }
 
-            if (tutorTypes.length>0)
+            if (locations.length == 0 && subjects.length == 0 && experiences.length == 0 && tutorTypes.length>0)
             {
                 tutorList.addAll(findTutorBL.tutorListByTutorType(tutorTypes));
                 /*LOGGER.info("TutorTypes: {}", tutorTypes.length);*/
+            }
+
+            if (locations.length>0 && subjects.length>0)
+            {
+                tutorList.addAll(findTutorBL.tutorListByLocationAndSubject(locations,subjects));
+
+            }
+
+            if (locations.length>0 && experiences.length>0)
+            {
+                tutorList.addAll(findTutorBL.tutorListByLocationAndExperience(locations,experiences));
+
+            }
+
+            if (locations.length>0 && tutorTypes.length>0)
+            {
+                tutorList.addAll(findTutorBL.tutorListByLocationAndTutorType(locations,tutorTypes));
+
+            }
+
+            if (subjects.length>0 && experiences.length>0)
+            {
+                tutorList.addAll(findTutorBL.tutorListBySubjectAndExperience(subjects,experiences));
+
+            }
+
+            if (subjects.length>0 && tutorTypes.length>0)
+            {
+                tutorList.addAll(findTutorBL.tutorListBySubjectAndTutorType(subjects,tutorTypes));
+
+            }
+
+            if (experiences.length>0 && tutorTypes.length>0)
+            {
+                tutorList.addAll(findTutorBL.tutorListByExperienceAndTutorType(experiences,tutorTypes));
+
+            }
+
+            if (locations.length>0 && subjects.length>0 && experiences.length>0)
+            {
+                tutorList.addAll(findTutorBL.tutorListByLocationAndSubjectAndExperience(locations,subjects,experiences));
+
+            }
+
+            if (locations.length>0 && subjects.length>0 && tutorTypes.length>0)
+            {
+                tutorList.addAll(findTutorBL.tutorListByLocationAndSubjectAndTutorType(locations,subjects,tutorTypes));
+
+            }
+
+            if (subjects.length>0 && experiences.length>0 && tutorTypes.length>0)
+            {
+                tutorList.addAll(findTutorBL.tutorListBySubjectAndExperienceAndTutorType(subjects,experiences,tutorTypes));
+
+            }
+
+            if (locations.length>0 && subjects.length>0 && experiences.length>0 && tutorTypes.length >0)
+            {
+                tutorList.addAll(findTutorBL.tutorListByLocationAndSubjectAndExperienceAndTutorType(locations,subjects,experiences,tutorTypes));
+
             }
 
             if (locations.length == 0 && subjects.length == 0 && experiences.length == 0 && tutorTypes.length == 0 )

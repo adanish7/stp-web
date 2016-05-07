@@ -38,6 +38,19 @@
     <!--fevicon icon-->
     <link rel="icon" type="image/png" href=""/>
     <!--fevicon icon end-->
+
+    <script src="../../assets/system_design/js/main.js"></script>
+
+    <script src="../../assets/system_design/js/jquery.min.js"></script>
+    <%--<script src="../../assets/system_design/js/jqu--%>
+
+    <script type="text/javascript">
+        $(document).ready(function () {
+            console.log("Calling listStudentWatchlist()");
+            listStudentWatchlist('${sessionScope.user.userId}');
+        });
+    </script>
+
 </head>
 
 <%@ include file="include/StudentHeader.jsp" %>
@@ -74,51 +87,13 @@
         <div class="col-lg-10 col-md-10 col-sm-12 padding-lr">
             <div class="body-content">
                 <div class="search_content sc">
-                    <ul>
 
-                        <c:forEach items="studentWatchlist" var="studentWatchlist">
+                    <div id="watchlistArea">
 
-                        <li class="tutorz_list">
-                            <a href="#" class="remove_from_watchlist" title="Remove From Watch List" onclick="removeTutorFromWatchlist(${studentWatchlist.id})">x</a>
-                            <div class="search_result_header">
-                                <div class="company_img">
-                                    <a href="#"><img height="80" width="80" src="../../images/no-image.png"></a>
-                                </div>
-                                <div class="job_title smt">
-                                    <h3> <a target="_blank" href="http://mdev.digitalvidhya.com/dts/en/welcome/tutorProfile/32">${studentWatchlist.User.firstName} &nbsp; ${studentWatchlist.User.lastName} </a></h3>
-                                    <span class="job_detail smt1"><i class="fa fa-user"></i> <strong>Gender</strong>&nbsp; ${studentWatchlist.User.gender} </span>
-                                    <span class="job_detail smt1"><i class="fa fa-line-chart"></i><strong>Experience</strong>&nbsp; ${studentWatchlist.User.tutorExperience} </span>
-                                    <span class="job_detail smt1"><i class="fa fa-graduation-cap"></i> <strong>Qualification</strong>&nbsp;  ${studentWatchlist.User.tutorQualification} </span>
-                                </div>
-                            </div>
-                            <div class="search_result_content">
-                                <div class="dl-horizontal">
-                                    <div class="col-md-6">
-                                        <ul>
-                                            <li> <i class="fa fa-map-marker fa-1x"></i> <strong> City </strong> &nbsp; ${studentWatchlist.User.city} </li>
-                                            <li> <i class="fa fa-phone"></i><strong>  Phone </strong>  &nbsp; ${studentWatchlist.User.phone}  </li>
-                                        </ul>
-                                    </div>
 
-                                    <div class="col-md-12 padding-0">
-                                        <div class="bottom-list my-tu-list">
-                                            <ul>
-                                                <li> <a data-toggle='modal' data-target='#myModal3' onclick="assignVal(32)" id="reqmodal_32"> <i class="fa fa-phone"> </i> Request a Callback </a> </li>
-                                                <li><a data-toggle='modal' data-target='#myModal4' onclick="assignVal(32)" id="msgmodal_32"><i class="fa fa-envelope"> </i>
-                                                    Send a Message
-                                                </a>&nbsp;
-                                                </li>
-                                                <li> <a target="_blank" href="http://mdev.digitalvidhya.com/dts/en/welcome/tutorProfile/32" class="view_more"> <i class="fa fa-long-arrow-right"></i> VIEW MORE  </a>  </li>
-                                            </ul>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </li>
 
-                        </c:forEach>
+                    </div>
 
-                    </ul>
                 </div>
             </div>
         </div>
@@ -281,7 +256,7 @@
         <link href="../../assets/system_design/css/jquery.raty.css" rel="stylesheet" media="screen">
         <script src="../../assets/system_design/js/jquery.raty.js"></script>
         <script>
-            $(document).ready(function () {
+            /*$(document).ready(function () {
                 tot_records = 1;
                 size_li = $(".tutorz_list").size();
                 x=4;
@@ -302,8 +277,20 @@
                     $('#showLess').hide();
                     $('#loadMore').show();
                 });
-            });
+            });*/
 
+
+            /****** Remove Tutor From Watch List ******/
+            function removeTutorFromWatchlist(id)
+            {
+                var url = 'delete/' + id;
+
+                $.get(url, function(content) {
+                    $("#watchlistArea").html(content);
+                }).fail(function() {
+                    alert("Something Went Wrong, Try Again!")
+                });
+            }
 
 
             /*/!****** Tutor Rating  ******!/
@@ -324,29 +311,7 @@
             }
 
 
-            /****** Remove Tutor From Watch List ******/
-            function removeTutorFromWatchlist(tutor)
-            {
-                if(tutor>0) {
-
-                    $.ajax({
-                        type: "post",
-                        async: false,
-                        url: "",
-                        data: { tutor:tutor, "digi_turor_system":"8d5a40f92ef66b4819a27a70b661263f"},
-                        success: function(data) {
-                            location.reload();
-                        },
-                        error: function(){
-                            alert('Ajax Error');
-                        }
-                    });
-
-                }
-
-            }
-
-            /* Get Child Records based on Parent ID */
+            /*/!* Get Child Records based on Parent ID *!/
             function getChildRecords(parentId, tbl)
             {
 
@@ -402,7 +367,7 @@
                     $('#location_id1').trigger("liszt:updated");
                 }
 
-            }
+            }*/
 
 
         </script>

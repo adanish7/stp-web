@@ -69,7 +69,7 @@
                                                         </span>
                                                             <p> ${requirements.requirementDetails}  </p>
                                                             <p>  Frederick Ave, Kensington  </p>
-                                                            <p> <i class="fa fa-calendar"></i> Posted On:  &nbsp; 1 Year ago  </p>
+                                                            <p> <i class="fa fa-calendar"></i> Posted On:  &nbsp; ${requirements.createdOn}  </p>
                                                         </div>
                                                         <div class="col-md-4 padding-1">
                                                             </br> </br>
@@ -86,7 +86,7 @@
 
                                                     <div class="list-right last-box">
                                       <span class="checkbox tutor-check pa-ch">
-                                      <a href="${pageContext.request.contextPath}/requirement/delete/${requirements.id}" style="height: 40px; width: 100px; margin-left: 50px" class="btn btn-primary">Delete</a>
+                                      <a a data-toggle='modal' data-target='#myModal1' onclick="deleteRequirements('${requirements.id}')" style="height: 40px; width: 100px; margin-left: 50px" class="btn btn-primary">Delete</a>
                                       </span>
                                                     </div>
                                                 </li>
@@ -97,60 +97,32 @@
                                     </div>
                                 </div>
 
+<!-- Modal1 -->
+<div class="modal fade" id="myModal1" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content my-popup">
+            <div class="modal-header">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal"><span aria-hidden="true">&times;</span>
+                        <span class="sr-only">Close</span></button>
+                    <h4 class="modal-title" id="myModalLabel">Delete Requirement</h4>
+                </div>
+                <div class="modal-body">  Are you sure you want to delete? </div>
+                <div class="modal-footer">
+                    <a type="button" class="btn btn-success" id="delete_no" href="">Yes</a>  <button type="button" class="btn btn-danger" data-dismiss="modal">No</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
 
         <script>
-            /*$(document).ready(function () {
-                tot_records = 4;
-                size_li = $(".my_requirements_list").size();
-                x=4;
-                $('#showLess').hide();
-                $('.my_requirements_list').not(':lt('+(size_li-(size_li-x))+')').hide();
-                $('#loadMore').click(function () {
-                    x= (x+6 <= size_li) ? x+6 : size_li;
-                    $('.my_requirements_list:lt('+x+')').slideDown();
-                    if(tot_records == $('.my_requirements_list:visible').size()) {
 
-                        $('#loadMore').hide();
-                        $('#showLess').show();
-                    }
-                });
-                $('#showLess').click(function () {
-
-                    $('.my_requirements_list').not(':lt('+4+')').slideUp();
-                    $('#showLess').hide();
-                    $('#loadMore').show();
-                });
-            });
-
-            function performAction(id)
-            {
-                var closeid = id;
-                var status = "";
-                if($('#'+id).is(':checked')) {
-                    $('#'+closeid).fadeIn();
-                    $('#div_'+closeid).attr('style','opacity:0.4');
-                    status = "Closed";
-                }
-                else {
-                    $('#'+closeid).fadeOut();
-                    $('#div_'+closeid).attr('style','opacity:1');
-                    status = "";
-                }
-
-                $.ajax({
-                    type: "post",
-                    async: false,
-                    url: "${pageContext.request.contextPath}/delete/" + id,
-                    data: { status:status, lead_id:closeid, "digi_turor_system":id}, //Need to check about this id
-                    success: function(data) {
-
-                    },
-                    error: function(){
-                        alert('Ajax Error');
-                    }
-                });
-
-            }*/
+            function deleteRequirements(x) {
+                var str = "${pageContext.request.contextPath}/requirement/delete/" + x ;
+                $("#delete_no").attr("href",str);
+            }
 
         </script>
 

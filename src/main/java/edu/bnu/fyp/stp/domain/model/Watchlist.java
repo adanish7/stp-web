@@ -13,7 +13,7 @@ public class Watchlist {
     @Id
     private String id;
 
-    private User teacher;
+    private User tutor;
 
     private String userId;
 
@@ -29,12 +29,12 @@ public class Watchlist {
         this.id = id;
     }
 
-    public User getTeacher() {
-        return teacher;
+    public User getTutor() {
+        return tutor;
     }
 
-    public void setTeacher(User teacher) {
-        this.teacher = teacher;
+    public void setTutor(User tutor) {
+        this.tutor = tutor;
     }
 
     public String getUserId() {

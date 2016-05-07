@@ -3,6 +3,8 @@ package edu.bnu.fyp.stp.domain.model;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import java.sql.Time;
+import java.text.DateFormat;
 import java.util.Date;
 
 /**
@@ -13,38 +15,54 @@ import java.util.Date;
 public class Review {
 
     @Id
-    private String reviewId;
+    private String Id;
 
-    private Date date;
-    //Need time here as well
+    private String tutorId;
 
-    private String status;
+    private String studentId;
 
-    public Review(String reviewId) {
-        this.reviewId = reviewId;
+    private DateFormat date;
+
+    public String getId() {
+        return Id;
     }
 
-    public String getReviewId() {
-        return reviewId;
+    public void setId(String id) {
+        Id = id;
     }
 
-    public void setReviewId(String reviewId) {
-        this.reviewId = reviewId;
+    public String getTutorId() {
+        return tutorId;
     }
 
-    public Date getDate() {
+    public void setTutorId(String tutorId) {
+        this.tutorId = tutorId;
+    }
+
+    public String getStudentId() {
+        return studentId;
+    }
+
+    public void setStudentId(String studentId) {
+        this.studentId = studentId;
+    }
+
+    public DateFormat getDate() {
         return date;
     }
 
-    public void setDate(Date date) {
+    public void setDate(DateFormat date) {
         this.date = date;
     }
 
-    public String getStatus() {
-        return status;
+    public Review() {
+        super();
     }
 
-    public void setStatus(String status) {
-        this.status = status;
+    public Review(String id, String tutorId, String studentId, DateFormat date) {
+        Id = id;
+        this.tutorId = tutorId;
+        this.studentId = studentId;
+        this.date = date;
     }
 }

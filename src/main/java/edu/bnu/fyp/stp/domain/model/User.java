@@ -5,6 +5,7 @@ import edu.bnu.fyp.stp.constants.Gender;
 import edu.bnu.fyp.stp.constants.TutorType;
 import edu.bnu.fyp.stp.constants.UserType;
 import org.hibernate.validator.constraints.Email;
+import org.hibernate.validator.constraints.Length;
 import org.hibernate.validator.constraints.NotEmpty;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
@@ -21,8 +22,13 @@ public class User {
     @Id
     private String userId;
 
+    @NotEmpty
     private String firstName;
+
+    @NotEmpty
     private String lastName;
+
+    @NotEmpty
     private String password;
 
     @NotEmpty
@@ -43,6 +49,7 @@ public class User {
 
     private String subject;
 
+    @Length(max = 10)
     private String phone;
     private Date birthDate;
     private List<String> userRoles;

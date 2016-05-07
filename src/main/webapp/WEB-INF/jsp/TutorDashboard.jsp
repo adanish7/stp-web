@@ -59,7 +59,7 @@
 
 </head>
 
-    <%@ include file = "include/StudentHeader.jsp" %>
+    <%@ include file = "include/TutorHeader.jsp" %>
 
         <script type="text/javascript" src="https://www.google.com/jsapi"></script>
         <script type="text/javascript">
@@ -91,7 +91,7 @@
             <div class="all-bg">
                 <div class="av">
                     <ul>
-                        <li class="green"><a title="" href="${pageContext.request.contextPath}/tutor/find"> <i class="fa fa-user"></i> Find Tutor </a> </li>
+                        <li class="green"><a title="" href="${pageContext.request.contextPath}/student/find"> <i class="fa fa-user"></i> Find Student </a> </li>
                         <li class="blue"><a title="" href="${pageContext.request.contextPath}/requirement/list"> <i class="fa fa-video-camera"></i> My Requirements </a> </li>
                         <li class="dark-orange"><a title="" href="${pageContext.request.contextPath}/watchlist/list"><i class="fa fa-question"></i> Watch List</a> </li>
                         <li class="orang"><a href="#"> <i class="fa fa-cogs"></i>Profile Settings</a> </li>
@@ -109,31 +109,7 @@
                             </div>
                         </div>
                     </div>
-                    <%--<div class="col-md-6">
-                        <div class="panel pp">
-                            <div class="panel-heading ele-hea"> Tutors near to your Location <i class="fa fa-users"></i> </div>
-                            <div class="panel-body padding-0">
-                                <div class="c-s">
-                                    <ul>
-                                        <li>
-                                            <div class="supprt-total">
-                                                <div class="supprt-top">
-                                                    <a target="_blank" href="#">
-                                                        <div class="cs-img"><img width="35" height="35" src="../../uploads/users/students/noimage.jpg"></div>
-                                                        <div class="cs-img-name"> James Smith <small> Male , 31 Years</small> </div>
-                                                    </a>
-                                                </div>
-                                                <div class="supprt-con">
-                                                    <p><span >I approach tutoring in such a way that I show the students the basics, and then give them a variety of practice exercises and urge them figure out the answers themselves. If in doubt, I would keep prompting them to find the right answers thereby helping them to grasp the right concepts.&nbsp;</span>
-                                                    </p>
-                                                </div>
-                                            </div>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>--%>
+
                 </div>
             </div>
         </div>

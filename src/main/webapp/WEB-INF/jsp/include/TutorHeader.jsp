@@ -47,7 +47,7 @@
                     <ul class="navbar-right login user_proile">
                         <li>
                             <a href="#">
-                                <img src="../../uploads/users/noimage.jpg" height="38" width="55"><p style="color:#FFF; float:right; font-size:15px;">Administrator</p>
+                                <img src="../../uploads/users/noimage.jpg" height="38" width="55"><p style="color:#FFF; float:right; font-size:15px;">${sessionScope.user.firstName} ${sessionScope.user.lastName}</p>
                             </a>
                             <ul class="dropdown-menu" role="menu">
                                 <li><a tabindex="-1" href="${pageContext.request.contextPath}/user/view/${sessionScope.user.userId}"> <i class="fa fa-user"></i>View Profile</a></li>
@@ -85,7 +85,7 @@
                         <a href="#"><span> <i class="fa fa-soundcloud"></i> Dashboard</span></a>
                     </li>
                     <li>
-                        <a href="#" target="_blank"><span> <i class="fa fa-life-ring"></i>Find Student</span></a>
+                        <a href="${pageContext.request.contextPath}/student/find"><span> <i class="fa fa-life-ring"></i>Find Student</span></a>
                     </li>
                     <!-- My Requirements --->
                     <li class="has-sub">
@@ -108,8 +108,8 @@
                     <li class="has-sub">
                         <a href="#"><span> <i class="fa  fa-spinner"></i>Profile Settings</span></a>
                         <ul class="bb">
-                            <li><a href="${pageContext.request.contextPath}/user/view/${sessionScope.user.userId}"> View Profile</a></li>
-                            <li><a href="${pageContext.request.contextPath}/user/edit/${sessionScope.user.userId}"> Update Profile</a></li>
+                            <li><a href="${pageContext.request.contextPath}/user/view/tutor/${sessionScope.user.userId}"> My Profile</a></li>
+                            <%--<li><a href="${pageContext.request.contextPath}/user/edit/${sessionScope.user.userId}"> Update Profile</a></li>--%>
                         </ul>
                     </li>
                     <!--Profile Settings End-->

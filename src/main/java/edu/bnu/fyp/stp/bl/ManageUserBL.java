@@ -41,6 +41,9 @@ public class ManageUserBL {
     }
 
     public void updateUserProfile(User user) throws Exception {
+        if (StringUtils.isEmpty(user.getUserId().isEmpty()))
+            user.setUserId(null);
+
         userMongoRepository.save(user);
     }
 

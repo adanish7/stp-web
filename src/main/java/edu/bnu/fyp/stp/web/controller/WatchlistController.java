@@ -11,6 +11,7 @@ import org.springframework.ui.Model;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.List;
@@ -20,7 +21,7 @@ import java.util.List;
  */
 
 @Controller
-@RequestMapping (value = "watchlist")
+@RequestMapping (value = "/watchlist")
 public class WatchlistController {
 
     @Autowired
@@ -31,85 +32,92 @@ public class WatchlistController {
 
     @Autowired
     private FindStudentBL findStudentBL;
-    private String tutorId;
-    private String studentId;
-    private BindingResult bindingResult;
-    private Model model;
-    private HttpSession session;
 
-
-    /*@RequestMapping (value = "/watchlist")
-    private String displayWatchList(Model model)
+    @RequestMapping (value = "/list" , method = RequestMethod.GET)
+    private String displayWatchList()
     {
-
-        try {
-            //List<User> tutorWatchlist = watchListBL.getStudentWatchlist(userId);
-
-            //model.addAttribute("tutorWatchlist" , tutorWatchlist);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        return "StudentWatchlist";
-    }*/
-
-
-    @RequestMapping (value = "/{userId}" , method = RequestMethod.GET)
-    private String showWatchList(@PathVariable String userId , Model model)
-    {
-
-        try {
-            List<Watchlist> studentWatchlist = watchListBL.getStudentWatchlist(userId);
-
-            model.addAttribute("studentWatchlist" , studentWatchlist);
-
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
 
         return "StudentWatchlist";
     }
 
-    @RequestMapping(value = "/add" , method = RequestMethod.GET)
-    public String saveWatchlist(@RequestParam(required = false) String tutorId, @RequestParam(required = false) String studentId , BindingResult bindingResult, ModelAttribute model, HttpSession session) {
+    @RequestMapping (value = "/list/{userId}" , method = RequestMethod.GET)
+    private String showWatchList(@PathVariable String userId , Model model, HttpServletRequest request)
+    {
 
-        System.out.println("Tutor ID is: " + tutorId);
-        System.out.println("Student ID is: " + studentId);
+        List<Watchlist> studentWatchlist = new ArrayList<Watchlist>();
 
         try {
+            studentWatchlist = watchListBL.getStudentWatchlist(userId);
+
+            /*System.out.println("No of records in Watchlist " + studentWatchlist.size());*/
+
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        /*model.addAttribute("studentWatchlist" , studentWatchlist);*/
+
+        HttpSession session = request.getSession(false);
+
+        session.setAttribute("studentWatchlist" , studentWatchlist);
+
+        return "include/Watchlist";
+    }
+
+    @RequestMapping(value = "/add/{tutorId}/{studentId}" , method = RequestMethod.GET)
+    public String saveWatchlist(@PathVariable(value = "tutorId") String tutorId, @PathVariable(value = "studentId") String studentId) {
+
+        /*try {
             if (bindingResult.hasErrors()) {
                 System.out.println(bindingResult.getAllErrors().iterator().next().toString());
-            }
+            }*/
+
+        Watchlist watchList = new Watchlist();
 
             try {
-                User student = findStudentBL.getStudentById(studentId);
+
+                /*User student = findStudentBL.getStudentById(studentId);*/
                 User tutor = findTutorBL.getTutorById(tutorId);
 
-                Watchlist watchList = new Watchlist();
+                List<Watchlist> tempWatchlist = watchListBL.getWatchlistByTutor(tutor);
 
-                watchList.setTeacher(tutor);
-                watchList.setUserId(student.getUserId());
+                if(!(tempWatchlist.size() > 0)) {
 
-                watchListBL.saveWatchlist(watchList);
+                    watchList.setTutor(tutor);
+                    watchList.setUserId(studentId);
+
+                    watchListBL.saveWatchlist(watchList);
+                }
 
             } catch (Exception e) {
                 e.printStackTrace();
             }
 
+        /*} catch (Exception e) {
+            e.printStackTrace();
+        }*/
+
+        return "redirect:/tutor/find";
+    }
+
+    @RequestMapping(value = "/delete/{id}", method = RequestMethod.GET)
+    public String deleteWatchlist(@PathVariable String id, HttpServletRequest request) {
+
+        List<Watchlist> studentWatchlist = new ArrayList<Watchlist>();
+
+        try
+        {
+            watchListBL.deleteWatchlist(id);
+
+            studentWatchlist = watchListBL.getStudentWatchlist(id);
+
         } catch (Exception e) {
             e.printStackTrace();
         }
 
-        List<Watchlist> watchlist1 = new ArrayList<Watchlist>();
+        HttpSession session = request.getSession(false);
 
-        try {
-            watchlist1 = watchListBL.getStudentWatchlist(studentId);
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-
-        //model.addAttribute("watchList" , watchlist1);
+        session.setAttribute("studentWatchlist" , studentWatchlist);
 
         return "StudentWatchlist";
     }

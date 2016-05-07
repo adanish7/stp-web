@@ -70,14 +70,19 @@ public class FindStudentController {
 
             List<User> studentList = new ArrayList<User>();
 
-            if (locations.length>0) {
+            if (locations.length>0 && subjects.length == 0) {
 
                    studentList.addAll(findStudentBL.studentListByLocation(locations));
             }
 
-            if (subjects.length>0)
+            if (locations.length == 0 && subjects.length>0)
             {
                 studentList.addAll(findStudentBL.studentListBySubject(subjects));
+            }
+
+            if (locations.length > 0 && subjects.length > 0)
+            {
+                studentList = findStudentBL.studentListByLocationAndSubject(locations,subjects);
             }
 
             if (locations.length == 0 && subjects.length == 0)

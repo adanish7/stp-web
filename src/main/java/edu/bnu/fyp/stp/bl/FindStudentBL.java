@@ -60,4 +60,16 @@ public class FindStudentBL {
         return fullList;
     }
 
+    public List <User> studentListByLocationAndSubject (String[] x , String[] y) throws Exception {
+
+        List <User> fullList = new ArrayList<User>();
+
+        for (int i = 0 ; i<x.length ; i++)
+        {
+            fullList.addAll(findStudentMongoRepository.findByCityAndSubjectAndRole(x[i] , y[i] , "student"));
+        }
+
+        return fullList;
+    }
+
 }

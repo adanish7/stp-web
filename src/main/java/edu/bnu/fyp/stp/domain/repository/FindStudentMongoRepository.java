@@ -20,4 +20,6 @@ public interface FindStudentMongoRepository extends MongoRepository<User, String
 
     public List <User> findBySubjectAndRole(String subject, String role) throws Exception;
 
+    public List <User> findByCityAndSubjectAndRole(String city , String subject, String role) throws Exception;
+
 }

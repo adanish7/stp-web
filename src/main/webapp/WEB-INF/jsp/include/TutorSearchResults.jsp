@@ -1,6 +1,20 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
+<head>
+<!--style start-->
+<link href="../../assets/system_design/css/bootstrap.css" rel="stylesheet">
+<link href="../../assets/system_design/css/style.css" rel="stylesheet">
+<link href="../../assets/system_design/css/animate.css" rel="stylesheet">
+<link href="../../assets/system_design/css/font-awesome.css" rel="stylesheet">
+<link href="../../assets/system_design/css/jquery.bxslider.css" rel="stylesheet">
+<link href="../../assets/system_design/css/jquery.steps.css" rel="stylesheet">
+<link href="../../assets/system_design/css/side-menu.css" rel="stylesheet">
+<!--fevicon icon-->
+<link rel="icon" type="image/png" href=""/>
+<!--fevicon icon end-->
+</head>
+
 <c:forEach items="${tutorList}" var="tutorList" varStatus="counter">
     <div class="search_content">
         <ul>
@@ -12,7 +26,7 @@
                     </div>
 
                     <div class="job_title">
-                        <h3> ${tutorList.firstName} &nbsp; ${tutorList.lastName} </h3>
+                        <h3> ${tutorList.firstName} ${tutorList.lastName} </h3>
                         <span class="job_detail"><i class="fa fa-user"></i> <strong> Gender </strong> ${tutorList.gender} </span>
                         <span class="job_detail"><i class="fa fa-line-chart"></i><strong> Experience </strong> ${tutorList.tutorExperience} </span>
                             <%--<span class="job_detail"><i class="fa fa-calendar"></i> <strong> Age  </strong> 32 Years</span>--%>
@@ -41,10 +55,6 @@
                                     <strong>Teaching Mode:</strong> &nbsp; ${tutorList.tutorType}
                                 </li>
 
-                                <li>
-                                    <strong>Tutor Avg. Rating</strong> &nbsp;  &nbsp;
-                                    <div class="stars" id="37" ></div>
-                                </li>
                                 <li><i class="fa fa-phone-square"></i>
                                     <strong>WhatsApp</strong> &nbsp;
                                         ${tutorList.phone}
@@ -58,13 +68,13 @@
 
                                     <%--Not using modal popup here for now--%>
 
-                                    <li> <a href="${pageContext.request.contextPath}/watchlist/add/?tutorId=${tutorList.userId}&studentId=${sessionScope.user.userId}"> <i class="fa fa-star-o"> </i>
+                                    <li> <a data-toggle='modal' data-target='#myModal1' onclick="addToWatchList('${tutorList.userId}','${sessionScope.user.userId}')"> <i class="fa fa-star-o"> </i>
                                         Add to Watch List</a>
                                     </li>
                                         <%--<li> <a data-toggle='modal' data-target='#myModal4' onclick="assignVal(37)" id="reqmodal_37"> <i class="fa fa-phone"> </i> Request a Callback</a> </li>--%>
-                                    <li><a data-toggle='modal' data-target='#myModal2' onclick="assignVal(37)" id="msgmodal_37"><i class="fa fa-envelope"> </i> Send a Message                                          </a>&nbsp;
+                                    <li><a data-toggle='modal' data-target='#myModal2' onclick="assignVal(37,25)" id="msgmodal_37"><i class="fa fa-envelope"> </i> Send a Message                                          </a>&nbsp;
                                     </li>
-                                    <li> <a href="http://mdev.digitalvidhya.com/dts/en/welcome/tutorProfile/37" class="view_more"> <i class="fa fa-long-arrow-right"></i> VIEW MORE </a>  </li>
+                                    <li> <a href="${pageContext.request.contextPath}/user/profile/${tutorList.userId}" class="view_more"> <i class="fa fa-long-arrow-right"></i> VIEW MORE </a>  </li>
                                 </ul>
                             </div>
                         </div>

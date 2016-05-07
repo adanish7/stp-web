@@ -5,8 +5,8 @@ import edu.bnu.fyp.stp.domain.model.Watchlist;
 import edu.bnu.fyp.stp.domain.repository.WatchListMongoRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.util.StringUtils;
 
+import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -25,13 +25,31 @@ public class WatchListBL {
     }
 
     public void saveWatchlist(Watchlist watchList) throws Exception {
-        if (StringUtils.isEmpty(watchList.getUserId()))
-            watchList.setUserId(null);
+        /*if (StringUtils.isEmpty(watchList.getUserId()))
+            watchList.setUserId(null);*/
 
         try {
             watchListMongoRepository.save(watchList);
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public List<Watchlist> getWatchlistByTutor(User tutor) throws Exception {
+
+        List<Watchlist> watchlist = new ArrayList<Watchlist>();
+
+        try {
+           watchlist = watchListMongoRepository.getWatchlistByTutor(tutor);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+
+        return watchlist;
+    }
+
+    public void deleteWatchlist(String id) {
+
+        watchListMongoRepository.delete(id);
     }
 }

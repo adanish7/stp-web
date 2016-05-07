@@ -8,6 +8,7 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 import org.springframework.stereotype.Service;
 
+import java.text.DateFormat;
 import java.util.Date;
 
 @Document(collection = "requirement")
@@ -16,19 +17,19 @@ public class Requirement {
     @Id
     private String id;
 
-    private Date createdOn;
+    private DateFormat createdOn;
     private Double budget;
     private RequirementsPriority priority;
     private TutorType tutorType;
-    private Subject subject;
-    private Course course;
+    private String subject;
+    private String course;
     private Duration duration;
     private RequirementsPriority requirementsPriority;
     private String title;
     private String requirementDetails;
     private BudgetType budgetType;
 
-    public Requirement(String id, Date createdOn, Double budget, RequirementsPriority priority, TutorType tutorType, Subject subject, Course course, Duration duration, RequirementsPriority requirementsPriority, String title, String requirementDetails, BudgetType budgetType) {
+    public Requirement(String id, DateFormat createdOn, Double budget, RequirementsPriority priority, TutorType tutorType, String subject, String course, Duration duration, RequirementsPriority requirementsPriority, String title, String requirementDetails, BudgetType budgetType) {
         this.id = id;
         this.createdOn = createdOn;
         this.budget = budget;
@@ -55,11 +56,11 @@ public class Requirement {
         this.id = id;
     }
 
-    public Date getCreatedOn() {
+    public DateFormat getCreatedOn() {
         return createdOn;
     }
 
-    public void setCreatedOn(Date createdOn) {
+    public void setCreatedOn(DateFormat createdOn) {
         this.createdOn = createdOn;
     }
 
@@ -87,19 +88,19 @@ public class Requirement {
         this.tutorType = tutorType;
     }
 
-    public Subject getSubject() {
+    public String getSubject() {
         return subject;
     }
 
-    public void setSubject(Subject subject) {
+    public void setSubject(String subject) {
         this.subject = subject;
     }
 
-    public Course getCourse() {
+    public String getCourse() {
         return course;
     }
 
-    public void setCourse(Course course) {
+    public void setCourse(String course) {
         this.course = course;
     }
 

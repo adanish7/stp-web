@@ -1,5 +1,6 @@
 package edu.bnu.fyp.stp.domain.repository;
 
+import edu.bnu.fyp.stp.domain.model.User;
 import edu.bnu.fyp.stp.domain.model.Watchlist;
 import org.springframework.data.mongodb.repository.MongoRepository;
 
@@ -12,5 +13,7 @@ import java.util.List;
 public interface WatchListMongoRepository extends MongoRepository<Watchlist, String> {
 
     public List<Watchlist> getWatchlistByUserId(String userId);
+
+    public List<Watchlist> getWatchlistByTutor(User tutor);
 
 }
